@@ -12,6 +12,14 @@ import Alamofire
 import SwiftyJSON
 import SwiftSoup
 
+let addresses = [
+            "서울 중구 남대문로1길 11",
+            "서울 강북구 삼각산로 130 1층",
+            "서울 영등포구 도림로141다길 13-2",
+            "서울 마포구 방울내로 82",
+            "서울 중구 세종대로11길 26"
+        ]
+
 class MapViewController: UIViewController, NMFMapViewDelegate {
     @IBOutlet weak var naverMapView: NMFNaverMapView!
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
@@ -22,10 +30,12 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
         // NMFNaverMapView delegate 설정
         naverMapView.mapView.delegate = self
         
-        let address = "서울 중구 남대문로1길 11"
-        let encodedAddress = address.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
-        
-        convertAddressToCoordinate(address: encodedAddress)
+        // 주소 배열을 순회하며 처리
+        for address in addresses {
+            let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            
+            convertAddressToCoordinate(address: encodedAddress)
+        }
     }
     
     // 주소를 위경도로 변환하는 함수
