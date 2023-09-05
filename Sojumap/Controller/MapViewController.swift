@@ -16,15 +16,13 @@ class MapViewController: UIViewController {
 
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
 
-    @IBAction func test(_ sender: Any) {
-        let address = "서울특별시 강남구 강남대로 364"
-        let encodedSearchName = address.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
-        
-        convertAddressToCoordinate(address: encodedSearchName)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let address = "서울특별시 강남구 강남대로 364"
+        let encodedAddress = address.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        
+        convertAddressToCoordinate(address: encodedAddress)
     }
     
     // 주소를 위경도로 변환하는 함수
@@ -39,10 +37,11 @@ class MapViewController: UIViewController {
                 case .success(let value as [String:Any]):
                     let json = JSON(value)
                     let data = json["addresses"]
+                    
                     let lat = data[0]["y"]
                     let lon = data[0]["x"]
-                    
-                    print("위도:",lat, "경도:",lon)
+                    let roadAddr = data[0]["roadAddress"]
+                    print("위도:", lat, "경도:", lon, "도로명주소:", roadAddr)
                 case .failure(let error):
                     print(error.errorDescription ?? "")
                 default :
