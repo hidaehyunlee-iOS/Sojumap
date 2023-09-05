@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4EF10EAC733D062453C2A1F7 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */; };
+		C36963132AA6B83100B8FF71 /* youtubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963122AA6B83100B8FF71 /* youtubeData.swift */; };
+		C36963172AA6B85F00B8FF71 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963162AA6B85F00B8FF71 /* UserData.swift */; };
+		C369631A2AA6C45700B8FF71 /* placeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963192AA6C45700B8FF71 /* placeData.swift */; };
 		DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */; };
 		DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920542AA5D369008CFE0A /* MapViewController.swift */; };
 		DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920562AA5D37A008CFE0A /* MypageViewController.swift */; };
@@ -26,6 +29,9 @@
 		8C5D3ED7C8EEE758CE7A4D56 /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
 		ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sojumap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA94C32B7452D05B6A704F8B /* Pods-Sojumap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.release.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.release.xcconfig"; sourceTree = "<group>"; };
+		C36963122AA6B83100B8FF71 /* youtubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = youtubeData.swift; path = Sojumap/Model/youtubeData.swift; sourceTree = SOURCE_ROOT; };
+		C36963162AA6B85F00B8FF71 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/Model/UserData.swift; sourceTree = SOURCE_ROOT; };
+		C36963192AA6C45700B8FF71 /* placeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeData.swift; sourceTree = "<group>"; };
 		DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DE4920542AA5D369008CFE0A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE4920562AA5D37A008CFE0A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,14 @@
 				ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */,
 			);
 			name = Frameworks;
+		C36963182AA6BA4C00B8FF71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C36963162AA6B85F00B8FF71 /* UserData.swift */,
+				C36963122AA6B83100B8FF71 /* youtubeData.swift */,
+				C36963192AA6C45700B8FF71 /* placeData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DEA4AC382AA5CD7300361CFC = {
@@ -95,7 +109,7 @@
 			children = (
 				DEA4AC5A2AA5CDA800361CFC /* View */,
 				DEA4AC592AA5CDA100361CFC /* Controller */,
-				DEA4AC582AA5CD7D00361CFC /* Model */,
+				C36963182AA6BA4C00B8FF71 /* Model */,
 				DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */,
 				DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */,
 				DEA4AC4D2AA5CD7400361CFC /* Assets.xcassets */,
@@ -103,13 +117,6 @@
 				DEA4AC522AA5CD7400361CFC /* Info.plist */,
 			);
 			path = Sojumap;
-			sourceTree = "<group>";
-		};
-		DEA4AC582AA5CD7D00361CFC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		DEA4AC592AA5CDA100361CFC /* Controller */ = {
@@ -254,10 +261,13 @@
 			files = (
 				DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */,
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
+				C36963172AA6B85F00B8FF71 /* UserData.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
+				C369631A2AA6C45700B8FF71 /* placeData.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
 				DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */,
+				C36963132AA6B83100B8FF71 /* youtubeData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
