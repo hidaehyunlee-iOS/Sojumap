@@ -17,16 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MapView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwq-uH-89q">
-                                <rect key="frame" x="175" y="416" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-yU-Hyh" customClass="NMFNaverMapView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NRz-yU-Hyh" secondAttribute="trailing" id="5ec-PS-sw7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="NRz-yU-Hyh" secondAttribute="bottom" id="IAs-VD-XOo"/>
+                            <constraint firstItem="NRz-yU-Hyh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cfw-tA-zcy"/>
+                            <constraint firstItem="NRz-yU-Hyh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" id="gwi-DQ-t5d"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map" id="uvL-F5-0vQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
