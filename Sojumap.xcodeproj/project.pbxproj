@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C36963132AA6B83100B8FF71 /* youtubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963122AA6B83100B8FF71 /* youtubeData.swift */; };
 		C36963172AA6B85F00B8FF71 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963162AA6B85F00B8FF71 /* UserData.swift */; };
+		C369631A2AA6C45700B8FF71 /* placeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963192AA6C45700B8FF71 /* placeData.swift */; };
 		DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */; };
 		DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920542AA5D369008CFE0A /* MapViewController.swift */; };
 		DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920562AA5D37A008CFE0A /* MypageViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		C36963122AA6B83100B8FF71 /* youtubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = youtubeData.swift; path = Sojumap/Model/youtubeData.swift; sourceTree = SOURCE_ROOT; };
 		C36963162AA6B85F00B8FF71 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/Model/UserData.swift; sourceTree = SOURCE_ROOT; };
+		C36963192AA6C45700B8FF71 /* placeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeData.swift; sourceTree = "<group>"; };
 		DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DE4920542AA5D369008CFE0A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE4920562AA5D37A008CFE0A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				C36963162AA6B85F00B8FF71 /* UserData.swift */,
 				C36963122AA6B83100B8FF71 /* youtubeData.swift */,
+				C36963192AA6C45700B8FF71 /* placeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				C36963172AA6B85F00B8FF71 /* UserData.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
+				C369631A2AA6C45700B8FF71 /* placeData.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
 				DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */,
 				C36963132AA6B83100B8FF71 /* youtubeData.swift in Sources */,
