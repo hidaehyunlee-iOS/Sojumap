@@ -6,7 +6,10 @@ target 'Sojumap' do
   use_frameworks!
 
   pod 'NMapsMap'
-
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'SwiftSoup'
+  
   # Pods for Sojumap
 
 end

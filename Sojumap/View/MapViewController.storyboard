@@ -12,24 +12,23 @@
         <!--MapViewController-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" title="MapViewController" id="Y6W-OH-hqX" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="MapViewController" id="Y6W-OH-hqX" customClass="MapViewController" customModule="Sojumap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-yU-Hyh" customClass="NMFNaverMapView">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bIy-YZ-yFs">
+                                <rect key="frame" x="159" y="426" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="GXO-f8-prI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NRz-yU-Hyh" secondAttribute="trailing" id="5ec-PS-sw7"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="NRz-yU-Hyh" secondAttribute="bottom" id="IAs-VD-XOo"/>
-                            <constraint firstItem="NRz-yU-Hyh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cfw-tA-zcy"/>
-                            <constraint firstItem="NRz-yU-Hyh" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" id="gwi-DQ-t5d"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map" id="uvL-F5-0vQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
