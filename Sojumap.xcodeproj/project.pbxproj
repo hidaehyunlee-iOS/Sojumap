@@ -14,6 +14,9 @@
 		DE4920592AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */; };
 		DE49205B2AA5D3D2008CFE0A /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */; };
 		DE49205D2AA5D3DD008CFE0A /* MypageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */; };
+		DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */; };
+		DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920602AA6DFEB008CFE0A /* UserData.swift */; };
+		DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920622AA6E00C008CFE0A /* YoutubeData.swift */; };
 		DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */; };
 		DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */; };
 		DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC482AA5CD7300361CFC /* ViewController.swift */; };
@@ -32,6 +35,9 @@
 		DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaceDetailViewController.storyboard; sourceTree = "<group>"; };
 		DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageViewController.storyboard; sourceTree = "<group>"; };
+		DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceData.swift; path = Sojumap/View/PlaceData.swift; sourceTree = SOURCE_ROOT; };
+		DE4920602AA6DFEB008CFE0A /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/View/UserData.swift; sourceTree = SOURCE_ROOT; };
+		DE4920622AA6E00C008CFE0A /* YoutubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YoutubeData.swift; path = Sojumap/View/YoutubeData.swift; sourceTree = SOURCE_ROOT; };
 		DEA4AC412AA5CD7300361CFC /* Sojumap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sojumap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +66,6 @@
 				8C5D3ED7C8EEE758CE7A4D56 /* Pods-Sojumap.debug.xcconfig */,
 				CA94C32B7452D05B6A704F8B /* Pods-Sojumap.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -108,6 +113,9 @@
 		DEA4AC582AA5CD7D00361CFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */,
+				DE4920602AA6DFEB008CFE0A /* UserData.swift */,
+				DE4920622AA6E00C008CFE0A /* YoutubeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,7 +262,10 @@
 			files = (
 				DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */,
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
+				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
+				DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */,
+				DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
 				DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */,
