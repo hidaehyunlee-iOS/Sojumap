@@ -24,8 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C36963122AA6B83100B8FF71 /* youtubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = youtubeData.swift; sourceTree = SOURCE_ROOT; };
-		C36963162AA6B85F00B8FF71 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = SOURCE_ROOT; };
+		C36963122AA6B83100B8FF71 /* youtubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = youtubeData.swift; path = Sojumap/Model/youtubeData.swift; sourceTree = SOURCE_ROOT; };
+		C36963162AA6B85F00B8FF71 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/Model/UserData.swift; sourceTree = SOURCE_ROOT; };
 		DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DE4920542AA5D369008CFE0A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE4920562AA5D37A008CFE0A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C36963182AA6BA4C00B8FF71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C36963162AA6B85F00B8FF71 /* UserData.swift */,
+				C36963122AA6B83100B8FF71 /* youtubeData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DEA4AC382AA5CD7300361CFC = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +83,7 @@
 			children = (
 				DEA4AC5A2AA5CDA800361CFC /* View */,
 				DEA4AC592AA5CDA100361CFC /* Controller */,
-				DEA4AC582AA5CD7D00361CFC /* Model */,
+				C36963182AA6BA4C00B8FF71 /* Model */,
 				DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */,
 				DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */,
 				DEA4AC4D2AA5CD7400361CFC /* Assets.xcassets */,
@@ -82,15 +91,6 @@
 				DEA4AC522AA5CD7400361CFC /* Info.plist */,
 			);
 			path = Sojumap;
-			sourceTree = "<group>";
-		};
-		DEA4AC582AA5CD7D00361CFC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C36963122AA6B83100B8FF71 /* youtubeData.swift */,
-				C36963162AA6B85F00B8FF71 /* UserData.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		DEA4AC592AA5CDA100361CFC /* Controller */ = {
