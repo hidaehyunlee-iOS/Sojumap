@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NMapsMap
 
 class MapViewController: UIViewController {
 
