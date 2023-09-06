@@ -1,33 +1,20 @@
 PODS:
-  - GoogleAPIClientForREST/Core (3.1.0):
-    - GTMSessionFetcher/Full (< 4.0, >= 1.6.1)
-  - GoogleAPIClientForREST/YouTube (3.1.0):
-    - GoogleAPIClientForREST/Core
-    - GTMSessionFetcher/Full (< 4.0, >= 1.6.1)
-  - GTMSessionFetcher/Core (3.1.1)
-  - GTMSessionFetcher/Full (3.1.1):
-    - GTMSessionFetcher/Core
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.17.0):
     - NMapsGeometry
 
 DEPENDENCIES:
-  - GoogleAPIClientForREST/YouTube (~> 3.0)
   - NMapsMap
 
 SPEC REPOS:
   trunk:
-    - GoogleAPIClientForREST
-    - GTMSessionFetcher
     - NMapsGeometry
     - NMapsMap
 
 SPEC CHECKSUMS:
-  GoogleAPIClientForREST: b606c614570575ffccbde27a3ee5e761b169fca4
-  GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
 
-PODFILE CHECKSUM: 2ba00ccf04ad478325ee3dcdf5f1680565ba0f67
+PODFILE CHECKSUM: 22107e749a9bb3ac67c89fe681b7caae7f5c81f4
 
 COCOAPODS: 1.12.1
