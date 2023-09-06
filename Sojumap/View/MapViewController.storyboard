@@ -18,38 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzo-KA-DnH" customClass="NMFNaverMapView">
-                                <rect key="frame" x="0.0" y="59" width="393" height="583"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knb-wc-Qwh">
-                                <rect key="frame" x="0.0" y="641" width="393" height="128"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5Iw-4l-PnF"/>
-                            <constraint firstItem="knb-wc-Qwh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="K6j-OX-huo"/>
-                            <constraint firstItem="knb-wc-Qwh" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="MqR-BG-MNh"/>
-                            <constraint firstItem="knb-wc-Qwh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="582" id="QEA-rI-QgW"/>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZZw-9R-peN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dzo-KA-DnH" secondAttribute="bottom" constant="127" id="aAA-6e-0oe"/>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gw6-qr-6PS"/>
-                            <constraint firstItem="knb-wc-Qwh" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="w5g-tg-M8d"/>
+                            <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="MZ9-vg-Zkc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dzo-KA-DnH" secondAttribute="trailing" id="cXG-n3-wiz"/>
+                            <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="r89-NX-Ttz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dzo-KA-DnH" secondAttribute="bottom" id="vi5-dq-mE7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map" id="uvL-F5-0vQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="InfoUIView" destination="knb-wc-Qwh" id="CM8-TV-UVD"/>
                         <outlet property="naverMapView" destination="dzo-KA-DnH" id="DQ6-2f-bp6"/>
-                        <outlet property="naverMapViewBottomConstraint" destination="aAA-6e-0oe" id="WJn-KB-Ujk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124.42748091603053" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="125" y="-2"/>
         </scene>
     </scenes>
     <resources>
