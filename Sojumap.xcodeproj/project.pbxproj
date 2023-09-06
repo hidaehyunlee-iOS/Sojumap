@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		058124F34AFDA2DE6D073323 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DD8A12B9B7B9B4BC5ACA11 /* Pods_Sojumap.framework */; };
+		5298C1602AA8CA9E001AA8E2 /* ThreeMealData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */; };
+		5298C1622AA8CAC6001AA8E2 /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298C1612AA8CAC6001AA8E2 /* VideoData.swift */; };
 		7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E16E27B2AA76A5F00EED08A /* Extensions.swift */; };
 		7E79530B2AA8AEE800833AD0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E79530A2AA8AEE800833AD0 /* DataManager.swift */; };
 		7E9F9D192AA6EEAA00AB7382 /* SignInPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeMealData.swift; sourceTree = "<group>"; };
+		5298C1612AA8CAC6001AA8E2 /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
 		7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
 		7E16E27B2AA76A5F00EED08A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7E79530A2AA8AEE800833AD0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				DE4920602AA6DFEB008CFE0A /* UserData.swift */,
 				DE4920622AA6E00C008CFE0A /* YoutubeData.swift */,
 				7E79530A2AA8AEE800833AD0 /* DataManager.swift */,
+				5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */,
+				5298C1612AA8CAC6001AA8E2 /* VideoData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,7 +314,9 @@
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
 				DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */,
+				5298C1622AA8CAC6001AA8E2 /* VideoData.swift in Sources */,
 				7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */,
+				5298C1602AA8CA9E001AA8E2 /* ThreeMealData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
