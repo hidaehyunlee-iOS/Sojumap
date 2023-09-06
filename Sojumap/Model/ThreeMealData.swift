@@ -10,7 +10,7 @@ class ThreeMealVideo {
     
     func fetchChannelData(completion: @escaping (String?) -> Void) {
         // 채널 정보를 가져오는 요청 생성 및 실행
-        youtubeService.apiKey = "AIzaSyD7WHU1xDJm-m1FHb8mInPfKDOdcPlYgcY"
+        youtubeService.apiKey = Google_KEY
         
         let channelQuery = GTLRYouTubeQuery_ChannelsList.query(withPart: ["contentDetails"])
         channelQuery.identifier = ["UC-x55HF1-IilhxZOzwJm7JA"]
