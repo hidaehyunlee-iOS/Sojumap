@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtr-P8-DIl" customClass="WKYTPlayerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtr-P8-DIl" customClass="WKYTPlayerView" customModule="Sojumap" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="221"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Gtr-P8-DIl" secondAttribute="height" multiplier="16:9" id="LeG-QO-1JP"/>
@@ -161,7 +161,7 @@
                         <outlet property="expandButton" destination="1sZ-Vn-tEn" id="3D5-Ji-bLy"/>
                         <outlet property="mapView" destination="cxH-dg-f8T" id="Anc-Hn-wnC"/>
                         <outlet property="placeInformView" destination="BGG-Zq-ah2" id="MWZ-PV-yz5"/>
-                        <outlet property="playerView" destination="Gtr-P8-DIl" id="7YJ-DN-0AY"/>
+                        <outlet property="playerView" destination="Gtr-P8-DIl" id="2Ro-pu-iaK"/>
                         <outlet property="secondViewBottomConstraint" destination="4cB-Nq-rtW" id="b8j-AC-VmB"/>
                     </connections>
                 </viewController>
