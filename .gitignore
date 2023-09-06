@@ -1,4 +1,4 @@
-Sojumap/ApiKeys/
+# Sojumap/ApiKeys/
 .DS_Store
 *.xcuserstate
 # Created by https://www.toptal.com/developers/gitignore/api/swift
