@@ -2,7 +2,7 @@ import Foundation
 
 struct VideoData: Codable {
     static var number = 0
-    
+    //
     var videoId: String?
     var title: String?
     var thumbnail: String?
