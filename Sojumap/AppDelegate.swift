@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import NMapsMap
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Naver Maps SDK 초기화
+        NMFAuthManager.shared().clientId = NAVER_CLIENT_ID
+        
         return true
     }
 

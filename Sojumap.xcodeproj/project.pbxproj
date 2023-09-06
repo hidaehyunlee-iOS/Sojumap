@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		7E16E2782AA7390400EED08A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E16E2772AA7390400EED08A /* DataManager.swift */; };
 		7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E16E27B2AA76A5F00EED08A /* Extensions.swift */; };
 		7E9F9D192AA6EEAA00AB7382 /* SignInPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */; };
@@ -14,12 +15,20 @@
 		7E9F9D1F2AA6F71400AB7382 /* SignUpPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */; };
 		7E9F9D212AA6F82300AB7382 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */; };
 		C36963172AA6B85F00B8FF71 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963162AA6B85F00B8FF71 /* UserData.swift */; };
+
+		058124F34AFDA2DE6D073323 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DD8A12B9B7B9B4BC5ACA11 /* Pods_Sojumap.framework */; };
+
 		DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */; };
 		DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920542AA5D369008CFE0A /* MapViewController.swift */; };
 		DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920562AA5D37A008CFE0A /* MypageViewController.swift */; };
 		DE4920592AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */; };
 		DE49205B2AA5D3D2008CFE0A /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */; };
 		DE49205D2AA5D3DD008CFE0A /* MypageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */; };
+		DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */; };
+		DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920602AA6DFEB008CFE0A /* UserData.swift */; };
+		DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920622AA6E00C008CFE0A /* YoutubeData.swift */; };
+		DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920652AA744C9008CFE0A /* NaverClient.swift */; };
+		DE4920682AA75B9F008CFE0A /* CustomModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920672AA75B9F008CFE0A /* CustomModalView.swift */; };
 		DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */; };
 		DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */; };
 		DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC482AA5CD7300361CFC /* ViewController.swift */; };
@@ -29,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
 		7E16E2772AA7390400EED08A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7E16E27B2AA76A5F00EED08A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInPage.storyboard; sourceTree = "<group>"; };
@@ -36,12 +46,22 @@
 		7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpPage.storyboard; sourceTree = "<group>"; };
 		7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C36963162AA6B85F00B8FF71 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/Model/UserData.swift; sourceTree = SOURCE_ROOT; };
+
+		7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
+		A5DD8A12B9B7B9B4BC5ACA11 /* Pods_Sojumap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sojumap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6B4DF1E0DE3BA16B7E541FE /* Pods-Sojumap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.release.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.release.xcconfig"; sourceTree = "<group>"; };
+
 		DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DE4920542AA5D369008CFE0A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE4920562AA5D37A008CFE0A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaceDetailViewController.storyboard; sourceTree = "<group>"; };
 		DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageViewController.storyboard; sourceTree = "<group>"; };
+		DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceData.swift; path = Sojumap/View/PlaceData.swift; sourceTree = SOURCE_ROOT; };
+		DE4920602AA6DFEB008CFE0A /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/View/UserData.swift; sourceTree = SOURCE_ROOT; };
+		DE4920622AA6E00C008CFE0A /* YoutubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YoutubeData.swift; path = Sojumap/View/YoutubeData.swift; sourceTree = SOURCE_ROOT; };
+		DE4920652AA744C9008CFE0A /* NaverClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverClient.swift; sourceTree = "<group>"; };
+		DE4920672AA75B9F008CFE0A /* CustomModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalView.swift; sourceTree = "<group>"; };
 		DEA4AC412AA5CD7300361CFC /* Sojumap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sojumap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,19 +77,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058124F34AFDA2DE6D073323 /* Pods_Sojumap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C36963182AA6BA4C00B8FF71 /* Model */ = {
+		76C3942746056567F3843669 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				7E16E2772AA7390400EED08A /* DataManager.swift */,
 				C36963162AA6B85F00B8FF71 /* UserData.swift */,
+
+				7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */,
+				A6B4DF1E0DE3BA16B7E541FE /* Pods-Sojumap.release.xcconfig */,
+
 			);
-			path = Model;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C42908F8A2C2FBC10BEA8165 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5DD8A12B9B7B9B4BC5ACA11 /* Pods_Sojumap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE4920642AA744A8008CFE0A /* ApiKeys */ = {
+			isa = PBXGroup;
+			children = (
+				DE4920652AA744C9008CFE0A /* NaverClient.swift */,
+			);
+			path = ApiKeys;
 			sourceTree = "<group>";
 		};
 		DEA4AC382AA5CD7300361CFC = {
@@ -77,6 +118,8 @@
 			children = (
 				DEA4AC432AA5CD7300361CFC /* Sojumap */,
 				DEA4AC422AA5CD7300361CFC /* Products */,
+				76C3942746056567F3843669 /* Pods */,
+				C42908F8A2C2FBC10BEA8165 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,9 +134,10 @@
 		DEA4AC432AA5CD7300361CFC /* Sojumap */ = {
 			isa = PBXGroup;
 			children = (
+				DE4920642AA744A8008CFE0A /* ApiKeys */,
 				DEA4AC5A2AA5CDA800361CFC /* View */,
 				DEA4AC592AA5CDA100361CFC /* Controller */,
-				C36963182AA6BA4C00B8FF71 /* Model */,
+				DEA4AC582AA5CD7D00361CFC /* Model */,
 				DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */,
 				DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */,
 				7E16E27B2AA76A5F00EED08A /* Extensions.swift */,
@@ -102,6 +146,16 @@
 				DEA4AC522AA5CD7400361CFC /* Info.plist */,
 			);
 			path = Sojumap;
+			sourceTree = "<group>";
+		};
+		DEA4AC582AA5CD7D00361CFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */,
+				DE4920602AA6DFEB008CFE0A /* UserData.swift */,
+				DE4920622AA6E00C008CFE0A /* YoutubeData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DEA4AC592AA5CDA100361CFC /* Controller */ = {
@@ -124,8 +178,12 @@
 				DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */,
 				DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */,
 				DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */,
+
 				7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */,
 				7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */,
+
+				DE4920672AA75B9F008CFE0A /* CustomModalView.swift */,
+
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,9 +195,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEA4AC552AA5CD7400361CFC /* Build configuration list for PBXNativeTarget "Sojumap" */;
 			buildPhases = (
+				B3B944D6A196C629F76A1E9E /* [CP] Check Pods Manifest.lock */,
 				DEA4AC3D2AA5CD7300361CFC /* Sources */,
 				DEA4AC3E2AA5CD7300361CFC /* Frameworks */,
 				DEA4AC3F2AA5CD7300361CFC /* Resources */,
+				6E8D3F571A9EA6E8A9C71EB3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,6 +261,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6E8D3F571A9EA6E8A9C71EB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sojumap/Pods-Sojumap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sojumap/Pods-Sojumap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sojumap/Pods-Sojumap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3B944D6A196C629F76A1E9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sojumap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DEA4AC3D2AA5CD7300361CFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -211,12 +313,19 @@
 				7E9F9D1D2AA6F34A00AB7382 /* SignInViewController.swift in Sources */,
 				DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */,
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
-				C36963172AA6B85F00B8FF71 /* UserData.swift in Sources */,
+				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
+				DE4920682AA75B9F008CFE0A /* CustomModalView.swift in Sources */,
+				DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */,
+				DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */,
+				DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
 				DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */,
+
 				7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */,
+
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +467,7 @@
 		};
 		DEA4AC562AA5CD7400361CFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -390,6 +500,7 @@
 		};
 		DEA4AC572AA5CD7400361CFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B4DF1E0DE3BA16B7E541FE /* Pods-Sojumap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

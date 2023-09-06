@@ -12,24 +12,30 @@
         <!--MapViewController-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" title="MapViewController" id="Y6W-OH-hqX" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="MapViewController" id="Y6W-OH-hqX" customClass="MapViewController" customModule="Sojumap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MapView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwq-uH-89q">
-                                <rect key="frame" x="175" y="416" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzo-KA-DnH" customClass="NMFNaverMapView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="MZ9-vg-Zkc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dzo-KA-DnH" secondAttribute="trailing" id="cXG-n3-wiz"/>
+                            <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="r89-NX-Ttz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dzo-KA-DnH" secondAttribute="bottom" id="vi5-dq-mE7"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map" id="uvL-F5-0vQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="naverMapView" destination="dzo-KA-DnH" id="DQ6-2f-bp6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
