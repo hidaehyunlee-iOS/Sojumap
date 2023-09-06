@@ -1,4 +1,7 @@
 # Sojumap/ApiKeys/
+Podfile.lock
+Podfile.save
+Pods/
 .DS_Store
 *.xcuserstate
 # Created by https://www.toptal.com/developers/gitignore/api/swift
