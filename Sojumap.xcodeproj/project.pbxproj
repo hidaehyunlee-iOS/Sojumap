@@ -17,6 +17,8 @@
 		DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */; };
 		DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920602AA6DFEB008CFE0A /* UserData.swift */; };
 		DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920622AA6E00C008CFE0A /* YoutubeData.swift */; };
+		DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920652AA744C9008CFE0A /* NaverClient.swift */; };
+		DE4920682AA75B9F008CFE0A /* CustomModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920672AA75B9F008CFE0A /* CustomModalView.swift */; };
 		DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */; };
 		DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */; };
 		DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC482AA5CD7300361CFC /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 		DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceData.swift; path = Sojumap/View/PlaceData.swift; sourceTree = SOURCE_ROOT; };
 		DE4920602AA6DFEB008CFE0A /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/View/UserData.swift; sourceTree = SOURCE_ROOT; };
 		DE4920622AA6E00C008CFE0A /* YoutubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YoutubeData.swift; path = Sojumap/View/YoutubeData.swift; sourceTree = SOURCE_ROOT; };
+		DE4920652AA744C9008CFE0A /* NaverClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverClient.swift; sourceTree = "<group>"; };
+		DE4920672AA75B9F008CFE0A /* CustomModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalView.swift; sourceTree = "<group>"; };
 		DEA4AC412AA5CD7300361CFC /* Sojumap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sojumap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE4920642AA744A8008CFE0A /* ApiKeys */ = {
+			isa = PBXGroup;
+			children = (
+				DE4920652AA744C9008CFE0A /* NaverClient.swift */,
+			);
+			path = ApiKeys;
+			sourceTree = "<group>";
+		};
 		DEA4AC382AA5CD7300361CFC = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +110,7 @@
 		DEA4AC432AA5CD7300361CFC /* Sojumap */ = {
 			isa = PBXGroup;
 			children = (
+				DE4920642AA744A8008CFE0A /* ApiKeys */,
 				DEA4AC5A2AA5CDA800361CFC /* View */,
 				DEA4AC592AA5CDA100361CFC /* Controller */,
 				DEA4AC582AA5CD7D00361CFC /* Model */,
@@ -138,6 +151,7 @@
 				DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */,
 				DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */,
 				DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */,
+				DE4920672AA75B9F008CFE0A /* CustomModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,7 +278,9 @@
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
 				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
+				DE4920682AA75B9F008CFE0A /* CustomModalView.swift in Sources */,
 				DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */,
+				DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */,
 				DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,

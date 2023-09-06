@@ -1,22 +1,34 @@
 PODS:
+  - Alamofire (5.8.0)
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.17.0):
     - NMapsGeometry
+  - SwiftSoup (2.6.1)
+  - SwiftyJSON (5.0.1)
   - YoutubePlayer-in-WKWebView (0.3.8)
 
 DEPENDENCIES:
+  - Alamofire
   - NMapsMap
+  - SwiftSoup
+  - SwiftyJSON
   - YoutubePlayer-in-WKWebView (~> 0.3.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - NMapsGeometry
     - NMapsMap
+    - SwiftSoup
+    - SwiftyJSON
     - YoutubePlayer-in-WKWebView
 
 SPEC CHECKSUMS:
+  Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
+  SwiftSoup: 5dd2c1b06afc964f30d99894af6ede22ede627aa
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   YoutubePlayer-in-WKWebView: 4fca3b4f6f09940077bfbae7bddb771f2b43aacd
 
 PODFILE CHECKSUM: 79dfb19e6101e916a9f144892e0efe38e06b64c2

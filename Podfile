@@ -6,6 +6,10 @@ target 'Sojumap' do
   use_frameworks!
 
   pod 'NMapsMap'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'SwiftSoup'
+  
   pod "YoutubePlayer-in-WKWebView", "~> 0.3.0"
   # Pods for Sojumap
 
