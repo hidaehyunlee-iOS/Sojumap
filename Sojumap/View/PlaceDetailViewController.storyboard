@@ -27,64 +27,69 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BU0-7B-UAi">
                                 <rect key="frame" x="0.0" y="229" width="393" height="623"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PTI-QV-D65">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PTI-QV-D65">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="618"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pp8-Vt-mP1">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="67.666666666666671"/>
+                                                <rect key="frame" x="8" y="8" width="377" height="77"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NWP-yj-kDn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="377" height="35.666666666666664"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFa-1x-9kD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="34.333333333333336"/>
+                                                                <rect key="frame" x="8" y="8.0000000000000018" width="291" height="27.666666666666671"/>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sZ-Vn-tEn">
-                                                                <rect key="frame" x="323" y="0.0" width="70" height="34.333333333333336"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sZ-Vn-tEn">
+                                                                <rect key="frame" x="307" y="8.0000000000000018" width="70" height="27.666666666666671"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="70" id="QeH-yD-7cR"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="펼치기"/>
+                                                                <buttonConfiguration key="configuration" style="plain" title="더보기"/>
                                                                 <connections>
                                                                     <action selector="toggleStackView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uH9-i2-Mvt"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="0.0" trailing="0.0"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nil-OM-2hZ">
-                                                        <rect key="frame" x="0.0" y="42.333333333333314" width="393" height="25.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="43.666666666666686" width="377" height="33.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="조회수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrW-eB-1bD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="192.66666666666666" height="25.333333333333332"/>
+                                                                <rect key="frame" x="8" y="0.0" width="180.66666666666666" height="25.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해시태그" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyg-2r-saZ">
-                                                                <rect key="frame" x="200.66666666666663" y="0.0" width="192.33333333333337" height="25.333333333333332"/>
+                                                                <rect key="frame" x="196.66666666666663" y="0.0" width="180.33333333333337" height="25.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="8" bottom="8" trailing="0.0"/>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.67592229235236434" green="0.89532316144349688" blue="0.8497472513955554" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-Zq-ah2">
-                                                <rect key="frame" x="0.0" y="75.666666666666686" width="393" height="99.333333333333314"/>
+                                                <rect key="frame" x="8" y="115" width="377" height="115.33333333333331"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5w-Jd-mrY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="25.333333333333332"/>
+                                                        <rect key="frame" x="8" y="7.9999999999999982" width="361" height="25.333333333333329"/>
+                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCw-Bb-qaP">
-                                                        <rect key="frame" x="0.0" y="33.333333333333314" width="393" height="35"/>
+                                                        <rect key="frame" x="8" y="41.333333333333314" width="361" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="Ncv-dU-TAy"/>
                                                         </constraints>
@@ -93,21 +98,24 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL (네이버)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-uO-3XM">
-                                                        <rect key="frame" x="0.0" y="76.333333333333314" width="393" height="23"/>
+                                                        <rect key="frame" x="8" y="84.333333333333314" width="361" height="23"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.67450982329999998" green="0.89411771299999998" blue="0.85098040100000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxH-dg-f8T" customClass="NMFNaverMapView">
-                                                <rect key="frame" x="0.0" y="183" width="393" height="435"/>
+                                                <rect key="frame" x="8" y="260.33333333333326" width="377" height="271.66666666666674"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="618" id="v3F-IM-yTj"/>
                                         </constraints>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>

@@ -55,7 +55,7 @@ class PlaceDetailViewController: UIViewController {
         isExpanded = !isExpanded
         
         // 버튼 텍스트 변경 -> 후에 이미지로 변경
-        let buttonText = isExpanded ? "펼치기" : "축소"
+        let buttonText = isExpanded ? "더보기" : "축소"
         expandButton.setTitle(buttonText, for: .normal)
     }
     
