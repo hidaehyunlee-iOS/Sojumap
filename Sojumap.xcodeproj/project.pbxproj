@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		7E16E2782AA7390400EED08A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E16E2772AA7390400EED08A /* DataManager.swift */; };
+		7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E16E27B2AA76A5F00EED08A /* Extensions.swift */; };
+		7E9F9D192AA6EEAA00AB7382 /* SignInPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */; };
+		7E9F9D1D2AA6F34A00AB7382 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */; };
+		7E9F9D1F2AA6F71400AB7382 /* SignUpPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */; };
+		7E9F9D212AA6F82300AB7382 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */; };
+		C36963172AA6B85F00B8FF71 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36963162AA6B85F00B8FF71 /* UserData.swift */; };
+
 		058124F34AFDA2DE6D073323 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DD8A12B9B7B9B4BC5ACA11 /* Pods_Sojumap.framework */; };
+
 		DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */; };
 		DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920542AA5D369008CFE0A /* MapViewController.swift */; };
 		DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920562AA5D37A008CFE0A /* MypageViewController.swift */; };
@@ -28,9 +38,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		7E16E2772AA7390400EED08A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		7E16E27B2AA76A5F00EED08A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInPage.storyboard; sourceTree = "<group>"; };
+		7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpPage.storyboard; sourceTree = "<group>"; };
+		7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C36963162AA6B85F00B8FF71 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/Model/UserData.swift; sourceTree = SOURCE_ROOT; };
+
 		7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
 		A5DD8A12B9B7B9B4BC5ACA11 /* Pods_Sojumap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sojumap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B4DF1E0DE3BA16B7E541FE /* Pods-Sojumap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.release.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.release.xcconfig"; sourceTree = "<group>"; };
+
 		DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DE4920542AA5D369008CFE0A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE4920562AA5D37A008CFE0A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -67,8 +87,12 @@
 		76C3942746056567F3843669 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				7E16E2772AA7390400EED08A /* DataManager.swift */,
+				C36963162AA6B85F00B8FF71 /* UserData.swift */,
+
 				7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */,
 				A6B4DF1E0DE3BA16B7E541FE /* Pods-Sojumap.release.xcconfig */,
+
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -116,6 +140,7 @@
 				DEA4AC582AA5CD7D00361CFC /* Model */,
 				DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */,
 				DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */,
+				7E16E27B2AA76A5F00EED08A /* Extensions.swift */,
 				DEA4AC4D2AA5CD7400361CFC /* Assets.xcassets */,
 				DEA4AC4F2AA5CD7400361CFC /* LaunchScreen.storyboard */,
 				DEA4AC522AA5CD7400361CFC /* Info.plist */,
@@ -140,6 +165,8 @@
 				DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */,
 				DE4920542AA5D369008CFE0A /* MapViewController.swift */,
 				DE4920562AA5D37A008CFE0A /* MypageViewController.swift */,
+				7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */,
+				7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,7 +178,12 @@
 				DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */,
 				DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */,
 				DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */,
+
+				7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */,
+				7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */,
+
 				DE4920672AA75B9F008CFE0A /* CustomModalView.swift */,
+
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,12 +248,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E9F9D192AA6EEAA00AB7382 /* SignInPage.storyboard in Resources */,
 				DE49205B2AA5D3D2008CFE0A /* MapViewController.storyboard in Resources */,
 				DEA4AC512AA5CD7400361CFC /* LaunchScreen.storyboard in Resources */,
 				DEA4AC4E2AA5CD7400361CFC /* Assets.xcassets in Resources */,
 				DE4920592AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard in Resources */,
 				DE49205D2AA5D3DD008CFE0A /* MypageViewController.storyboard in Resources */,
 				DEA4AC4C2AA5CD7300361CFC /* Main.storyboard in Resources */,
+				7E9F9D1F2AA6F71400AB7382 /* SignUpPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +308,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E9F9D212AA6F82300AB7382 /* SignUpViewController.swift in Sources */,
+				7E16E2782AA7390400EED08A /* DataManager.swift in Sources */,
+				7E9F9D1D2AA6F34A00AB7382 /* SignInViewController.swift in Sources */,
 				DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */,
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
 				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,
@@ -285,6 +322,10 @@
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
 				DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */,
+
+				7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */,
+
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
