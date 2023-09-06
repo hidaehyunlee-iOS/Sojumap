@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4EF10EAC733D062453C2A1F7 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */; };
+		52653E732AA70C72003AB02A /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 52653E722AA70C72003AB02A /* YouTubeiOSPlayerHelper */; };
+		52653E752AA74904003AB02A /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52653E742AA74904003AB02A /* VideoData.swift */; };
+		52861BDF2AA8263700E16162 /* ThreeMealData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861BDE2AA8263700E16162 /* ThreeMealData.swift */; };
+		52861BE12AA84C7B00E16162 /* UserDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861BE02AA84C7B00E16162 /* UserDatas.swift */; };
+		52861BE32AA8546900E16162 /* YoutubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861BE22AA8546900E16162 /* YoutubeCell.swift */; };
 		DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */; };
 		DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920542AA5D369008CFE0A /* MapViewController.swift */; };
 		DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920562AA5D37A008CFE0A /* MypageViewController.swift */; };
@@ -16,7 +21,6 @@
 		DE49205D2AA5D3DD008CFE0A /* MypageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */; };
 		DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */; };
 		DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920602AA6DFEB008CFE0A /* UserData.swift */; };
-		DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920622AA6E00C008CFE0A /* YoutubeData.swift */; };
 		DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */; };
 		DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */; };
 		DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC482AA5CD7300361CFC /* ViewController.swift */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52653E742AA74904003AB02A /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
+		52861BDE2AA8263700E16162 /* ThreeMealData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeMealData.swift; sourceTree = "<group>"; };
+		52861BE02AA84C7B00E16162 /* UserDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatas.swift; sourceTree = "<group>"; };
+		52861BE22AA8546900E16162 /* YoutubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeCell.swift; sourceTree = "<group>"; };
 		8C5D3ED7C8EEE758CE7A4D56 /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
 		ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sojumap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA94C32B7452D05B6A704F8B /* Pods-Sojumap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.release.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.release.xcconfig"; sourceTree = "<group>"; };
@@ -37,7 +45,6 @@
 		DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageViewController.storyboard; sourceTree = "<group>"; };
 		DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceData.swift; path = Sojumap/View/PlaceData.swift; sourceTree = SOURCE_ROOT; };
 		DE4920602AA6DFEB008CFE0A /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/View/UserData.swift; sourceTree = SOURCE_ROOT; };
-		DE4920622AA6E00C008CFE0A /* YoutubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YoutubeData.swift; path = Sojumap/View/YoutubeData.swift; sourceTree = SOURCE_ROOT; };
 		DEA4AC412AA5CD7300361CFC /* Sojumap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sojumap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EF10EAC733D062453C2A1F7 /* Pods_Sojumap.framework in Frameworks */,
+				52653E732AA70C72003AB02A /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +123,9 @@
 			children = (
 				DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */,
 				DE4920602AA6DFEB008CFE0A /* UserData.swift */,
-				DE4920622AA6E00C008CFE0A /* YoutubeData.swift */,
+				52653E742AA74904003AB02A /* VideoData.swift */,
+				52861BDE2AA8263700E16162 /* ThreeMealData.swift */,
+				52861BE02AA84C7B00E16162 /* UserDatas.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				DEA4AC4A2AA5CD7300361CFC /* Main.storyboard */,
+				52861BE22AA8546900E16162 /* YoutubeCell.swift */,
 				DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */,
 				DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */,
 				DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */,
@@ -160,6 +171,9 @@
 			dependencies = (
 			);
 			name = Sojumap;
+			packageProductDependencies = (
+				52653E722AA70C72003AB02A /* YouTubeiOSPlayerHelper */,
+			);
 			productName = Sojumap;
 			productReference = DEA4AC412AA5CD7300361CFC /* Sojumap.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +202,9 @@
 				Base,
 			);
 			mainGroup = DEA4AC382AA5CD7300361CFC;
+			packageReferences = (
+				52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+			);
 			productRefGroup = DEA4AC422AA5CD7300361CFC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,10 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */,
+				52861BDF2AA8263700E16162 /* ThreeMealData.swift in Sources */,
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
 				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,
+				52653E752AA74904003AB02A /* VideoData.swift in Sources */,
+				52861BE32AA8546900E16162 /* YoutubeCell.swift in Sources */,
+				52861BE12AA84C7B00E16162 /* UserDatas.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
-				DE4920632AA6E00C008CFE0A /* YoutubeData.swift in Sources */,
 				DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
@@ -496,6 +516,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52653E722AA70C72003AB02A /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DEA4AC392AA5CD7300361CFC /* Project object */;
 }
