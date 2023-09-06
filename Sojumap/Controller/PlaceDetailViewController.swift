@@ -24,7 +24,10 @@ class PlaceDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // 디테일 페이지로 넘어올 때 full screen으로 보여지게 작업(메인 작업 완료 후 작업)
+//        UIModalPresentationStyle.fullScreen
+        
         playerSetting()
         
         // 스택뷰 초기 상태 설정
@@ -54,9 +57,9 @@ class PlaceDetailViewController: UIViewController {
         // 확장 상태 업데이트
         isExpanded = !isExpanded
         
-        // 버튼 텍스트 변경 -> 후에 이미지로 변경
-        let buttonText = isExpanded ? "더보기" : "축소"
-        expandButton.setTitle(buttonText, for: .normal)
+        // 버튼 이미지 변경
+        isExpanded ? expandButton.setImage(UIImage(systemName: "chevron.down"), for: .normal) : expandButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        
     }
     
 }
