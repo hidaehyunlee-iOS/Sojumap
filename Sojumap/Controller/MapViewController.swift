@@ -32,16 +32,12 @@ class CustomMarker: NMFMarker {
 
 class MapViewController: UIViewController, NMFMapViewDelegate {
     @IBOutlet weak var naverMapView: NMFNaverMapView!
-    @IBOutlet weak var InfoUIView: UIView!
-    @IBOutlet weak var naverMapViewBottomConstraint: NSLayoutConstraint!
     
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     let customModalView = CustomModalView() // CustomModalView 인스턴스를 생성
-    var isExpanded = true
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        InfoUIView.isHidden = true
         
         // NMFNaverMapView delegate 설정
         naverMapView.mapView.delegate = self
