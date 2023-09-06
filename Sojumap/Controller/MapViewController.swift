@@ -20,10 +20,22 @@ let addresses = [
             "서울 중구 세종대로11길 26"
         ]
 
+class CustomMarker: NMFMarker {
+    var address: String? // 주소 정보를 저장할 프로퍼티
+
+    init(position: NMGLatLng, address: String?) {
+        super.init()
+        self.position = position
+        self.address = address
+    }
+}
+
 class MapViewController: UIViewController, NMFMapViewDelegate {
     @IBOutlet weak var naverMapView: NMFNaverMapView!
-    let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     
+    let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
+    let customModalView = CustomModalView() // CustomModalView 인스턴스를 생성
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,13 +65,13 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
                     
                     let lat = data[0]["y"].doubleValue
                     let lon = data[0]["x"].doubleValue
-                    let roadAddr = data[0]["roadAddress"]
+                    let roadAddr = data[0]["roadAddress"].stringValue
                     let coordinate = NMGLatLng(lat: lat, lng: lon)
                     
                     print("위도:", lat, "경도:", lon, "도로명주소:", roadAddr)
                     
                     // 초기 카메라 위치를 마커가 있는 위치로 설정
-                    self.addMarker(at: coordinate)
+                    self.addMarker(at: coordinate, address: roadAddr)
                     self.setInitialCameraPosition(at: coordinate)
                     
                 case .failure(let error):
@@ -71,10 +83,9 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     }
     
     // 마커 추가 함수
-    func addMarker(at latlng: NMGLatLng) {
-        let marker = NMFMarker() // !! 할일: 상속 받는 새 마커 클래스 만들기
+    func addMarker(at latlng: NMGLatLng, address: String?) {
+        let marker = CustomMarker(position: latlng, address: address)
         
-        marker.position = latlng
         marker.mapView = naverMapView.mapView
     }
     
@@ -82,5 +93,30 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     func setInitialCameraPosition(at latlng: NMGLatLng) {
         naverMapView.mapView.positionMode = .disabled
         naverMapView.mapView.moveCamera(NMFCameraUpdate(scrollTo: latlng))
+    }
+    
+    // 마커 클릭 이벤트 처리
+    func mapView(_ mapView: NMFMapView, didTapMarker marker: CustomMarker) -> Bool {
+        print("마커 클릭 확인")
+        // 마커가 클릭되었을 때 모달 뷰를 표시
+        showCustomModalView(with: marker.address as? String)
+        return true
+    }
+    
+    
+    // CustomModalView를 표시하고 정보를 채우는 함수
+    func showCustomModalView(with roadAddr: String?) {
+        guard let roadAddr = roadAddr else {
+            return
+        }
+        
+        // 모달 뷰의 roadAddrLabel에 정보를 채움
+        customModalView.roadAddrLabel.text = roadAddr
+        
+        // 모달 뷰를 현재 뷰에 추가
+        view.addSubview(customModalView)
+        
+        // 모달 뷰를 중앙에 표시 (가운데 정렬)
+        customModalView.center = view.center
     }
 }
