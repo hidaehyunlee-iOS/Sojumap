@@ -1,36 +1,45 @@
 PODS:
   - Alamofire (5.8.0)
+  - GoogleAPIClientForREST/Core (3.1.0):
+    - GTMSessionFetcher/Full (< 4.0, >= 1.6.1)
+  - GoogleAPIClientForREST/YouTube (3.1.0):
+    - GoogleAPIClientForREST/Core
+    - GTMSessionFetcher/Full (< 4.0, >= 1.6.1)
+  - GTMSessionFetcher/Core (3.1.1)
+  - GTMSessionFetcher/Full (3.1.1):
+    - GTMSessionFetcher/Core
   - NMapsGeometry (1.0.1)
   - NMapsMap (3.17.0):
     - NMapsGeometry
   - SwiftSoup (2.6.1)
   - SwiftyJSON (5.0.1)
-  - YoutubePlayer-in-WKWebView (0.3.8)
 
 DEPENDENCIES:
   - Alamofire
+  - GoogleAPIClientForREST/YouTube (~> 3.0)
   - NMapsMap
   - SwiftSoup
   - SwiftyJSON
-  - YoutubePlayer-in-WKWebView (~> 0.3.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - GoogleAPIClientForREST
+    - GTMSessionFetcher
     - NMapsGeometry
     - NMapsMap
     - SwiftSoup
     - SwiftyJSON
-    - YoutubePlayer-in-WKWebView
 
 SPEC CHECKSUMS:
   Alamofire: 0e92e751b3e9e66d7982db43919d01f313b8eb91
+  GoogleAPIClientForREST: b606c614570575ffccbde27a3ee5e761b169fca4
+  GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
   NMapsGeometry: 53c573ead66466681cf123f99f698dc8071a4b83
   NMapsMap: a5b909a31b6f3d27a670f6eb2ddc913c38975474
   SwiftSoup: 5dd2c1b06afc964f30d99894af6ede22ede627aa
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
-  YoutubePlayer-in-WKWebView: 4fca3b4f6f09940077bfbae7bddb771f2b43aacd
 
-PODFILE CHECKSUM: 36b50fa7ae62ea24ae87e737b5a14e9afc400e81
+PODFILE CHECKSUM: ccdd9f1047e53b9e5964c5af17241e48ede79469
 
 COCOAPODS: 1.12.1

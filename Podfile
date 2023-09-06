@@ -11,7 +11,7 @@ target 'Sojumap' do
   pod 'SwiftyJSON'
   pod 'SwiftSoup'
   
-  pod "YoutubePlayer-in-WKWebView", "~> 0.3.0"
+  pod 'GoogleAPIClientForREST/YouTube', '~> 3.0'
   # Pods for Sojumap
 
 end
