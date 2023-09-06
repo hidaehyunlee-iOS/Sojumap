@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EF10EAC733D062453C2A1F7 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */; };
 		52653E732AA70C72003AB02A /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 52653E722AA70C72003AB02A /* YouTubeiOSPlayerHelper */; };
 		52653E752AA74904003AB02A /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52653E742AA74904003AB02A /* VideoData.swift */; };
 		52861BDF2AA8263700E16162 /* ThreeMealData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861BDE2AA8263700E16162 /* ThreeMealData.swift */; };
 		52861BE12AA84C7B00E16162 /* UserDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861BE02AA84C7B00E16162 /* UserDatas.swift */; };
 		52861BE32AA8546900E16162 /* YoutubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861BE22AA8546900E16162 /* YoutubeCell.swift */; };
+		5EF9DDC7355DCD2B702DB025 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3256431462538EE49223404 /* Pods_Sojumap.framework */; };
 		DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */; };
 		DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920542AA5D369008CFE0A /* MapViewController.swift */; };
 		DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920562AA5D37A008CFE0A /* MypageViewController.swift */; };
@@ -34,9 +34,9 @@
 		52861BDE2AA8263700E16162 /* ThreeMealData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeMealData.swift; sourceTree = "<group>"; };
 		52861BE02AA84C7B00E16162 /* UserDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatas.swift; sourceTree = "<group>"; };
 		52861BE22AA8546900E16162 /* YoutubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeCell.swift; sourceTree = "<group>"; };
-		8C5D3ED7C8EEE758CE7A4D56 /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
-		ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sojumap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA94C32B7452D05B6A704F8B /* Pods-Sojumap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.release.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.release.xcconfig"; sourceTree = "<group>"; };
+		82AE34B32B302B74EBE37E90 /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
+		9DB57646B9F55A5B923CD77E /* Pods-Sojumap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.release.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.release.xcconfig"; sourceTree = "<group>"; };
+		A3256431462538EE49223404 /* Pods_Sojumap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sojumap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DE4920542AA5D369008CFE0A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DE4920562AA5D37A008CFE0A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
@@ -60,29 +60,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EF10EAC733D062453C2A1F7 /* Pods_Sojumap.framework in Frameworks */,
 				52653E732AA70C72003AB02A /* YouTubeiOSPlayerHelper in Frameworks */,
+				5EF9DDC7355DCD2B702DB025 /* Pods_Sojumap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		610F71C5BF94839251740AA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3256431462538EE49223404 /* Pods_Sojumap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		76C3942746056567F3843669 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8C5D3ED7C8EEE758CE7A4D56 /* Pods-Sojumap.debug.xcconfig */,
-				CA94C32B7452D05B6A704F8B /* Pods-Sojumap.release.xcconfig */,
+				82AE34B32B302B74EBE37E90 /* Pods-Sojumap.debug.xcconfig */,
+				9DB57646B9F55A5B923CD77E /* Pods-Sojumap.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		90B1A39DCCEE5D5F72EED827 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				ACBA1A370BAF061659C14D70 /* Pods_Sojumap.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DEA4AC382AA5CD7300361CFC = {
@@ -91,7 +91,7 @@
 				DEA4AC432AA5CD7300361CFC /* Sojumap */,
 				DEA4AC422AA5CD7300361CFC /* Products */,
 				76C3942746056567F3843669 /* Pods */,
-				90B1A39DCCEE5D5F72EED827 /* Frameworks */,
+				610F71C5BF94839251740AA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,11 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEA4AC552AA5CD7400361CFC /* Build configuration list for PBXNativeTarget "Sojumap" */;
 			buildPhases = (
-				3F9DACF20E4A01C77F4CE1E2 /* [CP] Check Pods Manifest.lock */,
+				2912A92C07F47A3593D2E74E /* [CP] Check Pods Manifest.lock */,
 				DEA4AC3D2AA5CD7300361CFC /* Sources */,
 				DEA4AC3E2AA5CD7300361CFC /* Frameworks */,
 				DEA4AC3F2AA5CD7300361CFC /* Resources */,
-				D1CCC8DF178F70ADB006EF02 /* [CP] Embed Pods Frameworks */,
+				75DE97F122270B2793B3FBE4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,7 +203,7 @@
 			);
 			mainGroup = DEA4AC382AA5CD7300361CFC;
 			packageReferences = (
-				52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper.git" */,
 			);
 			productRefGroup = DEA4AC422AA5CD7300361CFC /* Products */;
 			projectDirPath = "";
@@ -231,7 +231,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F9DACF20E4A01C77F4CE1E2 /* [CP] Check Pods Manifest.lock */ = {
+		2912A92C07F47A3593D2E74E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,7 +253,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1CCC8DF178F70ADB006EF02 /* [CP] Embed Pods Frameworks */ = {
+		75DE97F122270B2793B3FBE4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -430,7 +430,7 @@
 		};
 		DEA4AC562AA5CD7400361CFC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C5D3ED7C8EEE758CE7A4D56 /* Pods-Sojumap.debug.xcconfig */;
+			baseConfigurationReference = 82AE34B32B302B74EBE37E90 /* Pods-Sojumap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -463,7 +463,7 @@
 		};
 		DEA4AC572AA5CD7400361CFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA94C32B7452D05B6A704F8B /* Pods-Sojumap.release.xcconfig */;
+			baseConfigurationReference = 9DB57646B9F55A5B923CD77E /* Pods-Sojumap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -518,7 +518,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+		52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
 			requirement = {
@@ -531,7 +531,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		52653E722AA70C72003AB02A /* YouTubeiOSPlayerHelper */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			package = 52653E712AA70C72003AB02A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper.git" */;
 			productName = YouTubeiOSPlayerHelper;
 		};
 /* End XCSwiftPackageProductDependency section */
