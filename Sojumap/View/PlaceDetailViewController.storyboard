@@ -161,7 +161,6 @@
                         <outlet property="expandButton" destination="1sZ-Vn-tEn" id="3D5-Ji-bLy"/>
                         <outlet property="mapView" destination="cxH-dg-f8T" id="Anc-Hn-wnC"/>
                         <outlet property="placeInformView" destination="BGG-Zq-ah2" id="MWZ-PV-yz5"/>
-                        <outlet property="playerView" destination="Gtr-P8-DIl" id="2Ro-pu-iaK"/>
                         <outlet property="secondViewBottomConstraint" destination="4cB-Nq-rtW" id="b8j-AC-VmB"/>
                     </connections>
                 </viewController>

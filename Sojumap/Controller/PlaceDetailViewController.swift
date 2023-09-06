@@ -7,11 +7,11 @@
 
 import UIKit
 import NMapsMap
-import YoutubePlayer_in_WKWebView
+//import YoutubePlayer_in_WKWebView
 
 class PlaceDetailViewController: UIViewController {
     // 영상 재생 view
-    @IBOutlet weak var playerView: WKYTPlayerView?
+//    @IBOutlet weak var playerView: WKYTPlayerView?
     // 영상 재생 시, 전체 화면 되지 않고 현재 뷰에서 재생
     let playVarsDic = ["playsinline": 1]
     
@@ -37,8 +37,8 @@ class PlaceDetailViewController: UIViewController {
     
     // 영상 재생 설정
     func playerSetting() {
-        playerView?.load(withVideoId: "b3aKs29igcQ", playerVars: playVarsDic)
-        playerView?.delegate = self
+//        playerView?.load(withVideoId: "b3aKs29igcQ", playerVars: playVarsDic)
+//        playerView?.delegate = self
     }
     
     @IBAction func toggleStackView(_ sender: UIButton) {
@@ -66,9 +66,9 @@ class PlaceDetailViewController: UIViewController {
 
 // MARK: - extention
 
-extension PlaceDetailViewController: WKYTPlayerViewDelegate {
-    // 뷰컨트롤러 실행 시 영상 자동 재생
-    func playerViewDidBecomeReady(_ playerView: WKYTPlayerView) {
-        playerView.playVideo()
-    }
-}
+//extension PlaceDetailViewController: WKYTPlayerViewDelegate {
+//    // 뷰컨트롤러 실행 시 영상 자동 재생
+//    func playerViewDidBecomeReady(_ playerView: WKYTPlayerView) {
+//        playerView.playVideo()
+//    }
+//}
