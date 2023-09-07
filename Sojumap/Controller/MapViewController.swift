@@ -12,26 +12,24 @@ import Alamofire
 import SwiftyJSON
 import SwiftSoup
 
-let addresses = [
-            "서울 중구 남대문로1길 11",
-            "서울 강북구 삼각산로 130 1층",
-            "서울 영등포구 도림로141다길 13-2",
-            "서울 마포구 방울내로 82",
-            "서울 중구 세종대로11길 26"
-        ]
-
 class CustomMarker: NMFMarker {
-    var address: String? // 주소 정보를 저장할 프로퍼티
+    var title: String?
+    var name: String?
+    var address: String?
 
-    init(position: NMGLatLng, address: String?) {
+    init(position: NMGLatLng, title: String?, name: String?, address: String?) {
         super.init()
         self.position = position
+        self.title = title
+        self.name = name
         self.address = address
     }
 }
 
 class MapViewController: UIViewController, NMFMapViewDelegate {
     @IBOutlet weak var naverMapView: NMFNaverMapView!
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var placeAddr: UILabel!
     
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     let customModalView = CustomModalView() // CustomModalView 인스턴스를 생성
@@ -41,17 +39,26 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
         
         // NMFNaverMapView delegate 설정
         naverMapView.mapView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        // 주소 배열을 순회하며 처리
-        for address in addresses {
-            let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        // 비디오 데이터 처리
+        for dummyData in dummyDataList {
+            guard let title = dummyData["Title"] as? String,
+                  let descriptions = dummyData["Description"] as? [String], descriptions.count >= 2,
+                  let name = descriptions.first,
+                  let address = descriptions.last,
+                  let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                continue
+            }
             
-            convertAddressToCoordinate(address: encodedAddress)
+            convertAddressToCoordinate(title: title, name: name, address: encodedAddress)
         }
     }
     
     // 주소를 위경도로 변환하는 함수
-    func convertAddressToCoordinate(address: String?) {
+    func convertAddressToCoordinate(title: String?, name: String?, address: String?) {
         let header1 = HTTPHeader(name: "X-NCP-APIGW-API-KEY-ID", value: NAVER_CLIENT_ID)
         let header2 = HTTPHeader(name: "X-NCP-APIGW-API-KEY", value: NAVER_CLIENT_SECRET)
         let headers = HTTPHeaders([header1,header2])
@@ -71,9 +78,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
                     print("위도:", lat, "경도:", lon, "도로명주소:", roadAddr)
                     
                     // 초기 카메라 위치를 마커가 있는 위치로 설정
-                    self.addMarker(at: coordinate, address: roadAddr)
+                    self.addMarker(at: coordinate, title: title, name: name, address: roadAddr)
                     self.setInitialCameraPosition(at: coordinate)
-                    
                 case .failure(let error):
                     print(error.errorDescription ?? "")
                 default :
@@ -83,40 +89,17 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     }
     
     // 마커 추가 함수
-    func addMarker(at latlng: NMGLatLng, address: String?) {
-        let marker = CustomMarker(position: latlng, address: address)
+    func addMarker(at latlng: NMGLatLng, title: String?, name: String?, address: String?) {
+        let marker = CustomMarker(position: latlng, title: title, name: name, address: address)
         
         marker.mapView = naverMapView.mapView
+        placeName.text = marker.name
+        placeAddr.text = marker.address
     }
     
     // 초기 카메라 위치 설정 함수
     func setInitialCameraPosition(at latlng: NMGLatLng) {
         naverMapView.mapView.positionMode = .disabled
         naverMapView.mapView.moveCamera(NMFCameraUpdate(scrollTo: latlng))
-    }
-    
-    // 마커 클릭 이벤트 처리
-    func mapView(_ mapView: NMFMapView, didTapMarker marker: CustomMarker) -> Bool {
-        print("마커 클릭 확인")
-        // 마커가 클릭되었을 때 모달 뷰를 표시
-        showCustomModalView(with: marker.address as? String)
-        return true
-    }
-    
-    
-    // CustomModalView를 표시하고 정보를 채우는 함수
-    func showCustomModalView(with roadAddr: String?) {
-        guard let roadAddr = roadAddr else {
-            return
-        }
-        
-        // 모달 뷰의 roadAddrLabel에 정보를 채움
-        customModalView.roadAddrLabel.text = roadAddr
-        
-        // 모달 뷰를 현재 뷰에 추가
-        view.addSubview(customModalView)
-        
-        // 모달 뷰를 중앙에 표시 (가운데 정렬)
-        customModalView.center = view.center
     }
 }

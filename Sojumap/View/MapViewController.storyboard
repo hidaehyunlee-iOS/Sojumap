@@ -18,28 +18,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzo-KA-DnH" customClass="NMFNaverMapView">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gVo-6y-TiB">
+                                <rect key="frame" x="16" y="685" width="360" height="50.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLP-2h-BCe" userLabel="placeName">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7B-MH-Bse" userLabel="placeAddr">
+                                        <rect key="frame" x="0.0" y="31" width="360" height="19.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="360" id="GEn-Fy-HXt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="MZ9-vg-Zkc"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dzo-KA-DnH" secondAttribute="trailing" id="cXG-n3-wiz"/>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="r89-NX-Ttz"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dzo-KA-DnH" secondAttribute="bottom" id="vi5-dq-mE7"/>
+                            <constraint firstItem="gVo-6y-TiB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="6MJ-sE-t9H"/>
+                            <constraint firstItem="gVo-6y-TiB" firstAttribute="top" secondItem="dzo-KA-DnH" secondAttribute="bottom" constant="16" id="JTr-00-ijX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dzo-KA-DnH" secondAttribute="bottom" constant="100" id="KTg-3u-NBe"/>
+                            <constraint firstItem="dzo-KA-DnH" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="c1w-ub-Yuj"/>
+                            <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="oGt-g1-D7I"/>
+                            <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="p4k-5f-Nnd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gVo-6y-TiB" secondAttribute="trailing" constant="17" id="qDl-AL-F81"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map" id="uvL-F5-0vQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="naverMapView" destination="dzo-KA-DnH" id="DQ6-2f-bp6"/>
+                        <outlet property="placeAddr" destination="l7B-MH-Bse" id="sFD-Yd-ev9"/>
+                        <outlet property="placeName" destination="XLP-2h-BCe" id="Kqq-0I-t7s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125" y="-2"/>
+            <point key="canvasLocation" x="124.42748091603053" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
