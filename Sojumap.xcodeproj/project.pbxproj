@@ -25,13 +25,13 @@
 		DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */; };
 		DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920602AA6DFEB008CFE0A /* UserData.swift */; };
 		DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920652AA744C9008CFE0A /* NaverClient.swift */; };
-		DE4920682AA75B9F008CFE0A /* CustomModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920672AA75B9F008CFE0A /* CustomModalView.swift */; };
 		DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */; };
 		DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */; };
 		DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4AC482AA5CD7300361CFC /* ViewController.swift */; };
 		DEA4AC4C2AA5CD7300361CFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4A2AA5CD7300361CFC /* Main.storyboard */; };
 		DEA4AC4E2AA5CD7400361CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4D2AA5CD7400361CFC /* Assets.xcassets */; };
 		DEA4AC512AA5CD7400361CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4F2AA5CD7400361CFC /* LaunchScreen.storyboard */; };
+		DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEB2AA967C9002D908B /* DummyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,6 @@
 		DE49205E2AA6DFC8008CFE0A /* PlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceData.swift; path = Sojumap/View/PlaceData.swift; sourceTree = SOURCE_ROOT; };
 		DE4920602AA6DFEB008CFE0A /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = Sojumap/View/UserData.swift; sourceTree = SOURCE_ROOT; };
 		DE4920652AA744C9008CFE0A /* NaverClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverClient.swift; sourceTree = "<group>"; };
-		DE4920672AA75B9F008CFE0A /* CustomModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalView.swift; sourceTree = "<group>"; };
 		DEA4AC412AA5CD7300361CFC /* Sojumap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sojumap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA4AC442AA5CD7300361CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA4AC462AA5CD7300361CFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		DEA4AC4D2AA5CD7400361CFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEA4AC502AA5CD7400361CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEA4AC522AA5CD7400361CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DED83BEB2AA967C9002D908B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +146,7 @@
 				7E79530A2AA8AEE800833AD0 /* DataManager.swift */,
 				5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */,
 				5298C1612AA8CAC6001AA8E2 /* VideoData.swift */,
+				DED83BEB2AA967C9002D908B /* DummyData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,7 +173,6 @@
 				DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */,
 				7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */,
 				7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */,
-				DE4920672AA75B9F008CFE0A /* CustomModalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,7 +304,6 @@
 				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,
 				7E79530B2AA8AEE800833AD0 /* DataManager.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
-				DE4920682AA75B9F008CFE0A /* CustomModalView.swift in Sources */,
 				DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */,
 				DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
@@ -313,6 +312,7 @@
 				5298C1622AA8CAC6001AA8E2 /* VideoData.swift in Sources */,
 				7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */,
 				5298C1602AA8CA9E001AA8E2 /* ThreeMealData.swift in Sources */,
+				DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
