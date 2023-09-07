@@ -35,6 +35,19 @@
 		DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEB2AA967C9002D908B /* DummyData.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C31B59522AA9B802008AEE90 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeMealData.swift; sourceTree = "<group>"; };
 		5298C1612AA8CAC6001AA8E2 /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
@@ -192,6 +205,7 @@
 				DEA4AC3E2AA5CD7300361CFC /* Frameworks */,
 				DEA4AC3F2AA5CD7300361CFC /* Resources */,
 				6E8D3F571A9EA6E8A9C71EB3 /* [CP] Embed Pods Frameworks */,
+				C31B59522AA9B802008AEE90 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
@@ -460,6 +474,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -493,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6B4DF1E0DE3BA16B7E541FE /* Pods-Sojumap.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;

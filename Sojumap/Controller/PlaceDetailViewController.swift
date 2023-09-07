@@ -12,16 +12,27 @@ import WebKit
 
 class PlaceDetailViewController: UIViewController {
     // 영상 재생 view
-    @IBOutlet weak var playerView: WKWebView!
+    @IBOutlet weak var playerView: WKWebView?
     // 영상 재생 시, 전체 화면 되지 않고 현재 뷰에서 재생
 //    let playVarsDic = ["playsinline": 1]
     
-    @IBOutlet weak var placeInformView: UIStackView!
+    @IBOutlet weak var placeInformView: UIStackView?
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var mapView: NMFNaverMapView!
     @IBOutlet weak var secondViewBottomConstraint: NSLayoutConstraint! // 두 번째 UIView의 하단 제약
     
     var isExpanded = true // 확장 상태를 추적하는 변수
+    
+    // 필요한 변수
+    // videoid, 썸네일, 제목, 조회수, 해시태그, 식당이름, 식당 주소, 식당url(네이버 링크)
+    var videoId: String = ""
+    var thumnail: String = ""
+    var videoTitle: String = ""
+    var viewCnt: String = ""
+    var hashtag: String = ""
+    var placeName: String = ""
+    var address: String = ""
+    var placeUrl: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +43,20 @@ class PlaceDetailViewController: UIViewController {
         getVideo()
      
         // 스택뷰 초기 상태 설정
-        placeInformView.isHidden = true
+        placeInformView?.isHidden = true
         
     }
     
     // 더보기 버튼
     @IBAction func toggleStackView(_ sender: UIButton) {
         // 첫 번째 Stack View의 숨김 상태 토글
-        placeInformView.isHidden = !isExpanded
+        placeInformView?.isHidden = !isExpanded
         
         // 스택 뷰가 펼쳐져 있는지 확인하고 애니메이션으로 확장 또는 축소
         UIView.animate(withDuration: 0.3) { [weak self] in
             if let isExpanded = self?.isExpanded {
                 // 첫 번째 Stack View가 숨겨져 있는 경우 두 번째 UIView를 아래로 이동
-                self?.secondViewBottomConstraint.constant = isExpanded ? 0 : (self?.placeInformView.frame.height ?? 0)
+                self?.secondViewBottomConstraint.constant = isExpanded ? 0 : (self?.placeInformView?.frame.height ?? 0)
                 self?.view.layoutIfNeeded()
             }
         }
@@ -63,7 +74,7 @@ class PlaceDetailViewController: UIViewController {
 // MARK: - extention
 
 // 유튜브 영상 실행 설정
-extension PlaceDetailViewController: WKNavigationDelegate {
+extension PlaceDetailViewController: WKNavigationDelegate, WKUIDelegate {
     
     func getVideo(){
         // YouTube 동영상의 임베드 코드
@@ -84,10 +95,15 @@ extension PlaceDetailViewController: WKNavigationDelegate {
         </body>
         </html>
         """
-
+        
+        playerView?.allowsBackForwardNavigationGestures = true
+        playerView?.allowsLinkPreview = true
+       
+        playerView?.uiDelegate = self
+        playerView?.navigationDelegate = self
+        
         // WKWebView에 HTML 로드
-        playerView.navigationDelegate = self
-        playerView.loadHTMLString(html, baseURL: nil)
+        playerView?.loadHTMLString(html, baseURL: nil)
 
     }
     
