@@ -35,6 +35,7 @@
 		DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEB2AA967C9002D908B /* DummyData.swift */; };
 		DED83BEE2AA9B375002D908B /* CustonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BED2AA9B375002D908B /* CustonMarker.swift */; };
 		DED83BF02AA9BB9A002D908B /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */; };
+		DED83BF22AA9D4EC002D908B /* MapTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED83BF12AA9D4EC002D908B /* MapTableViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		DED83BEB2AA967C9002D908B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DED83BED2AA9B375002D908B /* CustonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonMarker.swift; sourceTree = "<group>"; };
 		DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
+		DED83BF12AA9D4EC002D908B /* MapTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapTableViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				DEA4AC4A2AA5CD7300361CFC /* Main.storyboard */,
 				DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */,
 				DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */,
+				DED83BF12AA9D4EC002D908B /* MapTableViewController.storyboard */,
 				DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */,
 				7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */,
 				7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */,
@@ -252,6 +255,7 @@
 				DEA4AC4E2AA5CD7400361CFC /* Assets.xcassets in Resources */,
 				DE4920592AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard in Resources */,
 				DE49205D2AA5D3DD008CFE0A /* MypageViewController.storyboard in Resources */,
+				DED83BF22AA9D4EC002D908B /* MapTableViewController.storyboard in Resources */,
 				DEA4AC4C2AA5CD7300361CFC /* Main.storyboard in Resources */,
 				7E9F9D1F2AA6F71400AB7382 /* SignUpPage.storyboard in Resources */,
 			);

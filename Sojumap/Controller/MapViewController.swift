@@ -21,6 +21,16 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     var initialMarkerName: String?
     var initialMarkerAddress: String?
 
+    @IBAction func showListButton(_ sender: UIBarButtonItem) {
+        
+        let storyBoard = UIStoryboard(name: "MapTableViewController", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "MapTableViewController") as! MapTableViewController
+        //self.present(vc, animated: false, completion: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        // self.present(MapTableVC, animated: false, completion: nil)
+    }
+    
     @IBAction func detailPageButton(_ sender: UIButton) {
         let placeDetailVC = PlaceDetailViewController()
             
@@ -29,7 +39,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
 //            placeDetailVC.markerName = "self.markerNamex"
 //            placeDetailVC.markerAddress = "self.markerAddress"
             
-            self.present(placeDetailVC, animated: true, completion: nil)
+        self.present(placeDetailVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
