@@ -143,7 +143,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TF8-9j-MRG" secondAttribute="height" multiplier="16:9" id="bLm-xc-YcR"/>
                                 </constraints>
-                                <wkWebViewConfiguration key="configuration">
+                                <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
