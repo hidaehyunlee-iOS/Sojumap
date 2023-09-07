@@ -32,17 +32,18 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     @IBOutlet weak var placeAddr: UILabel!
     
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
-    let customModalView = CustomModalView() // CustomModalView 인스턴스를 생성
+    // let customModalView = CustomModalView() // CustomModalView 인스턴스를 생성
+    var initialMarkerName: String?
+    var initialMarkerAddress: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // NMFNaverMapView delegate 설정
+        setMap()
+
         naverMapView.mapView.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
+    private func setMap() {
         // 비디오 데이터 처리
         for dummyData in dummyDataList {
             guard let title = dummyData["Title"] as? String,
@@ -76,10 +77,9 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
                     let coordinate = NMGLatLng(lat: lat, lng: lon)
                     
                     print("위도:", lat, "경도:", lon, "도로명주소:", roadAddr)
-                    
-                    // 초기 카메라 위치를 마커가 있는 위치로 설정
+                    // 마커 생성
                     self.addMarker(at: coordinate, title: title, name: name, address: roadAddr)
-                    self.setInitialCameraPosition(at: coordinate)
+                    
                 case .failure(let error):
                     print(error.errorDescription ?? "")
                 default :
@@ -93,8 +93,18 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
         let marker = CustomMarker(position: latlng, title: title, name: name, address: address)
         
         marker.mapView = naverMapView.mapView
-        placeName.text = marker.name
-        placeAddr.text = marker.address
+        
+        // 제일 처음 생성된 마커 정보만 표시
+        if initialMarkerName == nil && initialMarkerAddress == nil {
+            initialMarkerName = name
+            initialMarkerAddress = address
+            
+            // *이후 마커 클릭시 한번 더 업데이트 필요
+            placeName.text = marker.name
+            placeAddr.text = marker.address
+            
+            setInitialCameraPosition(at: latlng)
+        }
     }
     
     // 초기 카메라 위치 설정 함수
