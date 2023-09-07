@@ -34,6 +34,7 @@
 		DEA4AC512AA5CD7400361CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4F2AA5CD7400361CFC /* LaunchScreen.storyboard */; };
 		DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEB2AA967C9002D908B /* DummyData.swift */; };
 		DED83BEE2AA9B375002D908B /* CustonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BED2AA9B375002D908B /* CustonMarker.swift */; };
+		DED83BF02AA9BB9A002D908B /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		DEA4AC522AA5CD7400361CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DED83BEB2AA967C9002D908B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		DED83BED2AA9B375002D908B /* CustonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonMarker.swift; sourceTree = "<group>"; };
+		DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				DE4920562AA5D37A008CFE0A /* MypageViewController.swift */,
 				7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */,
 				7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */,
+				DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */,
 				52A3F2062AA9B2F6000FE101 /* SaveDatas.swift in Sources */,
 				5298C1602AA8CA9E001AA8E2 /* ThreeMealData.swift in Sources */,
+				DED83BF02AA9BB9A002D908B /* MapTableViewController.swift in Sources */,
 				DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
