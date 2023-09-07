@@ -32,6 +32,7 @@
 		DEA4AC4E2AA5CD7400361CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4D2AA5CD7400361CFC /* Assets.xcassets */; };
 		DEA4AC512AA5CD7400361CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4F2AA5CD7400361CFC /* LaunchScreen.storyboard */; };
 		DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEB2AA967C9002D908B /* DummyData.swift */; };
+		DED83BEE2AA9B375002D908B /* CustonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BED2AA9B375002D908B /* CustonMarker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		DEA4AC502AA5CD7400361CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEA4AC522AA5CD7400361CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DED83BEB2AA967C9002D908B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		DED83BED2AA9B375002D908B /* CustonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonMarker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */,
 				5298C1612AA8CAC6001AA8E2 /* VideoData.swift */,
 				DED83BEB2AA967C9002D908B /* DummyData.swift */,
+				DED83BED2AA9B375002D908B /* CustonMarker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				7E9F9D212AA6F82300AB7382 /* SignUpViewController.swift in Sources */,
 				7E9F9D1D2AA6F34A00AB7382 /* SignInViewController.swift in Sources */,
+				DED83BEE2AA9B375002D908B /* CustonMarker.swift in Sources */,
 				DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */,
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
 				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,

@@ -12,23 +12,6 @@ import Alamofire
 import SwiftyJSON
 import SwiftSoup
 
-class CustomMarker: NMFMarker {
-    var title: String?
-    var name: String?
-    var address: String?
-    var customUserInfo: [String: Any]?
-
-    init(position: NMGLatLng, title: String?, name: String?, address: String?, customUserInfo: [String: Any]? = nil) {
-        super.init()
-        self.position = position
-        self.title = title
-        self.name = name
-        self.address = address
-        self.customUserInfo = customUserInfo
-    }
-}
-
-
 class MapViewController: UIViewController, NMFMapViewDelegate {
     @IBOutlet weak var naverMapView: NMFNaverMapView!
     @IBOutlet weak var placeName: UILabel!
@@ -37,9 +20,18 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     var initialMarkerName: String?
     var initialMarkerAddress: String?
-    var allMarkers: [CustomMarker] = [] // addMaker()에서 추가
-    var count = 1 // 각 마커를 tag로 구분하기 위한 카운트 변수
 
+    @IBAction func detailPageButton(_ sender: UIButton) {
+        let placeDetailVC = PlaceDetailViewController()
+            
+            // 선택된 마커 정보 식별해야됨
+//            placeDetailVC.markerTitle = "self.markerTitle"
+//            placeDetailVC.markerName = "self.markerNamex"
+//            placeDetailVC.markerAddress = "self.markerAddress"
+            
+            self.present(placeDetailVC, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setMap()
@@ -97,9 +89,9 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     
     // 마커 추가 함수
     func addMarker(at latlng: NMGLatLng, title: String?, name: String?, address: String?) {
-        let marker = CustomMarker(position: latlng, title: title, name: name, address: address, customUserInfo: ["tag" : count])
+        let marker = CustomMarker(position: latlng, title: title, name: name, address: address, customUserInfo: ["tag" : markerCount])
         
-        count += 1
+        markerCount += 1
         allMarkers.append(marker)
         
         for marker in allMarkers {
