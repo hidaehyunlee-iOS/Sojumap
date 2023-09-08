@@ -10,6 +10,7 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var placeAddrLabel: UILabel!
     @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var placeDistance: UILabel?
 }
 
 class MapTableViewController: UIViewController {
@@ -44,7 +45,12 @@ extension MapTableViewController: UITableViewDataSource, UITableViewDelegate {
 
         cell.placeNameLabel.text = marker.name
         cell.placeAddrLabel.text = marker.address
-
+        if let distanceKM = marker.distanceKM { // 거리는 바인딩 필요
+            cell.placeDistance?.text = String(format: "%.2f km", distanceKM)
+        } else {
+            cell.placeDistance?.text = ""
+        }
+        
         return cell
     }
 }

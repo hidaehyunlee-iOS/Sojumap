@@ -70,7 +70,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         locationManager.delegate = self // 델리게이트 설정
         locationManager.desiredAccuracy = kCLLocationAccuracyBest // 거리 정확도 설정
         locationManager.requestWhenInUseAuthorization() // 사용자에게 허용 받기 alert 띄우기
-
+        
         // 위치 사용을 허용하면 현재 위치 정보를 가져옴
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
@@ -118,18 +118,18 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         markerCount += 1
         allMarkers.append(marker)
         
-        for marker in allMarkers {
-            marker.touchHandler = { (overlay) -> Bool in
-                if let customMarker = overlay as? CustomMarker,
-                   let tag = customMarker.customUserInfo?["tag"] as? Int {
-                    self.placeName?.text = customMarker.name
-                    self.placeAddr?.text = customMarker.address
-                    self.calculateAndSetDistance(marker: customMarker)
-                }
-                return false
+        marker.touchHandler = { (overlay) -> Bool in
+            if let customMarker = overlay as? CustomMarker,
+               let tag = customMarker.customUserInfo?["tag"] as? Int {
+                self.placeName?.text = customMarker.name
+                self.placeAddr?.text = customMarker.address
+                self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
             }
+            return false
         }
         
+        calculateAndSetDistance(marker: marker) // 테이블뷰에 보여줄 거리 계산용
+
         marker.mapView = naverMapView?.mapView
         marker.captionRequestedWidth = 60
         marker.captionText = name ?? ""
@@ -142,7 +142,6 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
             placeAddr?.text = marker.address
             
             setInitialCameraPosition(at: latlng)
-            calculateAndSetDistance(marker: marker)
         }
     }
     
@@ -151,24 +150,23 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
             return
         }
         
-        print(currentLocation.coordinate.latitude)
-        print(currentLocation.coordinate.longitude)
-        
         let markerLocation = CLLocation(latitude: marker.position.lat, longitude: marker.position.lng)
         let distanceM = currentLocation.distance(from: markerLocation)
+        
         marker.distanceKM = distanceM / 1000.0
         
         distanceInKilometers?.text = String(format: "%.2f km", marker.distanceKM!)
     }
     
-// 위치 정보 계속 업데이트 -> 위도 경도 받아옴
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        print("위치 업데이트")
-//        if let location = locations.first {
-//            print("위도: \(location.coordinate.latitude)")
-//            print("경도: \(location.coordinate.longitude)")
-//        }
-//    }
+    
+    // 위치 정보 계속 업데이트 -> 위도 경도 받아옴
+    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //        print("위치 업데이트")
+    //        if let location = locations.first {
+    //            print("위도: \(location.coordinate.latitude)")
+    //            print("경도: \(location.coordinate.longitude)")
+    //        }
+    //    }
     
     // 위치 가져오기 실패
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
