@@ -33,16 +33,44 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     }
     
     @IBAction func detailPageButton(_ sender: UIButton) {
-        let placeDetailVC = PlaceDetailViewController()
-        
-        // 선택된 마커 정보 식별해야됨
-        //            placeDetailVC.markerTitle = "self.markerTitle"
-        //            placeDetailVC.markerName = "self.markerNamex"
-        //            placeDetailVC.markerAddress = "self.markerAddress"
-        
-        self.present(placeDetailVC, animated: true, completion: nil)
+        print("detailPageButton: clicked")
+        // 1. 선택된 마커 정보 추출
+//        if let selectedMarker = getSelectedMarker() {
+//            // 2. PlaceDetailViewController 인스턴스 생성
+//            let placeDetailVC = PlaceDetailViewController()
+//
+//            // 3. 선택된 마커의 정보를 PlaceDetailViewController 프로퍼티에 할당
+//            placeDetailVC.videoId = selectedMarker.videoId ?? ""
+//            placeDetailVC.thumnail = selectedMarker.thumbnail ?? ""
+//            placeDetailVC.videoTitle = selectedMarker.videoTitle ?? ""
+//            placeDetailVC.viewCnt = selectedMarker.viewCnt ?? ""
+//            placeDetailVC.placeName = selectedMarker.placeName ?? ""
+//            placeDetailVC.address = selectedMarker.address ?? ""
+//            placeDetailVC.placeUrl = selectedMarker.placeUrl ?? ""
+//
+//            // PlaceDetailViewController를 화면에 표시
+//            self.present(placeDetailVC, animated: true, completion: nil)
+//        }
     }
     
+//    // 선택된 마커를 가져오는 함수 (선택된 마커가 없으면 nil 반환)
+//    func getSelectedMarker() -> CustomMarker? {
+//        if let selectedMarkerIndex = getSelectedMarkerIndex() {
+//            return allMarkers[selectedMarkerIndex]
+//        }
+//
+//        return nil
+//    }
+    
+//    func getSelectedMarkerIndex() -> Int? {
+//        // 선택된 마커의 식당 이름을 기반으로 마커를 식별
+//        if let index = allMarkers.firstIndex(where: { $0.placeName == selectedPlaceName }) {
+//            return index // 선택된 마커의 인덱스 반환
+//        }
+//
+//        return nil // 선택된 마커가 없으면 nil 반환
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
