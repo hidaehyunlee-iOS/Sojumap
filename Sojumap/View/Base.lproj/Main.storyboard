@@ -131,8 +131,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hoa-QA-8PA"/>
-                        <segue destination="Eeh-m9-WeQ" kind="relationship" relationship="viewControllers" id="M8H-bt-xmP"/>
-                        <segue destination="dXq-fb-dcS" kind="relationship" relationship="viewControllers" id="9r9-LA-JXj"/>
+                        <segue destination="21l-EZ-gua" kind="relationship" relationship="viewControllers" id="PUK-yn-Rym"/>
+                        <segue destination="5tz-wq-XF9" kind="relationship" relationship="viewControllers" id="aNm-SU-5Ob"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwM-Fu-J5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -147,26 +147,25 @@
             </objects>
             <point key="canvasLocation" x="1306" y="-282"/>
         </scene>
-        <!--MapViewController-->
-        <scene sceneID="lUV-9e-QZv">
+        <!--MapNavVC-->
+        <scene sceneID="HjD-TN-xay">
             <objects>
-                <viewControllerPlaceholder storyboardName="MapViewController" referencedIdentifier="MapViewController" id="Eeh-m9-WeQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HML-tb-Ywv"/>
-                    <navigationItem key="navigationItem" id="f7i-VO-X1J"/>
+                <viewControllerPlaceholder storyboardName="MapViewController" referencedIdentifier="MapNavVC" id="21l-EZ-gua" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7EU-Vk-vov"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e9C-XX-Nlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pLd-FA-slY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-472" y="146"/>
+            <point key="canvasLocation" x="-450" y="151"/>
         </scene>
         <!--MypageViewController-->
-        <scene sceneID="wUC-gL-0k9">
+        <scene sceneID="4up-he-EUL">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MypageViewController" storyboardName="MypageViewController" referencedIdentifier="MypageViewController" id="dXq-fb-dcS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9PN-dC-gjX"/>
+                <viewControllerPlaceholder storyboardIdentifier="MypageViewController" storyboardName="MypageViewController" referencedIdentifier="MypageViewController" id="5tz-wq-XF9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DYt-p4-JVH"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mgJ-EO-hc9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dcs-AN-reK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="146"/>
+            <point key="canvasLocation" x="67" y="138"/>
         </scene>
     </scenes>
     <resources>

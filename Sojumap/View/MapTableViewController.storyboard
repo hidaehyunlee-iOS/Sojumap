@@ -102,32 +102,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KW0-fc-a7p">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="전국 소주 지도" id="IjK-Xr-2Wh">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="map" catalog="system" id="fYg-sY-hnD"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yXk-uH-22q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KW0-fc-a7p" firstAttribute="centerX" secondItem="22J-r9-Ifv" secondAttribute="centerX" id="2PX-CO-CrP"/>
                             <constraint firstItem="22J-r9-Ifv" firstAttribute="bottom" secondItem="yXk-uH-22q" secondAttribute="bottom" id="8jt-qg-PGA"/>
-                            <constraint firstItem="KW0-fc-a7p" firstAttribute="leading" secondItem="yXk-uH-22q" secondAttribute="leading" id="C7z-0y-hYn"/>
                             <constraint firstItem="ssm-j2-KL0" firstAttribute="top" secondItem="d1c-yn-nwW" secondAttribute="top" constant="121.00000000000003" id="FsZ-gY-eWZ"/>
                             <constraint firstItem="22J-r9-Ifv" firstAttribute="top" secondItem="ssm-j2-KL0" secondAttribute="bottom" constant="19.670000000000002" id="Gcr-jQ-qIL"/>
                             <constraint firstItem="22J-r9-Ifv" firstAttribute="leading" secondItem="yXk-uH-22q" secondAttribute="leading" constant="30" id="LNY-T3-WWC"/>
                             <constraint firstItem="yXk-uH-22q" firstAttribute="trailing" secondItem="22J-r9-Ifv" secondAttribute="trailing" constant="30" id="YJC-Vk-GB8"/>
-                            <constraint firstItem="ssm-j2-KL0" firstAttribute="top" secondItem="KW0-fc-a7p" secondAttribute="bottom" constant="18.000000000000028" id="q4e-4p-bRT"/>
                             <constraint firstItem="ssm-j2-KL0" firstAttribute="leading" secondItem="22J-r9-Ifv" secondAttribute="leading" id="z9h-g2-VWk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map" id="Fbm-vh-DUm"/>
-                    <navigationItem key="navigationItem" id="7Ya-Lm-Uav"/>
+                    <navigationItem key="navigationItem" title="전국 소주 지도" id="7Ya-Lm-Uav">
+                        <barButtonItem key="rightBarButtonItem" image="map" catalog="system" id="fKI-Pj-jrN">
+                            <connections>
+                                <action selector="mapViewButton:" destination="Sem-RP-Elx" id="eaX-8g-Ouc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="markerCountLabel" destination="ibL-gU-LrC" id="ZSv-aH-usb"/>
@@ -135,6 +128,25 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfd-Pw-C90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1941.2213740458014" y="-2.1126760563380285"/>
+        </scene>
+        <!--MapTableNavController-->
+        <scene sceneID="EfZ-gg-PwI">
+            <objects>
+                <navigationController storyboardIdentifier="MapTableNavController" title="MapTableNavController" automaticallyAdjustsScrollViewInsets="NO" interactionActivityTrackingBaseName="MapTableNavController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rMj-sD-Tc8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" selectedImage="map" id="Fbm-vh-DUm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hXu-mz-Yg2">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Sem-RP-Elx" kind="relationship" relationship="rootViewController" id="a4c-DD-bFb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nXU-y9-wGf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1014.5038167938931" y="-2.1126760563380285"/>
         </scene>

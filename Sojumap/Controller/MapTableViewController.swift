@@ -16,18 +16,24 @@ class MapTableViewController: UIViewController {
     @IBOutlet weak var markerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
+    @IBAction func mapViewButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
         markerCountLabel.text = String(allMarkers.count)
+        
         tableView.dataSource = self
         tableView.delegate = self
+        
         tableView.reloadData()
     }
 }
 
 extension MapTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(allMarkers.count)
         return allMarkers.count
     }
 
@@ -35,7 +41,7 @@ extension MapTableViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         
         let marker = allMarkers[indexPath.row]
-        // print(marker)
+
         cell.placeNameLabel.text = "📍 \(marker.name!)"
         cell.placeAddrLabel.text = marker.address
 
