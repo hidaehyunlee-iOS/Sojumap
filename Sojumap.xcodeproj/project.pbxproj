@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		058124F34AFDA2DE6D073323 /* Pods_Sojumap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DD8A12B9B7B9B4BC5ACA11 /* Pods_Sojumap.framework */; };
+		528C408E2AAAF9FA0018B04C /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C408D2AAAF9FA0018B04C /* VideoTableViewCell.swift */; };
 		5298C1602AA8CA9E001AA8E2 /* ThreeMealData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */; };
 		5298C1622AA8CAC6001AA8E2 /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5298C1612AA8CAC6001AA8E2 /* VideoData.swift */; };
 		52A3F2062AA9B2F6000FE101 /* SaveDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F2052AA9B2F6000FE101 /* SaveDatas.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		528C408D2AAAF9FA0018B04C /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		5298C15F2AA8CA9E001AA8E2 /* ThreeMealData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeMealData.swift; sourceTree = "<group>"; };
 		5298C1612AA8CAC6001AA8E2 /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
 		52A3F2052AA9B2F6000FE101 /* SaveDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDatas.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				DEA4AC4A2AA5CD7300361CFC /* Main.storyboard */,
+				528C408D2AAAF9FA0018B04C /* VideoTableViewCell.swift */,
 				DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */,
 				DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */,
 				DED83BF12AA9D4EC002D908B /* MapTableViewController.storyboard */,
@@ -333,6 +336,7 @@
 				7E79530B2AA8AEE800833AD0 /* DataManager.swift in Sources */,
 				DEA4AC452AA5CD7300361CFC /* AppDelegate.swift in Sources */,
 				DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */,
+				528C408E2AAAF9FA0018B04C /* VideoTableViewCell.swift in Sources */,
 				DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */,
 				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,

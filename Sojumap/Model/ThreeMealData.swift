@@ -45,7 +45,7 @@ class ThreeMealVideo {
             // 채널의 동영상 목록을 가져오는 요청 생성 및 실행
             let playlistItemsQuery = GTLRYouTubeQuery_PlaylistItemsList.query(withPart: ["snippet"])
             playlistItemsQuery.playlistId = playlistID
-            playlistItemsQuery.maxResults = 10 // 가져올 동영상 개수를 설정
+            playlistItemsQuery.maxResults = 30 // 가져올 동영상 개수를 설정
             
             if let pageToken = pageToken {
                 playlistItemsQuery.pageToken = pageToken

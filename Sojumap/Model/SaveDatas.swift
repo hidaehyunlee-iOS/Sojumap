@@ -1,7 +1,7 @@
 import Foundation
 
-class VideoUserDatas {
-    static let shared = VideoUserDatas()
+class SaveDatas {
+    static let shared = SaveDatas()
     
     private let userdata = UserDefaults.standard
     
