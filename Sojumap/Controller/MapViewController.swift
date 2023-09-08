@@ -12,47 +12,47 @@ import Alamofire
 import SwiftyJSON
 import SwiftSoup
 
-class MapViewController: UIViewController, NMFMapViewDelegate {
+class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var naverMapView: NMFNaverMapView?
     @IBOutlet weak var placeName: UILabel?
     @IBOutlet weak var placeAddr: UILabel?
+    @IBOutlet weak var distanceInKilometers: UILabel?
     
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     var initialMarkerName: String?
     var initialMarkerAddress: String?
-
+    let locationManager = CLLocationManager()
+    
     @IBAction func showListButton(_ sender: UIBarButtonItem) {
         let storyBoard = UIStoryboard(name: "MapTableViewController", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "MapTableViewController") as! MapTableViewController
-        //self.present(vc, animated: false, completion: nil)
         
         self.navigationController?.pushViewController(vc, animated: true)
-        // self.present(MapTableVC, animated: false, completion: nil)
     }
     
     @IBAction func detailPageButton(_ sender: UIButton) {
         let placeDetailVC = PlaceDetailViewController()
-            
-            // 선택된 마커 정보 식별해야됨
-//            placeDetailVC.markerTitle = "self.markerTitle"
-//            placeDetailVC.markerName = "self.markerNamex"
-//            placeDetailVC.markerAddress = "self.markerAddress"
-            
+        
+        // 선택된 마커 정보 식별해야됨
+        //            placeDetailVC.markerTitle = "self.markerTitle"
+        //            placeDetailVC.markerName = "self.markerNamex"
+        //            placeDetailVC.markerAddress = "self.markerAddress"
+        
         self.present(placeDetailVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setMap()
-        // print(navigationController)
-        naverMapView?.mapView.delegate = self
+        
+        configMap()
+        configLocation()
     }
     
-    private func setMap() {
-        naverMapView?.showLocationButton = true // 현재위치 버튼
-        naverMapView?.mapView.zoomLevel = 11 // 값이 클수록 지도 확대
-
-        // 비디오 데이터 처리
+    private func configMap() {
+        naverMapView?.mapView.delegate = self
+        naverMapView?.showLocationButton = true
+        naverMapView?.mapView.zoomLevel = 11
+        
         for dummyData in dummyDataList {
             guard let title = dummyData["Title"] as? String,
                   let descriptions = dummyData["Description"] as? [String], descriptions.count >= 2,
@@ -66,16 +66,29 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
         }
     }
     
-    // 주소를 위경도로 변환하는 함수
+    private func configLocation() {
+        locationManager.delegate = self // 델리게이트 설정
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest // 거리 정확도 설정
+        locationManager.requestWhenInUseAuthorization() // 사용자에게 허용 받기 alert 띄우기
+        
+        // 위치 사용을 허용하면 현재 위치 정보를 가져옴
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        else {
+            print("위치 서비스 허용 off")
+        }
+    }
+    
     func convertAddressToCoordinate(title: String?, name: String?, address: String?) {
         let header1 = HTTPHeader(name: "X-NCP-APIGW-API-KEY-ID", value: NAVER_CLIENT_ID)
         let header2 = HTTPHeader(name: "X-NCP-APIGW-API-KEY", value: NAVER_CLIENT_SECRET)
-        let headers = HTTPHeaders([header1,header2])
+        let headers = HTTPHeaders([header1, header2])
         
         AF.request(NAVER_GEOCODE_URL + address!, method: .get, encoding: URLEncoding.default, headers: headers).validate()
             .responseJSON { response in
                 switch response.result {
-                case .success(let value as [String:Any]):
+                case .success(let value as [String: Any]):
                     let json = JSON(value)
                     let data = json["addresses"]
                     
@@ -84,49 +97,47 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
                     let roadAddr = data[0]["roadAddress"].stringValue
                     let coordinate = NMGLatLng(lat: lat, lng: lon)
                     
-                    print("위도:", lat, "경도:", lon, "도로명주소:", roadAddr)
-                    // 마커 생성
-                    self.addMarker(at: coordinate, title: title, name: name, address: roadAddr)
+                    self.setMarkers(at: coordinate, title: title, name: name, address: roadAddr)
                     
                 case .failure(let error):
                     print(error.errorDescription ?? "")
-                default :
+                default:
                     fatalError()
                 }
             }
     }
     
-    // 마커 추가 함수
-    func addMarker(at latlng: NMGLatLng, title: String?, name: String?, address: String?) {
-        let marker = CustomMarker(position: latlng, title: title, name: name, address: address, customUserInfo: ["tag" : markerCount])
+    func setInitialCameraPosition(at latlng: NMGLatLng) {
+        naverMapView?.mapView.positionMode = .disabled
+        naverMapView?.mapView.moveCamera(NMFCameraUpdate(scrollTo: latlng))
+    }
+    
+    func setMarkers(at latlng: NMGLatLng, title: String?, name: String?, address: String?) {
+        let marker = CustomMarker(position: latlng, title: title, name: name, address: address, distanceKM: nil, customUserInfo: ["tag": markerCount])
         
         markerCount += 1
         allMarkers.append(marker)
         
-        for marker in allMarkers {
-            marker.touchHandler = { (overlay) -> Bool in
-                if let customMarker = overlay as? CustomMarker,
-                   let tag = customMarker.customUserInfo?["tag"] as? Int {
-                    print("마커 \(tag) 터치됨")
-                    
-                    // 마커를 클릭했을 때 placeName.text와 placeAddr.text를 업데이트
-                    self.placeName?.text = customMarker.name
-                    self.placeAddr?.text = customMarker.address
-                }
-                return false
+        marker.touchHandler = { (overlay) -> Bool in
+            if let customMarker = overlay as? CustomMarker,
+               let tag = customMarker.customUserInfo?["tag"] as? Int {
+                self.placeName?.text = customMarker.name
+                self.placeAddr?.text = customMarker.address
+                self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
             }
+            return false
         }
+        
+        calculateAndSetDistance(marker: marker) // 테이블뷰에 보여줄 거리 계산용
 
         marker.mapView = naverMapView?.mapView
-        marker.captionRequestedWidth = 60 // 캡션 너비
-        marker.captionText = name ?? "" // 캡션 네임
+        marker.captionRequestedWidth = 60
+        marker.captionText = name ?? ""
         
-        // 하단 뷰에는 제일 처음 생성된 마커 정보만 표시
         if initialMarkerName == nil && initialMarkerAddress == nil {
             initialMarkerName = name
             initialMarkerAddress = address
             
-            // *이후 마커 클릭시 한번 더 업데이트 필요
             placeName?.text = marker.name
             placeAddr?.text = marker.address
             
@@ -134,9 +145,31 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
         }
     }
     
-    // 초기 카메라 위치 설정 함수
-    func setInitialCameraPosition(at latlng: NMGLatLng) {
-        naverMapView?.mapView.positionMode = .disabled
-        naverMapView?.mapView.moveCamera(NMFCameraUpdate(scrollTo: latlng))
+    func calculateAndSetDistance(marker: CustomMarker) {
+        guard let currentLocation = locationManager.location else {
+            return
+        }
+        
+        let markerLocation = CLLocation(latitude: marker.position.lat, longitude: marker.position.lng)
+        let distanceM = currentLocation.distance(from: markerLocation)
+        
+        marker.distanceKM = distanceM / 1000.0
+        
+        distanceInKilometers?.text = String(format: "%.2f km", marker.distanceKM!)
+    }
+    
+    
+    // 위치 정보 계속 업데이트 -> 위도 경도 받아옴
+    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //        print("위치 업데이트")
+    //        if let location = locations.first {
+    //            print("위도: \(location.coordinate.latitude)")
+    //            print("경도: \(location.coordinate.longitude)")
+    //        }
+    //    }
+    
+    // 위치 가져오기 실패
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 }
