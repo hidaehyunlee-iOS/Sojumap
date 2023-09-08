@@ -32,21 +32,21 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="660"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="Txy-jn-4ED">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="130"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoCell" rowHeight="150" id="Txy-jn-4ED" customClass="VideoTableViewCell" customModule="Sojumap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Txy-jn-4ED" id="7YI-Zu-iDo">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="llA-eB-kQx">
-                                                    <rect key="frame" x="5" y="5" width="150" height="120"/>
+                                                    <rect key="frame" x="5" y="5" width="150" height="140"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="cdV-MO-fTo"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="jg2-Yy-KUC">
-                                                    <rect key="frame" x="165" y="5" width="223" height="120"/>
+                                                    <rect key="frame" x="165" y="5" width="223" height="140"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동영상 제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjP-Vy-eAW">
                                                             <rect key="frame" x="0.0" y="0.0" width="223" height="25"/>
@@ -67,10 +67,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckz-xe-eE1">
-                                                            <rect key="frame" x="0.0" y="54" width="223" height="66"/>
+                                                            <rect key="frame" x="0.0" y="54" width="223" height="86"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lU-3l-ih5">
-                                                                    <rect key="frame" x="188" y="31" width="35" height="35"/>
+                                                                    <rect key="frame" x="188" y="51" width="35" height="35"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="35" id="DfI-U3-kRx"/>
                                                                         <constraint firstAttribute="height" constant="35" id="P2G-r9-fGY"/>
@@ -98,6 +98,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="jg2-Yy-KUC" secondAttribute="bottom" constant="5" id="uug-43-Kl4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="videoImage" destination="llA-eB-kQx" id="jfa-Lo-VK6"/>
+                                            <outlet property="videoInfo" destination="75y-sP-S0m" id="RJK-OB-gPP"/>
+                                            <outlet property="videoTitle" destination="gjP-Vy-eAW" id="zTH-m2-QZN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -115,6 +120,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house" id="qmo-st-Pad"/>
+                    <connections>
+                        <outlet property="videoTable" destination="fNM-Wk-0gw" id="2m8-zN-omD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
