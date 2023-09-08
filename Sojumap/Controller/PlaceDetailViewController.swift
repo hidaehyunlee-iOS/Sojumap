@@ -22,6 +22,7 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var secondViewBottomConstraint: NSLayoutConstraint! // 두 번째 UIView의 하단 제약
     
     var isExpanded = true // 확장 상태를 추적하는 변수
+    var videoData: VideoData?
     
     // 필요한 변수
     // videoid, 썸네일, 제목, 조회수, 해시태그, 식당이름, 식당 주소, 식당url(네이버 링크)
@@ -39,9 +40,9 @@ class PlaceDetailViewController: UIViewController {
         
         // 디테일 페이지로 넘어올 때 full screen으로 보여지게 작업(메인 작업 완료 후 작업)
 //        UIModalPresentationStyle.fullScreen
-        
+        setupData()
         getVideo()
-     
+        
         // 스택뷰 초기 상태 설정
         placeInformView?.isHidden = true
         
@@ -69,6 +70,11 @@ class PlaceDetailViewController: UIViewController {
     
     }
     
+    func setupData() {
+        guard let data = videoData else { return }
+        guard let dataID = data.videoId else { return }
+        videoId = dataID
+    }
 }
 
 // MARK: - extention
@@ -78,9 +84,9 @@ extension PlaceDetailViewController: WKNavigationDelegate, WKUIDelegate {
     
     func getVideo(){
         // YouTube 동영상의 임베드 코드
-        let videoID = "b3aKs29igcQ"
+//        let videoID = "b3aKs29igcQ"
         // * autoplay=1 -> 동영상 자동 실행
-        let embedCode = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/\(videoID)?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>"
+        let embedCode = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/\(self.videoId)?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>"
 
         // 임베드 코드를 HTML 형식으로 래핑
         let html = """
