@@ -8,39 +8,39 @@
 import UIKit
 import NMapsMap
 import WebKit
-
+import SafariServices
 
 class PlaceDetailViewController: UIViewController {
     // 영상 재생 view
     @IBOutlet weak var playerView: WKWebView?
-    // 영상 재생 시, 전체 화면 되지 않고 현재 뷰에서 재생
-//    let playVarsDic = ["playsinline": 1]
-    
+  
     @IBOutlet weak var placeInformView: UIStackView?
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var mapView: NMFNaverMapView!
     @IBOutlet weak var secondViewBottomConstraint: NSLayoutConstraint! // 두 번째 UIView의 하단 제약
     
     var isExpanded = true // 확장 상태를 추적하는 변수
-    var videoData: VideoData?
     
-    // 필요한 변수
-    // videoid, 썸네일, 제목, 조회수, 해시태그, 식당이름, 식당 주소, 식당url(네이버 링크)
+    var videoData: VideoData? // 비디오 데이터 객체 가져오기
+    
+    // 전달 받은 데이터
     var videoId: String = ""
-    var thumnail: String = ""
-    var videoTitle: String = ""
-    var viewCnt: String = ""
-    var hashtag: String = ""
-    var placeName: String = ""
-    var address: String = ""
-    var placeUrl: String = ""
+    @IBOutlet weak var videoTitle: UILabel!
+    @IBOutlet weak var viewCnt: UILabel!
+    @IBOutlet weak var hashtag: UILabel!
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var placeUrl: UILabel!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 디테일 페이지로 넘어올 때 full screen으로 보여지게 작업(메인 작업 완료 후 작업)
 //        UIModalPresentationStyle.fullScreen
+        
         setupData()
+        
         getVideo()
         
         // 스택뷰 초기 상태 설정
@@ -71,10 +71,59 @@ class PlaceDetailViewController: UIViewController {
     }
     
     func setupData() {
+        // 숫자 콤마 넣기
+        let numberFormatter: NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        // UITapGestureRecognizer를 생성하고 액션 메서드와 연결
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        placeUrl.addGestureRecognizer(tapGesture)
+        // UILabel을 탭 가능하게 만듭니다.
+        placeUrl.isUserInteractionEnabled = true
+        
         guard let data = videoData else { return }
+
         guard let dataID = data.videoId else { return }
         videoId = dataID
+        
+        guard let dataTitle = data.title else { return }
+        videoTitle.text = dataTitle
+        videoTitle.numberOfLines = 2 // 두 줄까지만 표시하도록 설정
+        videoTitle.lineBreakMode = .byTruncatingTail // 넘치는 텍스트는 생략하도록 설정
+        
+        guard let viewCount = data.viewCount else { return }
+        let cnt = Int(viewCount)!
+        viewCnt.text = "조회수 " + numberFormatter.string(for: cnt)! + "회"
+        
+        if data.videoInfo.isEmpty == true {
+            placeName.text = "** 식당 정보가 없습니다. **"
+            address.text = ""
+            placeUrl.text = ""
+        }else {
+            guard let name = data.videoInfo[0] else { return }
+            placeName.text = name
+            
+            guard let addr = data.videoInfo[1] else { return }
+            address.text = addr
+            
+            guard let url = data.videoInfo[2] else { return }
+            placeUrl.text = url
+            
+        }
+        
+        
     }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        // placeUrl.text에서 URL을 가져옵니다.
+        if let urlString = placeUrl.text, let url = URL(string: urlString) {
+            // SFSafariViewController를 사용하여 URL을 엽니다.
+            let safariView = SFSafariViewController(url: url)
+            present(safariView, animated: true, completion: nil)
+        }
+    }
+    
+    
 }
 
 // MARK: - extention
@@ -84,7 +133,6 @@ extension PlaceDetailViewController: WKNavigationDelegate, WKUIDelegate {
     
     func getVideo(){
         // YouTube 동영상의 임베드 코드
-//        let videoID = "b3aKs29igcQ"
         // * autoplay=1 -> 동영상 자동 실행
         let embedCode = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/\(self.videoId)?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>"
 
