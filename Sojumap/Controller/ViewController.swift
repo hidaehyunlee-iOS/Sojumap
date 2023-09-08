@@ -60,7 +60,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "PlaceDetailViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
-        // vc.videoData = saveManager.saveMemoList[indexPath.row]
+        vc.videoData = saveManager.saveMemoList[indexPath.row]
         // 동영상 뷰컨트롤러에 비디오데이터 받을 변수 생성
         
         present(vc, animated: true)
