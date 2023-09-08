@@ -81,7 +81,7 @@ extension MapTableViewController: UITableViewDataSource, UITableViewDelegate {
         
         let marker = allMarkers[indexPath.row]
         
-        cell.placeNameLabel.text = marker.name
+        cell.placeNameLabel.text = marker.placeName
         cell.placeAddrLabel.text = marker.address
         if let distanceKM = marker.distanceKM { // 거리는 바인딩 필요
             cell.placeDistance?.text = String(format: "%.2f km", distanceKM)

@@ -95,8 +95,8 @@
                     <connections>
                         <outlet property="distanceInKilometers" destination="Kp0-Xs-YiK" id="chU-SU-nlT"/>
                         <outlet property="naverMapView" destination="dzo-KA-DnH" id="DQ6-2f-bp6"/>
-                        <outlet property="placeAddr" destination="l7B-MH-Bse" id="sFD-Yd-ev9"/>
-                        <outlet property="placeName" destination="XLP-2h-BCe" id="Kqq-0I-t7s"/>
+                        <outlet property="placeAddrLabel" destination="l7B-MH-Bse" id="Pld-Jz-IRX"/>
+                        <outlet property="placeNameLabel" destination="XLP-2h-BCe" id="WDH-ro-Pyo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
