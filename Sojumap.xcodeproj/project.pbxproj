@@ -33,6 +33,9 @@
 		DEA4AC4E2AA5CD7400361CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4D2AA5CD7400361CFC /* Assets.xcassets */; };
 		DEA4AC512AA5CD7400361CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA4AC4F2AA5CD7400361CFC /* LaunchScreen.storyboard */; };
 		DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEB2AA967C9002D908B /* DummyData.swift */; };
+		DED83BEE2AA9B375002D908B /* CustonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BED2AA9B375002D908B /* CustonMarker.swift */; };
+		DED83BF02AA9BB9A002D908B /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */; };
+		DED83BF22AA9D4EC002D908B /* MapTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED83BF12AA9D4EC002D908B /* MapTableViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +82,9 @@
 		DEA4AC502AA5CD7400361CFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEA4AC522AA5CD7400361CFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DED83BEB2AA967C9002D908B /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		DED83BED2AA9B375002D908B /* CustonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonMarker.swift; sourceTree = "<group>"; };
+		DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
+		DED83BF12AA9D4EC002D908B /* MapTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapTableViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +169,7 @@
 				5298C1612AA8CAC6001AA8E2 /* VideoData.swift */,
 				DED83BEB2AA967C9002D908B /* DummyData.swift */,
 				52A3F2052AA9B2F6000FE101 /* SaveDatas.swift */,
+				DED83BED2AA9B375002D908B /* CustonMarker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 				DE4920562AA5D37A008CFE0A /* MypageViewController.swift */,
 				7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */,
 				7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */,
+				DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				DEA4AC4A2AA5CD7300361CFC /* Main.storyboard */,
 				DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */,
 				DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */,
+				DED83BF12AA9D4EC002D908B /* MapTableViewController.storyboard */,
 				DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */,
 				7E9F9D1E2AA6F71400AB7382 /* SignUpPage.storyboard */,
 				7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */,
@@ -260,6 +269,7 @@
 				DEA4AC4E2AA5CD7400361CFC /* Assets.xcassets in Resources */,
 				DE4920592AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard in Resources */,
 				DE49205D2AA5D3DD008CFE0A /* MypageViewController.storyboard in Resources */,
+				DED83BF22AA9D4EC002D908B /* MapTableViewController.storyboard in Resources */,
 				DEA4AC4C2AA5CD7300361CFC /* Main.storyboard in Resources */,
 				7E9F9D1F2AA6F71400AB7382 /* SignUpPage.storyboard in Resources */,
 			);
@@ -316,6 +326,7 @@
 			files = (
 				7E9F9D212AA6F82300AB7382 /* SignUpViewController.swift in Sources */,
 				7E9F9D1D2AA6F34A00AB7382 /* SignInViewController.swift in Sources */,
+				DED83BEE2AA9B375002D908B /* CustonMarker.swift in Sources */,
 				DEA4AC492AA5CD7300361CFC /* ViewController.swift in Sources */,
 				DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */,
 				DE4920612AA6DFEB008CFE0A /* UserData.swift in Sources */,
@@ -330,6 +341,7 @@
 				7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */,
 				52A3F2062AA9B2F6000FE101 /* SaveDatas.swift in Sources */,
 				5298C1602AA8CA9E001AA8E2 /* ThreeMealData.swift in Sources */,
+				DED83BF02AA9BB9A002D908B /* MapTableViewController.swift in Sources */,
 				DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,44 +12,45 @@ import Alamofire
 import SwiftyJSON
 import SwiftSoup
 
-class CustomMarker: NMFMarker {
-    var title: String?
-    var name: String?
-    var address: String?
-    var customUserInfo: [String: Any]?
-
-    init(position: NMGLatLng, title: String?, name: String?, address: String?, customUserInfo: [String: Any]? = nil) {
-        super.init()
-        self.position = position
-        self.title = title
-        self.name = name
-        self.address = address
-        self.customUserInfo = customUserInfo
-    }
-}
-
-
 class MapViewController: UIViewController, NMFMapViewDelegate {
-    @IBOutlet weak var naverMapView: NMFNaverMapView!
-    @IBOutlet weak var placeName: UILabel!
-    @IBOutlet weak var placeAddr: UILabel!
+    @IBOutlet weak var naverMapView: NMFNaverMapView?
+    @IBOutlet weak var placeName: UILabel?
+    @IBOutlet weak var placeAddr: UILabel?
     
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     var initialMarkerName: String?
     var initialMarkerAddress: String?
-    var allMarkers: [CustomMarker] = [] // addMaker()에서 추가
-    var count = 1 // 각 마커를 tag로 구분하기 위한 카운트 변수
 
+    @IBAction func showListButton(_ sender: UIBarButtonItem) {
+        let storyBoard = UIStoryboard(name: "MapTableViewController", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "MapTableViewController") as! MapTableViewController
+        //self.present(vc, animated: false, completion: nil)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        // self.present(MapTableVC, animated: false, completion: nil)
+    }
+    
+    @IBAction func detailPageButton(_ sender: UIButton) {
+        let placeDetailVC = PlaceDetailViewController()
+            
+            // 선택된 마커 정보 식별해야됨
+//            placeDetailVC.markerTitle = "self.markerTitle"
+//            placeDetailVC.markerName = "self.markerNamex"
+//            placeDetailVC.markerAddress = "self.markerAddress"
+            
+        self.present(placeDetailVC, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setMap()
-
-        naverMapView.mapView.delegate = self
+        // print(navigationController)
+        naverMapView?.mapView.delegate = self
     }
     
     private func setMap() {
-        naverMapView.showLocationButton = true // 현재위치 버튼
-        naverMapView.mapView.zoomLevel = 11 // 값이 클수록 지도 확대
+        naverMapView?.showLocationButton = true // 현재위치 버튼
+        naverMapView?.mapView.zoomLevel = 11 // 값이 클수록 지도 확대
 
         // 비디오 데이터 처리
         for dummyData in dummyDataList {
@@ -97,9 +98,9 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     
     // 마커 추가 함수
     func addMarker(at latlng: NMGLatLng, title: String?, name: String?, address: String?) {
-        let marker = CustomMarker(position: latlng, title: title, name: name, address: address, customUserInfo: ["tag" : count])
+        let marker = CustomMarker(position: latlng, title: title, name: name, address: address, customUserInfo: ["tag" : markerCount])
         
-        count += 1
+        markerCount += 1
         allMarkers.append(marker)
         
         for marker in allMarkers {
@@ -109,14 +110,14 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
                     print("마커 \(tag) 터치됨")
                     
                     // 마커를 클릭했을 때 placeName.text와 placeAddr.text를 업데이트
-                    self.placeName.text = customMarker.name
-                    self.placeAddr.text = customMarker.address
+                    self.placeName?.text = customMarker.name
+                    self.placeAddr?.text = customMarker.address
                 }
                 return false
             }
         }
 
-        marker.mapView = naverMapView.mapView
+        marker.mapView = naverMapView?.mapView
         marker.captionRequestedWidth = 60 // 캡션 너비
         marker.captionText = name ?? "" // 캡션 네임
         
@@ -126,8 +127,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
             initialMarkerAddress = address
             
             // *이후 마커 클릭시 한번 더 업데이트 필요
-            placeName.text = marker.name
-            placeAddr.text = marker.address
+            placeName?.text = marker.name
+            placeAddr?.text = marker.address
             
             setInitialCameraPosition(at: latlng)
         }
@@ -135,7 +136,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     
     // 초기 카메라 위치 설정 함수
     func setInitialCameraPosition(at latlng: NMGLatLng) {
-        naverMapView.mapView.positionMode = .disabled
-        naverMapView.mapView.moveCamera(NMFCameraUpdate(scrollTo: latlng))
+        naverMapView?.mapView.positionMode = .disabled
+        naverMapView?.mapView.moveCamera(NMFCameraUpdate(scrollTo: latlng))
     }
 }
