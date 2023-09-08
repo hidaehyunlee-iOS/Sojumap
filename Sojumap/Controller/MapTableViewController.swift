@@ -42,7 +42,7 @@ extension MapTableViewController: UITableViewDataSource, UITableViewDelegate {
         
         let marker = allMarkers[indexPath.row]
 
-        cell.placeNameLabel.text = "📍 \(marker.name!)"
+        cell.placeNameLabel.text = marker.name
         cell.placeAddrLabel.text = marker.address
 
         return cell

@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ssm-j2-KL0">
-                                <rect key="frame" x="30.000000000000007" y="120.99999999999999" width="87.666666666666686" height="20.333333333333329"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ssm-j2-KL0">
+                                <rect key="frame" x="30.000000000000007" y="120.99999999999999" width="83.666666666666686" height="20.333333333333329"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAF-GF-45E">
                                         <rect key="frame" x="0.0" y="0.0" width="29.666666666666668" height="20.333333333333332"/>
@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibL-gU-LrC">
-                                        <rect key="frame" x="37.666666666666671" y="0.0" width="50" height="20.333333333333332"/>
+                                        <rect key="frame" x="33.666666666666664" y="0.0" width="49.999999999999993" height="20.333333333333332"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="SeX-Pj-2fa"/>
                                         </constraints>
@@ -52,7 +52,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vuw-l7-cKs">
                                                     <rect key="frame" x="20" y="11" width="293" height="55"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jep-vH-RUx">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="jep-vH-RUx">
                                                             <rect key="frame" x="0.0" y="0.0" width="293" height="34.333333333333336"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wg5-ke-Sg5">
@@ -65,7 +65,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meq-ke-S8b">
-                                                                    <rect key="frame" x="248" y="0.0" width="45" height="34.333333333333336"/>
+                                                                    <rect key="frame" x="269" y="0.0" width="24" height="34.333333333333336"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain">
                                                                         <imageReference key="image" image="info.circle" catalog="system" symbolScale="medium"/>
