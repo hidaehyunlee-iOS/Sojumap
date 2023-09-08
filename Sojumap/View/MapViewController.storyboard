@@ -59,20 +59,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-Ep-VgO">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <navigationItem title="전국 소주 지도" id="vsT-0x-t42">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="zKd-yz-WVa">
-                                            <connections>
-                                                <action selector="showListButton:" destination="Y6W-OH-hqX" id="d1t-JJ-amy"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,16 +67,18 @@
                             <constraint firstItem="gVo-6y-TiB" firstAttribute="top" secondItem="dzo-KA-DnH" secondAttribute="bottom" constant="20" id="JTr-00-ijX"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dzo-KA-DnH" secondAttribute="bottom" constant="130" id="KTg-3u-NBe"/>
                             <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="103" id="TpY-pZ-5Ot"/>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="4Fu-Ep-VgO" secondAttribute="bottom" id="YnM-T6-Cqd"/>
                             <constraint firstItem="dzo-KA-DnH" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="c1w-ub-Yuj"/>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="trailing" secondItem="4Fu-Ep-VgO" secondAttribute="trailing" id="d0P-5i-uG3"/>
                             <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="p4k-5f-Nnd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gVo-6y-TiB" secondAttribute="trailing" constant="17" id="qDl-AL-F81"/>
-                            <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="4Fu-Ep-VgO" secondAttribute="leading" id="x6d-vK-IJi"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="reU-yG-wOe"/>
-                    <navigationItem key="navigationItem" id="JrL-wc-P8g"/>
+                    <navigationItem key="navigationItem" id="JrL-wc-P8g">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="L1h-UF-duL">
+                            <connections>
+                                <action selector="showListButton:" destination="Y6W-OH-hqX" id="men-QI-K7L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="naverMapView" destination="dzo-KA-DnH" id="DQ6-2f-bp6"/>
@@ -100,21 +88,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1977.8625954198471" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="2904.5801526717555" y="-2.1126760563380285"/>
         </scene>
-        <!--MapTableViewController-->
-        <scene sceneID="8aU-TR-DBq">
+        <!--MapNavVC-->
+        <scene sceneID="gTf-ip-bJF">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MapTableViewController" storyboardName="MapTableViewController" referencedIdentifier="MapTableViewController" id="fdh-XO-K8z" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8IE-mZ-hY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController restorationIdentifier="MapNavVC" storyboardIdentifier="MapNavVC" title="MapNavVC" automaticallyAdjustsScrollViewInsets="NO" id="Y1w-DB-b6s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="reU-yG-wOe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jo9-3o-N9a">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="DfL-dJ-17M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ehb-Oz-xg0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2544.2748091603053" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1977.8625954198471" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
-        <image name="house" catalog="system" width="128" height="104"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

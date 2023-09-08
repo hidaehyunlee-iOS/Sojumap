@@ -22,7 +22,6 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     var initialMarkerAddress: String?
 
     @IBAction func showListButton(_ sender: UIBarButtonItem) {
-        
         let storyBoard = UIStoryboard(name: "MapTableViewController", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "MapTableViewController") as! MapTableViewController
         //self.present(vc, animated: false, completion: nil)
@@ -45,7 +44,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setMap()
-
+        // print(navigationController)
         naverMapView?.mapView.delegate = self
     }
     
