@@ -12,7 +12,6 @@ import SafariServices
 import CoreLocation
 import Alamofire
 import SwiftyJSON
-import SwiftSoup
 
 class PlaceDetailViewController: UIViewController {
     // 영상 재생 view
@@ -20,7 +19,7 @@ class PlaceDetailViewController: UIViewController {
   
     @IBOutlet weak var placeInformView: UIStackView?
     @IBOutlet weak var expandButton: UIButton!
-    @IBOutlet weak var mapView: NMFNaverMapView!
+    @IBOutlet weak var mapView: NMFNaverMapView?
     @IBOutlet weak var secondViewBottomConstraint: NSLayoutConstraint! // 두 번째 UIView의 하단 제약
     
     var isExpanded = true // 확장 상태를 추적하는 변수
@@ -37,7 +36,6 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var placeUrl: UILabel!
  
     // 지오코딩 객체 생성
-//    let geocoder = CLGeocoder()
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     
     
@@ -47,12 +45,15 @@ class PlaceDetailViewController: UIViewController {
         // 디테일 페이지로 넘어올 때 full screen으로 보여지게 작업(메인 작업 완료 후 작업)
 //        UIModalPresentationStyle.fullScreen
         
-        setupData()
-        
-        getVideo()
-        
         // 스택뷰 초기 상태 설정
         placeInformView?.isHidden = true
+        // 데이터 받아오기
+        setupData()
+        // 유튜브 재생하기
+        getVideo()
+        // 지도 마커 받아오기
+        configMap()
+        
         
     }
     
@@ -83,86 +84,60 @@ class PlaceDetailViewController: UIViewController {
         let numberFormatter: NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        // UITapGestureRecognizer를 생성하고 액션 메서드와 연결
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        placeUrl.addGestureRecognizer(tapGesture)
-        // UILabel을 탭 가능하게 만듭니다.
-        placeUrl.isUserInteractionEnabled = true
-        
         guard let data = videoData,
               let dataID = data.videoId,
               let dataTitle = data.title,
-              let viewCount = data.viewCount,
+              let viewCount = data.releaseViewCount,
               let name = data.videoInfo[safe: 0] ?? "",
               let addr = data.videoInfo[safe: 1] ?? "",
               let url = data.videoInfo[safe: 2] ?? ""
         else {return}
-                
-        videoId = dataID
+              
+        // 링크 텍스트 지정하기
+        placeUrl.text = "식당 정보(웹사이트) 바로가기"
+        let attributedText = NSMutableAttributedString(string: placeUrl.text!)
         
+        // 링크 텍스트 범위 설정
+        let linkRange = (placeUrl.text! as NSString).range(of: "식당 정보(웹사이트) 바로가기")
+        
+        // 링크 추가, underline
+        attributedText.addAttribute(.link, value: addr, range: linkRange)
+        attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedText.length))
+        
+        // UILabel에 속성 텍스트 설정
+        placeUrl.attributedText = attributedText
+        
+        // UILabel에 탭 제스처 추가
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openLink))
+        placeUrl.isUserInteractionEnabled = true
+        placeUrl.addGestureRecognizer(tapGestureRecognizer)
+        
+        // 데이터 값 넣어주기
+        videoId = dataID
         videoTitle.text = dataTitle
         videoTitle.numberOfLines = 2 // 두 줄까지만 표시하도록 설정
         videoTitle.lineBreakMode = .byTruncatingTail // 넘치는 텍스트는 생략하도록 설정
-        
-        let cnt = Int(viewCount)!
-        viewCnt.text = "조회수 " + numberFormatter.string(for: cnt)! + "회"
-
-        let encodeAddress = addr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-//        print("인코딩주소 : " , encodeAddress)
+        viewCnt.text = viewCount
         
         if data.videoInfo.isEmpty == true {
             placeName.text = "** 식당 정보가 없습니다. **"
             address.text = ""
             placeUrl.text = ""
         }else {
-            placeName.text = name
+            placeName.text = "🍽️ " + name
             address.text = addr
-            placeUrl.text = url
+            placeUrl.attributedText = attributedText
         }
-        
-        // 주소를 위도와 경도로 변환
-//        geocoder.geocodeAddressString(addr) { (placemarks, error) in
-//            if let error = error {
-//                print("지오코딩 에러: \(error.localizedDescription)")
-//                return
-//            }
-//
-//            if let placemark = placemarks?.first {
-//                // 첫 번째 결과를 사용하고 위도와 경도를 얻습니다.
-//                let latitude = placemark.location?.coordinate.latitude ?? 0.0
-//                let longitude = placemark.location?.coordinate.longitude ?? 0.0
-//
-//                print("위도: \(latitude)")
-//                print("경도: \(longitude)")
-//            } else {
-//                print("주소를 찾을 수 없습니다.")
-//            }
-//        }
- 
-        
+         
     }
     
-    // 주소에서 위도와 경도 알아내기
-    func convertAddressToCoordinate(address: String?){
-        let header1 = HTTPHeader(name: "X-NCP-APIGW-API-KEY-ID", value: NAVER_CLIENT_ID)
-        let header2 = HTTPHeader(name: "X-NCP-APIGW-API-KEY", value: NAVER_CLIENT_SECRET)
-        let headers = HTTPHeaders([header1, header2])
+    @objc func openLink(sender: UITapGestureRecognizer) {
         
-//        AF.request(NAVER_GEOCODE_URL + address!, method: .get, headers: headers).validate().responseJSON { AFDataResponse<Any> in
-//            <#code#>
-//        }
-        
-    }
-    
-    
-    
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        // placeUrl.text에서 URL을 가져옵니다.
-        if let urlString = placeUrl.text, let url = URL(string: urlString) {
-            // SFSafariViewController를 사용하여 URL을 엽니다.
-            let safariView = SFSafariViewController(url: url)
-            present(safariView, animated: true, completion: nil)
+        guard let data = videoData,
+              let url = data.videoInfo[2] else {return}
+      
+        if let url = URL(string: url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
@@ -211,6 +186,69 @@ extension PlaceDetailViewController: WKNavigationDelegate, WKUIDelegate {
         // 로딩이 완료되면 크기를 자동으로 조절하도록 설정
         webView.sizeToFit()
 
+    }
+    
+}
+
+// 지도 설정
+extension PlaceDetailViewController: NMFMapViewDelegate {
+    func configMap(){
+        mapView?.mapView.delegate = self
+        mapView?.showLocationButton = true
+        mapView?.mapView.zoomLevel = 15
+        
+        guard let data = videoData,
+              let addr = data.videoInfo[safe: 1] ?? ""
+        else {return}
+        
+        let encodeAddress = addr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        convertAddressToCoordinate(address: encodeAddress)
+    }
+    
+    // 주소에서 위도와 경도 알아내기
+    func convertAddressToCoordinate(address: String?){
+        let header1 = HTTPHeader(name: "X-NCP-APIGW-API-KEY-ID", value: NAVER_CLIENT_ID)
+        let header2 = HTTPHeader(name: "X-NCP-APIGW-API-KEY", value: NAVER_CLIENT_SECRET)
+        let headers = HTTPHeaders([header1, header2])
+        
+        AF.request(NAVER_GEOCODE_URL + address!, method: .get, headers: headers).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value as [String: Any]):
+                let json = JSON(value)
+                let data = json["addresses"]
+                
+                let lat = data[0]["y"].doubleValue
+                let lon = data[0]["x"].doubleValue
+                
+                let coordinate = NMGLatLng(lat: lat, lng: lon)
+                
+                self.setMarker(at: coordinate)
+                
+            case .failure(let error):
+                print(error.errorDescription ?? "")
+            default:
+                fatalError()
+            }
+            
+        }
+    }
+    
+    // 마커 생성
+    func setMarker(at latlng: NMGLatLng){
+
+        let marker = NMFMarker(position: latlng)
+        
+        guard let data = videoData,
+              let name = data.videoInfo[safe: 0] else {return}
+        
+        marker.mapView = mapView?.mapView
+        marker.captionRequestedWidth = 60
+        marker.captionText =  name ?? ""
+        
+        // 마커가 있는 위치로 지도 화면을 이동
+        let cameraUpdate = NMFCameraUpdate(scrollTo: latlng)
+        mapView?.mapView.moveCamera(cameraUpdate)
     }
     
 }
