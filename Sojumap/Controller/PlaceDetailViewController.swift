@@ -33,8 +33,9 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var hashtag: UILabel!
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var address: UILabel!
-    @IBOutlet weak var placeUrl: UILabel!
- 
+//    @IBOutlet weak var placeUrl: UILabel!
+    @IBOutlet weak var urlBtn: UIButton!
+    
     // 지오코딩 객체 생성
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     
@@ -94,23 +95,25 @@ class PlaceDetailViewController: UIViewController {
         else {return}
               
         // 링크 텍스트 지정하기
-        placeUrl.text = "식당 정보(웹사이트) 바로가기"
-        let attributedText = NSMutableAttributedString(string: placeUrl.text!)
+//        placeUrl.text = "식당 정보(웹사이트) 바로가기"
+//        let attributedText = NSMutableAttributedString(string: placeUrl.text!)
         
         // 링크 텍스트 범위 설정
-        let linkRange = (placeUrl.text! as NSString).range(of: "식당 정보(웹사이트) 바로가기")
+//        let linkRange = (placeUrl.text! as NSString).range(of: "식당 정보(웹사이트) 바로가기")
         
         // 링크 추가, underline
-        attributedText.addAttribute(.link, value: addr, range: linkRange)
-        attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedText.length))
+//        attributedText.addAttribute(.link, value: addr, range: linkRange)
+//        attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedText.length))
         
         // UILabel에 속성 텍스트 설정
-        placeUrl.attributedText = attributedText
+//        placeUrl.attributedText = attributedText
         
         // UILabel에 탭 제스처 추가
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openLink))
-        placeUrl.isUserInteractionEnabled = true
-        placeUrl.addGestureRecognizer(tapGestureRecognizer)
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openLink))
+//        placeUrl.isUserInteractionEnabled = true
+//        placeUrl.addGestureRecognizer(tapGestureRecognizer)
+        
+        urlBtn.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         
         // 데이터 값 넣어주기
         videoId = dataID
@@ -122,11 +125,11 @@ class PlaceDetailViewController: UIViewController {
         if data.videoInfo.isEmpty == true {
             placeName.text = "** 식당 정보가 없습니다. **"
             address.text = ""
-            placeUrl.text = ""
+//            placeUrl.text = ""
         }else {
             placeName.text = "🍽️ " + name
             address.text = addr
-            placeUrl.attributedText = attributedText
+//            placeUrl.attributedText = attributedText
         }
          
     }

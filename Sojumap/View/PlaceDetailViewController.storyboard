@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -84,18 +85,33 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-Zq-ah2">
-                                                <rect key="frame" x="8" y="126.33333333333331" width="377" height="105.33333333333331"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-Zq-ah2">
+                                                <rect key="frame" x="8" y="126.33333333333331" width="377" height="69.333333333333314"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5w-Jd-mrY">
-                                                        <rect key="frame" x="8" y="7.9999999999999982" width="361" height="20.333333333333329"/>
-                                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.1686274707" green="0.1686274707" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kyI-2f-GVi">
+                                                        <rect key="frame" x="8" y="0.0" width="361" height="34.333333333333336"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5w-Jd-mrY">
+                                                                <rect key="frame" x="0.0" y="0.0" width="313" height="34.333333333333336"/>
+                                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="textColor" red="0.1686274707" green="0.1686274707" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SE-9U-uwg">
+                                                                <rect key="frame" x="321" y="0.0" width="40" height="34.333333333333336"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="Bgs-Ch-DnA"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="v4G-nr-k8S"/>
+                                                                </constraints>
+                                                                <color key="tintColor" systemColor="linkColor"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain" image="link" catalog="system"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="식당 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCw-Bb-qaP">
-                                                        <rect key="frame" x="8" y="36.333333333333371" width="361" height="35"/>
+                                                        <rect key="frame" x="8" y="34.333333333333371" width="361" height="35"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="Ncv-dU-TAy"/>
                                                         </constraints>
@@ -103,17 +119,11 @@
                                                         <color key="textColor" red="0.1686274707" green="0.1686274707" blue="0.1686274707" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL (네이버)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-uO-3XM">
-                                                        <rect key="frame" x="8" y="79.333333333333371" width="361" height="18"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" red="0.26165377200000001" green="0.44240915669999997" blue="0.80699573859999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
-                                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="8" bottom="0.0" trailing="8"/>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxH-dg-f8T" customClass="NMFNaverMapView">
-                                                <rect key="frame" x="8" y="251.6666666666666" width="377" height="358.33333333333326"/>
+                                                <rect key="frame" x="8" y="215.66666666666671" width="377" height="394.33333333333326"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -170,9 +180,9 @@
                         <outlet property="mapView" destination="cxH-dg-f8T" id="Anc-Hn-wnC"/>
                         <outlet property="placeInformView" destination="BGG-Zq-ah2" id="MWZ-PV-yz5"/>
                         <outlet property="placeName" destination="S5w-Jd-mrY" id="pyM-uB-Jno"/>
-                        <outlet property="placeUrl" destination="aQO-uO-3XM" id="7Kx-Rh-Udf"/>
                         <outlet property="playerView" destination="TF8-9j-MRG" id="cDA-gK-K4x"/>
                         <outlet property="secondViewBottomConstraint" destination="4cB-Nq-rtW" id="b8j-AC-VmB"/>
+                        <outlet property="urlBtn" destination="0SE-9U-uwg" id="mRY-zB-8eZ"/>
                         <outlet property="videoTitle" destination="JFa-1x-9kD" id="0T5-2V-YJF"/>
                         <outlet property="viewCnt" destination="BrW-eB-1bD" id="NBX-3B-gsN"/>
                     </connections>
@@ -184,5 +194,9 @@
     </scenes>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="70"/>
+        <image name="link" catalog="system" width="128" height="124"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
