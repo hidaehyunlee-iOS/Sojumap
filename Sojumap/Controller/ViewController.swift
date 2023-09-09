@@ -17,6 +17,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupData()
         setupTableView()
+        setupNaviBar()
+    }
+    
+    func setupNaviBar() {
+        title = "Soju Map"
+        
+        // (네비게이션바 설정관련) iOS버전 업데이트 되면서 바뀐 설정⭐️⭐️⭐️
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()  // 불투명으로
+        appearance.backgroundColor = .white // bartintcolor가 15버전부터 appearance로 설정하게끔 바뀜
+        appearance.largeTitleTextAttributes = [.foregroundColor: Mycolor.title ]
+        appearance.titleTextAttributes = [.foregroundColor: Mycolor.title ]
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.tintColor = Mycolor.title
+        self.navigationController?.navigationBar.standardAppearance = appearance
+        self.navigationController?.navigationBar.compactAppearance = appearance
+        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "검색"
+        searchController.searchBar.searchTextField.backgroundColor = Mycolor.searchBar
+        navigationItem.searchController = searchController
+        
+        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func setupData() {
@@ -27,15 +51,19 @@ class ViewController: UIViewController {
                 self.videoManager.fetchVideoData(playlistID: result) { [weak self] videoResult in
                     self?.saveManager.saveMemoList = videoResult
                     self?.saveManager.saveMemoData()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.videoTable.reloadData()
+                    }
                 }
             }
         }
+        
     }
     
     func setupTableView() {
         videoTable.dataSource = self
         videoTable.delegate = self
-        videoTable.rowHeight = 150
+        videoTable.rowHeight = 110
     }
     
 }
@@ -50,7 +78,7 @@ extension ViewController: UITableViewDataSource {
         
         cell.imageUrl = saveManager.saveMemoList[indexPath.row].thumbnail
         cell.videoTitle.text = saveManager.saveMemoList[indexPath.row].title
-        cell.videoInfo.text = saveManager.saveMemoList[indexPath.row].viewCount
+        cell.videoInfo.text = saveManager.saveMemoList[indexPath.row].dateAndCount
         
         return cell
     }
