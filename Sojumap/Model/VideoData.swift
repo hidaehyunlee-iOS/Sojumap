@@ -32,15 +32,43 @@ struct VideoData: Codable {
         return []
     }
     
+    var dateAndCount: String? {
+        guard let date = releaseDateString,
+              let count = releaseViewCount else { return "" }
+        return "\(count) ･ \(date)"
+    }
+    
     var releaseDateString: String? {
         // 서버에서 주는 형태 (ISO규약에 따른 문자열 형태)
         guard let isoDate = ISO8601DateFormatter().date(from: uploadDate ?? "") else {
             return ""
         }
         let myFormatter = DateFormatter()
-        myFormatter.dateFormat = "yyyy-MM-dd"
+        myFormatter.dateFormat = "yy.MM.dd"
         let dateString = myFormatter.string(from: isoDate)
-        return dateString
+        return "\(dateString)"
+    }
+    
+    var releaseViewCount: String? {
+        guard let viewCount = viewCount,
+             let viewDouble = Double(viewCount) else { return ""}
+        
+        switch viewDouble {
+        case 10000... :
+            let result = releaseCount(count: viewDouble, unit: 10000)
+            return "조회수 \(result)만회"
+        case 1000... :
+            let result = releaseCount(count: viewDouble, unit: 1000)
+            return "조회수 \(result)천회"
+        default:
+            return "조회수 \(viewDouble)회"
+        }
+    }
+    
+    func releaseCount(count: Double, unit: Double) -> Double {
+        let oneStep = count / unit
+        let twoStep = round(oneStep * 10) / 10
+        return twoStep
     }
 
     init(videoId: String?, title: String?, thumbnail: String?, uploadDate: String?, description: String?, viewCount: String?) {
