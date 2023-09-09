@@ -15,6 +15,8 @@
 		52A3F2062AA9B2F6000FE101 /* SaveDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3F2052AA9B2F6000FE101 /* SaveDatas.swift */; };
 		52E741992AAC8F3700C4691E /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E741982AAC8F3700C4691E /* MyColor.swift */; };
 		7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E16E27B2AA76A5F00EED08A /* Extensions.swift */; };
+		7E684AD52AAAAE75007BA992 /* EditMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E684AD42AAAAE75007BA992 /* EditMyPageViewController.swift */; };
+		7E684AD92AAAF8DD007BA992 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E684AD82AAAF8DD007BA992 /* MypageViewController.swift */; };
 		7E79530B2AA8AEE800833AD0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E79530A2AA8AEE800833AD0 /* DataManager.swift */; };
 		7E9F9D192AA6EEAA00AB7382 /* SignInPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */; };
 		7E9F9D1D2AA6F34A00AB7382 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */; };
@@ -22,7 +24,6 @@
 		7E9F9D212AA6F82300AB7382 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */; };
 		DE4920532AA5D342008CFE0A /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */; };
 		DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920542AA5D369008CFE0A /* MapViewController.swift */; };
-		DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4920562AA5D37A008CFE0A /* MypageViewController.swift */; };
 		DE4920592AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */; };
 		DE49205B2AA5D3D2008CFE0A /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */; };
 		DE49205D2AA5D3DD008CFE0A /* MypageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */; };
@@ -63,6 +64,8 @@
 		52E741982AAC8F3700C4691E /* MyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
 		7AFECABD6A4D5A9AFEFD8ECD /* Pods-Sojumap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.debug.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.debug.xcconfig"; sourceTree = "<group>"; };
 		7E16E27B2AA76A5F00EED08A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7E684AD42AAAAE75007BA992 /* EditMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyPageViewController.swift; sourceTree = "<group>"; };
+		7E684AD82AAAF8DD007BA992 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		7E79530A2AA8AEE800833AD0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7E9F9D182AA6EEAA00AB7382 /* SignInPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInPage.storyboard; sourceTree = "<group>"; };
 		7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +75,6 @@
 		A6B4DF1E0DE3BA16B7E541FE /* Pods-Sojumap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sojumap.release.xcconfig"; path = "Target Support Files/Pods-Sojumap/Pods-Sojumap.release.xcconfig"; sourceTree = "<group>"; };
 		DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DE4920542AA5D369008CFE0A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		DE4920562AA5D37A008CFE0A /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		DE4920582AA5D3BF008CFE0A /* PlaceDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaceDetailViewController.storyboard; sourceTree = "<group>"; };
 		DE49205A2AA5D3D2008CFE0A /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		DE49205C2AA5D3DD008CFE0A /* MypageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MypageViewController.storyboard; sourceTree = "<group>"; };
@@ -195,7 +197,8 @@
 				DEA4AC482AA5CD7300361CFC /* ViewController.swift */,
 				DE4920522AA5D342008CFE0A /* PlaceDetailViewController.swift */,
 				DE4920542AA5D369008CFE0A /* MapViewController.swift */,
-				DE4920562AA5D37A008CFE0A /* MypageViewController.swift */,
+				7E684AD82AAAF8DD007BA992 /* MypageViewController.swift */,
+				7E684AD42AAAAE75007BA992 /* EditMyPageViewController.swift */,
 				7E9F9D202AA6F82300AB7382 /* SignUpViewController.swift */,
 				7E9F9D1C2AA6F34A00AB7382 /* SignInViewController.swift */,
 				DED83BEF2AA9BB9A002D908B /* MapTableViewController.swift */,
@@ -352,17 +355,18 @@
 				DE4920662AA744C9008CFE0A /* NaverClient.swift in Sources */,
 				528C408E2AAAF9FA0018B04C /* VideoTableViewCell.swift in Sources */,
 				DE49205F2AA6DFC8008CFE0A /* PlaceData.swift in Sources */,
-				DE4920572AA5D37A008CFE0A /* MypageViewController.swift in Sources */,
 				DEA4AC472AA5CD7300361CFC /* SceneDelegate.swift in Sources */,
 				DE4920552AA5D369008CFE0A /* MapViewController.swift in Sources */,
 				529058552AADC9F300C9C7AE /* VideoTableHeaderView.swift in Sources */,
 				5298C1622AA8CAC6001AA8E2 /* VideoData.swift in Sources */,
+				7E684AD92AAAF8DD007BA992 /* MypageViewController.swift in Sources */,
 				7E16E27C2AA76A5F00EED08A /* Extensions.swift in Sources */,
 				52A3F2062AA9B2F6000FE101 /* SaveDatas.swift in Sources */,
 				52E741992AAC8F3700C4691E /* MyColor.swift in Sources */,
 				5298C1602AA8CA9E001AA8E2 /* ThreeMealData.swift in Sources */,
 				DED83BF02AA9BB9A002D908B /* MapTableViewController.swift in Sources */,
 				DED83BEC2AA967C9002D908B /* DummyData.swift in Sources */,
+				7E684AD52AAAAE75007BA992 /* EditMyPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
