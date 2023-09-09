@@ -17,19 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwA-zA-e8a">
-                                <rect key="frame" x="0.0" y="719" width="393" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="gHT-CZ-4xl"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Go To Detail"/>
-                                <connections>
-                                    <segue destination="p0h-VI-dsD" kind="presentation" id="MM6-kZ-u4P"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fNM-Wk-0gw">
-                                <rect key="frame" x="0.0" y="59" width="393" height="660"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoCell" rowHeight="150" id="Txy-jn-4ED" customClass="VideoTableViewCell" customModule="Sojumap" customModuleProvider="target">
@@ -53,7 +42,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="vYX-4n-HHf"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -62,7 +51,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="XH7-V5-yRc"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -111,34 +100,31 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fNM-Wk-0gw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7qc-UK-WlX"/>
-                            <constraint firstItem="mwA-zA-e8a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EFK-lV-spq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mwA-zA-e8a" secondAttribute="bottom" id="JQh-uA-Dbd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fNM-Wk-0gw" secondAttribute="trailing" id="M5M-S6-I9a"/>
-                            <constraint firstItem="mwA-zA-e8a" firstAttribute="top" secondItem="fNM-Wk-0gw" secondAttribute="bottom" id="WFn-oX-BEM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mwA-zA-e8a" secondAttribute="trailing" id="jkl-Fr-rWF"/>
                             <constraint firstItem="fNM-Wk-0gw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="s9S-5O-aol"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fNM-Wk-0gw" secondAttribute="bottom" id="sd0-Wx-pPo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house" id="qmo-st-Pad"/>
+                    <navigationItem key="navigationItem" id="SxH-Vp-cad"/>
                     <connections>
                         <outlet property="videoTable" destination="fNM-Wk-0gw" id="2m8-zN-omD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="701.52671755725191" y="-265.49295774647891"/>
+            <point key="canvasLocation" x="1628.2442748091603" y="-265.49295774647891"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BFQ-Fg-Qe5">
             <objects>
                 <tabBarController id="TcU-y0-1Qf" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="house" catalog="system" shadowImage="house" id="wMy-gh-sqb">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wMy-gh-sqb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hoa-QA-8PA"/>
+                        <segue destination="0RW-AD-yFd" kind="relationship" relationship="viewControllers" id="hoa-QA-8PA"/>
                         <segue destination="21l-EZ-gua" kind="relationship" relationship="viewControllers" id="PUK-yn-Rym"/>
                         <segue destination="5tz-wq-XF9" kind="relationship" relationship="viewControllers" id="aNm-SU-5Ob"/>
                     </connections>
@@ -153,7 +139,7 @@
                 <viewControllerPlaceholder storyboardName="PlaceDetailViewController" referencedIdentifier="PlaceDetailViewController" id="p0h-VI-dsD" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B19-rk-IgF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306" y="-282"/>
+            <point key="canvasLocation" x="2231.2977099236641" y="-282.3943661971831"/>
         </scene>
         <!--MapNavVC-->
         <scene sceneID="HjD-TN-xay">
@@ -174,6 +160,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dcs-AN-reK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="67" y="138"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ET4-KK-7ef">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0RW-AD-yFd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house" id="qmo-st-Pad"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nwu-Dr-BXb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="voC-8d-AmI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x09-uR-fY5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701.52671755725191" y="-265.49295774647891"/>
         </scene>
     </scenes>
     <resources>

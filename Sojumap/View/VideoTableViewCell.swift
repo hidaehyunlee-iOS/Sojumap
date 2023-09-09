@@ -13,6 +13,7 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var videoImage: UIImageView!
     @IBOutlet weak var videoTitle: UILabel!
     @IBOutlet weak var videoInfo: UILabel!
+    @IBOutlet weak var videoDate: UILabel!
     
     
     var imageUrl: String? {
@@ -43,6 +44,8 @@ class VideoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         videoImage.contentMode = .scaleToFill
+        self.videoImage.clipsToBounds = true
+        self.videoImage.layer.cornerRadius = 7
 
     }
 
