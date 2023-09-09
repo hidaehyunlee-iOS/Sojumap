@@ -9,6 +9,10 @@ import UIKit
 import NMapsMap
 import WebKit
 import SafariServices
+import CoreLocation
+import Alamofire
+import SwiftyJSON
+import SwiftSoup
 
 class PlaceDetailViewController: UIViewController {
     // 영상 재생 view
@@ -32,6 +36,10 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var placeUrl: UILabel!
  
+    // 지오코딩 객체 생성
+//    let geocoder = CLGeocoder()
+    let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,38 +89,73 @@ class PlaceDetailViewController: UIViewController {
         // UILabel을 탭 가능하게 만듭니다.
         placeUrl.isUserInteractionEnabled = true
         
-        guard let data = videoData else { return }
-
-        guard let dataID = data.videoId else { return }
+        guard let data = videoData,
+              let dataID = data.videoId,
+              let dataTitle = data.title,
+              let viewCount = data.viewCount,
+              let name = data.videoInfo[safe: 0] ?? "",
+              let addr = data.videoInfo[safe: 1] ?? "",
+              let url = data.videoInfo[safe: 2] ?? ""
+        else {return}
+                
         videoId = dataID
         
-        guard let dataTitle = data.title else { return }
         videoTitle.text = dataTitle
         videoTitle.numberOfLines = 2 // 두 줄까지만 표시하도록 설정
         videoTitle.lineBreakMode = .byTruncatingTail // 넘치는 텍스트는 생략하도록 설정
         
-        guard let viewCount = data.viewCount else { return }
         let cnt = Int(viewCount)!
         viewCnt.text = "조회수 " + numberFormatter.string(for: cnt)! + "회"
+
+        let encodeAddress = addr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//        print("인코딩주소 : " , encodeAddress)
         
         if data.videoInfo.isEmpty == true {
             placeName.text = "** 식당 정보가 없습니다. **"
             address.text = ""
             placeUrl.text = ""
         }else {
-            guard let name = data.videoInfo[0] else { return }
             placeName.text = name
-            
-            guard let addr = data.videoInfo[1] else { return }
             address.text = addr
-            
-            guard let url = data.videoInfo[2] else { return }
             placeUrl.text = url
-            
         }
         
+        // 주소를 위도와 경도로 변환
+//        geocoder.geocodeAddressString(addr) { (placemarks, error) in
+//            if let error = error {
+//                print("지오코딩 에러: \(error.localizedDescription)")
+//                return
+//            }
+//
+//            if let placemark = placemarks?.first {
+//                // 첫 번째 결과를 사용하고 위도와 경도를 얻습니다.
+//                let latitude = placemark.location?.coordinate.latitude ?? 0.0
+//                let longitude = placemark.location?.coordinate.longitude ?? 0.0
+//
+//                print("위도: \(latitude)")
+//                print("경도: \(longitude)")
+//            } else {
+//                print("주소를 찾을 수 없습니다.")
+//            }
+//        }
+ 
         
     }
+    
+    // 주소에서 위도와 경도 알아내기
+    func convertAddressToCoordinate(address: String?){
+        let header1 = HTTPHeader(name: "X-NCP-APIGW-API-KEY-ID", value: NAVER_CLIENT_ID)
+        let header2 = HTTPHeader(name: "X-NCP-APIGW-API-KEY", value: NAVER_CLIENT_SECRET)
+        let headers = HTTPHeaders([header1, header2])
+        
+//        AF.request(NAVER_GEOCODE_URL + address!, method: .get, headers: headers).validate().responseJSON { AFDataResponse<Any> in
+//            <#code#>
+//        }
+        
+    }
+    
+    
+    
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         // placeUrl.text에서 URL을 가져옵니다.
