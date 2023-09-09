@@ -65,7 +65,6 @@
                                                                         <constraint firstAttribute="height" constant="35" id="P2G-r9-fGY"/>
                                                                     </constraints>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" title="❤️"/>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,6 +87,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="saveButton" destination="5lU-3l-ih5" id="mrj-to-0ws"/>
                                             <outlet property="videoImage" destination="llA-eB-kQx" id="jfa-Lo-VK6"/>
                                             <outlet property="videoInfo" destination="75y-sP-S0m" id="RJK-OB-gPP"/>
                                             <outlet property="videoTitle" destination="gjP-Vy-eAW" id="zTH-m2-QZN"/>
@@ -154,7 +154,7 @@
         <!--MypageViewController-->
         <scene sceneID="4up-he-EUL">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="MypageViewController" storyboardName="MypageViewController" referencedIdentifier="MypageViewController" id="5tz-wq-XF9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="MypageViewController" referencedIdentifier="MypageViewController" id="5tz-wq-XF9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="DYt-p4-JVH"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dcs-AN-reK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -13,7 +13,7 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var videoImage: UIImageView!
     @IBOutlet weak var videoTitle: UILabel!
     @IBOutlet weak var videoInfo: UILabel!
-    @IBOutlet weak var videoDate: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
     
     
     var imageUrl: String? {
@@ -46,7 +46,7 @@ class VideoTableViewCell: UITableViewCell {
         videoImage.contentMode = .scaleToFill
         self.videoImage.clipsToBounds = true
         self.videoImage.layer.cornerRadius = 7
-
+        self.saveButton.setImage(UIImage(systemName: "wineglass"), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
