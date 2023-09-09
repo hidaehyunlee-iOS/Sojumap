@@ -21,7 +21,8 @@ struct VideoData: Codable {
             
             if let match = matches.first {
                 if let range = Range(match.range(at: 1), in: description) {
-                    let restaurantInfoBlock = String(description[range])
+                    var restaurantInfoBlock = String(description[range])
+                    restaurantInfoBlock = restaurantInfoBlock.replacingOccurrences(of: "1\\. ", with: "", options: .regularExpression)
                     let restaurantInfoLines = restaurantInfoBlock.components(separatedBy: "\n").filter { !$0.isEmpty }
                     return restaurantInfoLines
                 }
