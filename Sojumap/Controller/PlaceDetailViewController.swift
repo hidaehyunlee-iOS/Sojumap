@@ -93,25 +93,6 @@ class PlaceDetailViewController: UIViewController {
               let addr = data.videoInfo[safe: 1] ?? "",
               let url = data.videoInfo[safe: 2] ?? ""
         else {return}
-              
-        // 링크 텍스트 지정하기
-//        placeUrl.text = "식당 정보(웹사이트) 바로가기"
-//        let attributedText = NSMutableAttributedString(string: placeUrl.text!)
-        
-        // 링크 텍스트 범위 설정
-//        let linkRange = (placeUrl.text! as NSString).range(of: "식당 정보(웹사이트) 바로가기")
-        
-        // 링크 추가, underline
-//        attributedText.addAttribute(.link, value: addr, range: linkRange)
-//        attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedText.length))
-        
-        // UILabel에 속성 텍스트 설정
-//        placeUrl.attributedText = attributedText
-        
-        // UILabel에 탭 제스처 추가
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openLink))
-//        placeUrl.isUserInteractionEnabled = true
-//        placeUrl.addGestureRecognizer(tapGestureRecognizer)
         
         urlBtn.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         
@@ -128,7 +109,7 @@ class PlaceDetailViewController: UIViewController {
 //            placeUrl.text = ""
         }else {
             placeName.text = "🍽️ " + name
-            address.text = addr
+            address.text = "🧭 " + addr
 //            placeUrl.attributedText = attributedText
         }
          
