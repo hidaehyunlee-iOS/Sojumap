@@ -158,7 +158,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "PlaceDetailViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
-        vc.videoData = isEditMode ? searchResult[indexPath.row] : saveManager.saveMemoList[indexPath.row]
+        vc.videoData = isEditMode ? searchResult[indexPath.row] : categoryResult[indexPath.row]
         
         present(vc, animated: true)
     }
