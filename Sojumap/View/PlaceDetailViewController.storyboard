@@ -79,8 +79,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxH-dg-f8T" customClass="NMFNaverMapView">
+                                                <rect key="frame" x="8" y="126.33333333333334" width="377" height="374.33333333333326"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BGG-Zq-ah2">
-                                                <rect key="frame" x="8" y="126.33333333333331" width="377" height="89.333333333333314"/>
+                                                <rect key="frame" x="8" y="520.66666666666663" width="377" height="89.333333333333371"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kyI-2f-GVi">
                                                         <rect key="frame" x="8" y="0.0" width="361" height="29"/>
@@ -139,10 +143,6 @@
                                                 </subviews>
                                                 <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="8" bottom="0.0" trailing="8"/>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxH-dg-f8T" customClass="NMFNaverMapView">
-                                                <rect key="frame" x="8" y="235.6666666666666" width="377" height="374.33333333333326"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -155,9 +155,9 @@
                                 <constraints>
                                     <constraint firstItem="PTI-QV-D65" firstAttribute="top" secondItem="MEa-Bv-cXc" secondAttribute="top" id="3CB-Ya-LdO"/>
                                     <constraint firstItem="PTI-QV-D65" firstAttribute="leading" secondItem="MEa-Bv-cXc" secondAttribute="leading" id="3YE-FS-5Lg"/>
-                                    <constraint firstItem="PTI-QV-D65" firstAttribute="bottom" secondItem="MEa-Bv-cXc" secondAttribute="bottom" id="4cB-Nq-rtW"/>
                                     <constraint firstItem="PTI-QV-D65" firstAttribute="trailing" secondItem="MEa-Bv-cXc" secondAttribute="trailing" id="DvI-zD-GsU"/>
                                     <constraint firstItem="PTI-QV-D65" firstAttribute="width" secondItem="k3n-7N-evx" secondAttribute="width" id="Gf1-5q-jMl"/>
+                                    <constraint firstAttribute="bottom" secondItem="PTI-QV-D65" secondAttribute="bottom" constant="-8" id="O65-0P-KTL"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="MEa-Bv-cXc"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="k3n-7N-evx"/>
@@ -198,7 +198,7 @@
                         <outlet property="placeInformView" destination="BGG-Zq-ah2" id="MWZ-PV-yz5"/>
                         <outlet property="placeName" destination="S5w-Jd-mrY" id="pyM-uB-Jno"/>
                         <outlet property="playerView" destination="TF8-9j-MRG" id="cDA-gK-K4x"/>
-                        <outlet property="secondViewBottomConstraint" destination="4cB-Nq-rtW" id="b8j-AC-VmB"/>
+                        <outlet property="scrollView" destination="BU0-7B-UAi" id="7zQ-1H-8sQ"/>
                         <outlet property="urlBtn" destination="0SE-9U-uwg" id="mRY-zB-8eZ"/>
                         <outlet property="videoTitle" destination="JFa-1x-9kD" id="0T5-2V-YJF"/>
                         <outlet property="viewCnt" destination="BrW-eB-1bD" id="NBX-3B-gsN"/>
