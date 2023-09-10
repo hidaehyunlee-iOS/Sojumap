@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         setupData()
         setupTableView()
         setupNaviBar()
+        print(self.saveManager.wishVideoList.count)
     }
     
     func setupNaviBar() {
@@ -56,6 +57,8 @@ class ViewController: UIViewController {
     
     func setupData() {
         saveManager.readMemoData()
+        saveManager.readWishData()
+//        saveManager.checkSaved()
         if saveManager.saveMemoList.isEmpty {
             videoManager.fetchChannelData { result in
                 guard let result = result else { return }
@@ -89,9 +92,25 @@ extension ViewController: UITableViewDataSource {
         
         let video = isEditMode ? searchResult[indexPath.row] : saveManager.saveMemoList[indexPath.row]
 
-        cell.imageUrl = video.thumbnail
-        cell.videoTitle.text = video.title
-        cell.videoInfo.text = video.dateAndCount
+        cell.video = video
+        print(video.hashtags)
+        cell.saveButtonPressed = { [weak self] (saveCell, pressed) in
+                
+            guard let self = self else { return }
+            if !pressed {
+                print("저장")
+                self.saveManager.wishVideoList.insert(video, at: 0)
+                self.saveManager.saveWishData()
+                video.wish = true
+            } else {
+                guard let cellIndex = self.saveManager.wishVideoList.firstIndex(of: video) else { return print("없어")}
+                print("\(cellIndex)")
+                self.saveManager.wishVideoList.remove(at: cellIndex)
+                self.saveManager.saveWishData()
+                video.wish = false
+            }
+        }
+        
         cell.selectionStyle = .none
         return cell
     }

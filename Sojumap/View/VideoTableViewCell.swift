@@ -15,6 +15,16 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var videoInfo: UILabel!
     @IBOutlet weak var saveButton: UIButton!
     
+    var video: VideoData? {
+        didSet {
+            imageUrl = video?.thumbnail
+            videoTitle.text = video?.title
+            videoInfo.text = video?.dateAndCount
+            setButtonStatus()
+        }
+    }
+    
+    var saveButtonPressed: ((VideoTableViewCell, Bool) -> ()) = { (saveCell, pressed) in }
     
     var imageUrl: String? {
         didSet {
@@ -46,7 +56,6 @@ class VideoTableViewCell: UITableViewCell {
         videoImage.contentMode = .scaleToFill
         self.videoImage.clipsToBounds = true
         self.videoImage.layer.cornerRadius = 7
-        self.saveButton.setImage(UIImage(systemName: "wineglass"), for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -71,5 +80,24 @@ class VideoTableViewCell: UITableViewCell {
         // 컨텐츠 뷰의 프레임을 조정합니다.
         contentView.frame = contentViewFrame
     }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        guard let isSaved = video?.wish else { return }
+        
+        saveButtonPressed(self, isSaved)
+        setButtonStatus()
+    }
+    
+    func setButtonStatus() {
+        guard let isSaved = video?.wish else { return }
+        if !isSaved {
+            saveButton.setImage(UIImage(systemName: "wineglass"), for: .normal)
+            saveButton.tintColor = .gray
+        } else {
+            saveButton.setImage(UIImage(systemName: "wineglass.fill"), for: .normal)
+            saveButton.tintColor = .red
+        }
+    }
+    
 
 }
