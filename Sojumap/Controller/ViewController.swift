@@ -30,8 +30,9 @@ class ViewController: UIViewController {
     }
     
     func setupNaviBar() {
-        title = "Soju Map"
-        
+        title = "Sojudd Map"
+        self.navigationController?.tabBarItem.title = ""
+        self.navigationController?.tabBarItem.image = UIImage(systemName: "play.rectangle")
         // (네비게이션바 설정관련) iOS버전 업데이트 되면서 바뀐 설정⭐️⭐️⭐️
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()  // 불투명으로
