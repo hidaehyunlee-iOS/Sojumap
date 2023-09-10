@@ -21,10 +21,11 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     var initialMarkerName: String?
     var initialMarkerAddress: String?
+    var initialDistanceInKilometers: String?
     let locationManager = CLLocationManager()
     let saveManager = SaveDatas.shared
+    var seletedPlaceURL: String?
 
-    
     @IBAction func showListButton(_ sender: UIBarButtonItem) {
         let storyBoard = UIStoryboard(name: "MapTableViewController", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "MapTableViewController") as! MapTableViewController
@@ -32,17 +33,15 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func detailPageButton(_ sender: UIButton) {
-        let placeDetailVC = PlaceDetailViewController()
-        
-        // 선택된 마커 정보 식별해야됨
-        //            placeDetailVC.markerTitle = "self.markerTitle"
-        //            placeDetailVC.markerName = "self.markerNamex"
-        //            placeDetailVC.markerAddress = "self.markerAddress"
-        
-        self.present(placeDetailVC, animated: true, completion: nil)
-    }
     
+    @IBAction func showWebURL(_ sender: UIButton) {
+        print("showWebURL: clicked")
+      
+        if let url = URL(string: seletedPlaceURL ?? "optional seletedPlaceURL is nil") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,7 +55,6 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         naverMapView?.mapView.zoomLevel = 11
         
         for data in saveManager.saveMemoList {
-            
             guard data.videoInfo.count >= 3,
                 let videoId = data.videoId,
                 let thumbnail = data.thumbnail,
@@ -69,16 +67,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                 continue
             }
             
-            //let testAddr = "서울 강동구 천호동 397-399"
-
-            //guard let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-            // let encodedAddress = address.replacingOccurrences(of: "%25", with: "%")
-
-            
             let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            
-            //print("그냥 주소: \(address)")
-            //print("인코딩 주소: \(encodedAddress)")
+
             convertAddressToCoordinate(videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: encodedAddress, placeUrl: placeUrl)
         }
     }
@@ -111,13 +101,9 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                     
                     let lat = data[0]["y"].doubleValue
                     let lon = data[0]["x"].doubleValue
-                    //print("lat \(lat), lon: \(lon)")
 
                     let roadAddr = data[0]["roadAddress"].stringValue
                     let coordinate = NMGLatLng(lat: lat, lng: lon)
-                    
-                    // print("convertAddressToCoordinate: \(coordinate), \(videoTitle!), \(placeName!), \(roadAddr)")
-                    //print("convertAddressToCoordinate, laatlan \(coordinate)")
 
                     self.setMarkers(at: coordinate, videoId: videoId!, thumbnail: thumbnail!, videoTitle: videoTitle!, viewCnt: viewCnt!, placeName: placeName!, address: roadAddr, placeUrl: placeUrl!)
                     
@@ -135,10 +121,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     }
     
     func setMarkers(at latlng: NMGLatLng, videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?) {
-        //print("setMarkers, laatlan \(latlng)")
-        //print("setMarkers: \(latlng), \(videoTitle), \(placeName), \(address)")
         
-        // 옵셔널 바인딩을 사용하여 옵셔널 값을 추출하고 안전하게 할당
         guard let videoId = videoId,
               let thumbnail = thumbnail,
               let videoTitle = videoTitle,
@@ -146,34 +129,25 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
               let placeName = placeName,
               let address = address,
               let placeUrl = placeUrl else {
-            print("옵셔널 값이 nil입니다.")
+            print("setMarkers: 옵셔널 값이 nil")
             return
         }
-        
-//        print("videoId: \(videoId)")
-//        print("thumbnail: \(thumbnail)")
-//        print("videoTitle: \(videoTitle)")
-//        print("viewCnt: \(viewCnt)")
-//        print("placeName: \(placeName)")
-//        print("address: \(address)")
-//        print("placeUrl: \(placeUrl)")
 
-        // 여기에 문제가 있음 ‼️
+        // 마커 클래스 리팩토링 필요(필요없는 데이터 지우기) ‼️
         let marker = CustomMarker(position: latlng, videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: address, placeUrl: placeUrl, distanceKM: nil, customUserInfo: ["tag": markerCount])
         
         print("marker: \(marker.position), \(marker.videoTitle), \(marker.placeName), \(marker.address)")
         
         markerCount += 1
-        //print("markerCount \(markerCount)")
         allMarkers.append(marker)
-        //print(allMarkers)
         
         marker.touchHandler = { (overlay) -> Bool in
             if let customMarker = overlay as? CustomMarker,
                let tag = customMarker.customUserInfo?["tag"] as? Int {
                 self.placeNameLabel?.text = customMarker.placeName
                 self.placeAddrLabel?.text = customMarker.address
-                self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
+                self.distanceInKilometers?.text = self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
+                self.seletedPlaceURL = customMarker.placeUrl
             }
             return false
         }
@@ -182,22 +156,30 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
 
         marker.mapView = naverMapView?.mapView
         marker.captionRequestedWidth = 60
-        marker.captionText = placeName ?? ""
+        marker.captionText = placeName
         
-        if initialMarkerName == nil && initialMarkerAddress == nil {
-            initialMarkerName = placeName
-            initialMarkerAddress = address
+        setInitalMapView(marker: marker, latlng: latlng)
+    }
+    
+    func setInitalMapView(marker: CustomMarker, latlng: NMGLatLng) {
+        if initialMarkerName == nil && initialMarkerAddress == nil && initialDistanceInKilometers == nil{ // 초기값 세팅
+            initialMarkerName = marker.placeName
+            initialMarkerAddress = marker.address
+            initialDistanceInKilometers = calculateAndSetDistance(marker: marker)
+
+            placeNameLabel?.text = initialMarkerName
+            placeAddrLabel?.text = initialMarkerAddress
+            distanceInKilometers?.text = initialDistanceInKilometers
             
-            placeNameLabel?.text = marker.placeName
-            placeAddrLabel?.text = marker.address
+            seletedPlaceURL = marker.placeUrl
             
             setInitialCameraPosition(at: latlng)
         }
     }
     
-    func calculateAndSetDistance(marker: CustomMarker) {
+    func calculateAndSetDistance(marker: CustomMarker) -> String {
         guard let currentLocation = locationManager.location else {
-            return
+            return "" // 현재 위치를 불러올 수 없습니다.
         }
         
         let markerLocation = CLLocation(latitude: marker.position.lat, longitude: marker.position.lng)
@@ -205,7 +187,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         
         marker.distanceKM = distanceM / 1000.0
         
-        distanceInKilometers?.text = String(format: "%.2f km", marker.distanceKM!)
+        return String(format: "%.2f km", marker.distanceKM!)
     }
     
     
