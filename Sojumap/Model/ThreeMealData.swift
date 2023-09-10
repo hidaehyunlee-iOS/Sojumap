@@ -70,7 +70,7 @@ class ThreeMealVideo {
                 for playlistItem in playlistItemsListResponse.items ?? [] {
                     guard let videoId = playlistItem.snippet?.resourceId?.videoId,
                           let title = playlistItem.snippet?.title,
-                          let thumbnailUrl = playlistItem.snippet?.thumbnails?.defaultProperty?.url,
+                          let thumbnailUrl = playlistItem.snippet?.thumbnails?.maxres?.url,
                           let uploadDate = playlistItem.snippet?.publishedAt,
                           let description = playlistItem.snippet?.description else {
                         continue
