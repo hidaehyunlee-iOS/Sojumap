@@ -85,7 +85,6 @@ class VideoTableViewCell: UITableViewCell {
         guard let isSaved = video?.wish else { return }
         
         saveButtonPressed(self, isSaved)
-        setButtonStatus()
     }
     
     func setButtonStatus() {
