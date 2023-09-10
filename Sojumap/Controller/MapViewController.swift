@@ -24,8 +24,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     var initialDistanceInKilometers: String?
     let locationManager = CLLocationManager()
     let saveManager = SaveDatas.shared
+    var seletedPlaceURL: String?
 
-    
     @IBAction func showListButton(_ sender: UIBarButtonItem) {
         let storyBoard = UIStoryboard(name: "MapTableViewController", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "MapTableViewController") as! MapTableViewController
@@ -33,44 +33,14 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func detailPageButton(_ sender: UIButton) {
-        print("detailPageButton: clicked")
-        // 1. 선택된 마커 정보 추출
-//        if let selectedMarker = getSelectedMarker() {
-//            // 2. PlaceDetailViewController 인스턴스 생성
-//            let placeDetailVC = PlaceDetailViewController()
-//
-//            // 3. 선택된 마커의 정보를 PlaceDetailViewController 프로퍼티에 할당
-//            placeDetailVC.videoId = selectedMarker.videoId ?? ""
-//            placeDetailVC.thumnail = selectedMarker.thumbnail ?? ""
-//            placeDetailVC.videoTitle = selectedMarker.videoTitle ?? ""
-//            placeDetailVC.viewCnt = selectedMarker.viewCnt ?? ""
-//            placeDetailVC.placeName = selectedMarker.placeName ?? ""
-//            placeDetailVC.address = selectedMarker.address ?? ""
-//            placeDetailVC.placeUrl = selectedMarker.placeUrl ?? ""
-//
-//            // PlaceDetailViewController를 화면에 표시
-//            self.present(placeDetailVC, animated: true, completion: nil)
-//        }
+    
+    @IBAction func showWebURL(_ sender: UIButton) {
+        print("showWebURL: clicked")
+      
+        if let url = URL(string: seletedPlaceURL ?? "optional seletedPlaceURL is nil") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
-    
-//    // 선택된 마커를 가져오는 함수 (선택된 마커가 없으면 nil 반환)
-//    func getSelectedMarker() -> CustomMarker? {
-//        if let selectedMarkerIndex = getSelectedMarkerIndex() {
-//            return allMarkers[selectedMarkerIndex]
-//        }
-//
-//        return nil
-//    }
-    
-//    func getSelectedMarkerIndex() -> Int? {
-//        // 선택된 마커의 식당 이름을 기반으로 마커를 식별
-//        if let index = allMarkers.firstIndex(where: { $0.placeName == selectedPlaceName }) {
-//            return index // 선택된 마커의 인덱스 반환
-//        }
-//
-//        return nil // 선택된 마커가 없으면 nil 반환
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +55,6 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         naverMapView?.mapView.zoomLevel = 11
         
         for data in saveManager.saveMemoList {
-            
             guard data.videoInfo.count >= 3,
                 let videoId = data.videoId,
                 let thumbnail = data.thumbnail,
@@ -98,16 +67,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                 continue
             }
             
-            //let testAddr = "서울 강동구 천호동 397-399"
-
-            //guard let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-            // let encodedAddress = address.replacingOccurrences(of: "%25", with: "%")
-
-            
             let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            
-            //print("그냥 주소: \(address)")
-            //print("인코딩 주소: \(encodedAddress)")
+
             convertAddressToCoordinate(videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: encodedAddress, placeUrl: placeUrl)
         }
     }
@@ -140,13 +101,9 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                     
                     let lat = data[0]["y"].doubleValue
                     let lon = data[0]["x"].doubleValue
-                    //print("lat \(lat), lon: \(lon)")
 
                     let roadAddr = data[0]["roadAddress"].stringValue
                     let coordinate = NMGLatLng(lat: lat, lng: lon)
-                    
-                    // print("convertAddressToCoordinate: \(coordinate), \(videoTitle!), \(placeName!), \(roadAddr)")
-                    //print("convertAddressToCoordinate, laatlan \(coordinate)")
 
                     self.setMarkers(at: coordinate, videoId: videoId!, thumbnail: thumbnail!, videoTitle: videoTitle!, viewCnt: viewCnt!, placeName: placeName!, address: roadAddr, placeUrl: placeUrl!)
                     
@@ -164,10 +121,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     }
     
     func setMarkers(at latlng: NMGLatLng, videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?) {
-        //print("setMarkers, laatlan \(latlng)")
-        //print("setMarkers: \(latlng), \(videoTitle), \(placeName), \(address)")
         
-        // 옵셔널 바인딩을 사용하여 옵셔널 값을 추출하고 안전하게 할당
         guard let videoId = videoId,
               let thumbnail = thumbnail,
               let videoTitle = videoTitle,
@@ -175,28 +129,17 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
               let placeName = placeName,
               let address = address,
               let placeUrl = placeUrl else {
-            print("옵셔널 값이 nil입니다.")
+            print("setMarkers: 옵셔널 값이 nil")
             return
         }
-        
-//        print("videoId: \(videoId)")
-//        print("thumbnail: \(thumbnail)")
-//        print("videoTitle: \(videoTitle)")
-//        print("viewCnt: \(viewCnt)")
-//        print("placeName: \(placeName)")
-//        print("address: \(address)")
-//        print("placeUrl: \(placeUrl)")
 
-        // 여기에 문제가 있음 ‼️
+        // 마커 클래스 리팩토링 필요(필요없는 데이터 지우기) ‼️
         let marker = CustomMarker(position: latlng, videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: address, placeUrl: placeUrl, distanceKM: nil, customUserInfo: ["tag": markerCount])
         
         print("marker: \(marker.position), \(marker.videoTitle), \(marker.placeName), \(marker.address)")
         
         markerCount += 1
-        //print("markerCount \(markerCount)")
         allMarkers.append(marker)
-        //print(allMarkers)
-        
         
         marker.touchHandler = { (overlay) -> Bool in
             if let customMarker = overlay as? CustomMarker,
@@ -204,6 +147,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                 self.placeNameLabel?.text = customMarker.placeName
                 self.placeAddrLabel?.text = customMarker.address
                 self.distanceInKilometers?.text = self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
+                self.seletedPlaceURL = customMarker.placeUrl
             }
             return false
         }
@@ -226,6 +170,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
             placeNameLabel?.text = initialMarkerName
             placeAddrLabel?.text = initialMarkerAddress
             distanceInKilometers?.text = initialDistanceInKilometers
+            
+            seletedPlaceURL = marker.placeUrl
             
             setInitialCameraPosition(at: latlng)
         }
