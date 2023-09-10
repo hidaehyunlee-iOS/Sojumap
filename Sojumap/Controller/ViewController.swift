@@ -75,8 +75,8 @@ class ViewController: UIViewController {
         videoTable.delegate = self
         videoTable.rowHeight = 110
         videoTable.separatorStyle = .none
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: videoTable.frame.width, height: 44)) // 44는 원하는 높이입니다.
-        videoTable.tableHeaderView = headerView
+        let test = VideoTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))  // 44는 원하는 높이입니다.
+        videoTable.tableHeaderView = test
     }
     
     
