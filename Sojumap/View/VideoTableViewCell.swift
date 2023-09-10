@@ -20,7 +20,6 @@ class VideoTableViewCell: UITableViewCell {
             imageUrl = video?.thumbnail
             videoTitle.text = video?.title
             videoInfo.text = video?.dateAndCount
-            setButtonStatus()
         }
     }
     
@@ -79,16 +78,19 @@ class VideoTableViewCell: UITableViewCell {
         
         // 컨텐츠 뷰의 프레임을 조정합니다.
         contentView.frame = contentViewFrame
+        setButtonStatus()
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let isSaved = video?.wish else { return }
         
         saveButtonPressed(self, isSaved)
+        setButtonStatus()
     }
     
     func setButtonStatus() {
         guard let isSaved = video?.wish else { return }
+//        print(isSaved)
         if !isSaved {
             saveButton.setImage(UIImage(systemName: "wineglass"), for: .normal)
             saveButton.tintColor = .gray

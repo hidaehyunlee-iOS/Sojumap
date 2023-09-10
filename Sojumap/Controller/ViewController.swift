@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         setupData()
         setupTableView()
         setupNaviBar()
-        print(self.saveManager.wishVideoList.count)
     }
     
     func setupNaviBar() {
@@ -57,8 +56,6 @@ class ViewController: UIViewController {
     
     func setupData() {
         saveManager.readMemoData()
-        saveManager.readWishData()
-//        saveManager.checkSaved()
         if saveManager.saveMemoList.isEmpty {
             videoManager.fetchChannelData { result in
                 guard let result = result else { return }
@@ -78,7 +75,10 @@ class ViewController: UIViewController {
         videoTable.delegate = self
         videoTable.rowHeight = 110
         videoTable.separatorStyle = .none
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: videoTable.frame.width, height: 44)) // 44는 원하는 높이입니다.
+        videoTable.tableHeaderView = headerView
     }
+    
     
 }
 
@@ -97,15 +97,14 @@ extension ViewController: UITableViewDataSource {
                 
             guard let self = self else { return }
             if !pressed {
-                print("저장")
                 saveCell.video?.wish = true
-                print(self.saveManager.saveMemoList[indexPath.row].wish)
-                self.saveManager.saveMemoData()
+                print("유저데이터 : \(self.saveManager.saveMemoList[indexPath.row].wish)")
+//                self.saveManager.saveMemoData()
                 saveCell.setButtonStatus()
             } else {
                 saveCell.video?.wish = false
-                print(self.saveManager.saveMemoList[indexPath.row].wish)
-                self.saveManager.saveMemoData()
+                print("유저데이터 : \(self.saveManager.saveMemoList[indexPath.row].wish)")
+//                self.saveManager.saveMemoData()
                 saveCell.setButtonStatus()
             }
         }
