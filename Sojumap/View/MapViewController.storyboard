@@ -57,34 +57,48 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ye-6c-hpd">
-                                <rect key="frame" x="202" y="706" width="174" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="이 장소의 자세한 정보  &gt;">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                    <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="showWebURL:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lWb-HT-UKd"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2V-DX-JI7">
-                                <rect key="frame" x="16" y="706" width="178" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" systemColor="systemGreenColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aBM-Fl-2cG">
+                                <rect key="frame" x="16" y="706" width="360" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2V-DX-JI7">
+                                        <rect key="frame" x="0.0" y="0.0" width="178" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="178" id="EzC-Nn-Xjv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ye-6c-hpd">
+                                        <rect key="frame" x="186" y="0.0" width="174" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Uby-jw-F1K"/>
+                                            <constraint firstAttribute="width" constant="174" id="kge-Ea-xp2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="이 장소의 자세한 정보  &gt;">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            <color key="baseBackgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="showWebURL:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lWb-HT-UKd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="aBM-Fl-2cG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="29f-zi-IhA"/>
                             <constraint firstItem="gVo-6y-TiB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="6MJ-sE-t9H"/>
+                            <constraint firstItem="aBM-Fl-2cG" firstAttribute="top" secondItem="gVo-6y-TiB" secondAttribute="bottom" constant="19.670000000000002" id="BSy-Qe-mPZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aBM-Fl-2cG" secondAttribute="trailing" constant="17" id="JMc-6p-oIN"/>
                             <constraint firstItem="gVo-6y-TiB" firstAttribute="top" secondItem="dzo-KA-DnH" secondAttribute="bottom" constant="20" id="JTr-00-ijX"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dzo-KA-DnH" secondAttribute="bottom" constant="145" id="KTg-3u-NBe"/>
                             <constraint firstItem="dzo-KA-DnH" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="103" id="TpY-pZ-5Ot"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aBM-Fl-2cG" secondAttribute="bottom" constant="28" id="Waa-ug-JTE"/>
                             <constraint firstItem="dzo-KA-DnH" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="c1w-ub-Yuj"/>
                             <constraint firstItem="dzo-KA-DnH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="p4k-5f-Nnd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gVo-6y-TiB" secondAttribute="trailing" constant="17" id="qDl-AL-F81"/>
@@ -92,6 +106,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="전국 소주 지도" id="JrL-wc-P8g">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="L1h-UF-duL">
+                            <color key="tintColor" systemColor="systemGreenColor"/>
                             <connections>
                                 <action selector="showListButton:" destination="Y6W-OH-hqX" id="men-QI-K7L"/>
                             </connections>
