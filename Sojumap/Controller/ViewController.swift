@@ -74,6 +74,7 @@ class ViewController: UIViewController {
         videoTable.dataSource = self
         videoTable.delegate = self
         videoTable.rowHeight = 110
+        videoTable.separatorStyle = .none
     }
     
 }
