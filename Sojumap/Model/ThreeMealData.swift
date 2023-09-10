@@ -38,7 +38,6 @@ class ThreeMealVideo {
     }
     
     func fetchVideoData(playlistID: String, completion: @escaping ([VideoData]) -> Void) {
-        print("test")
         var videoArray: [VideoData] = []
         
         func fetchPage(pageToken: String?) {

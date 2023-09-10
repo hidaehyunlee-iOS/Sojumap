@@ -20,7 +20,6 @@ class VideoTableViewCell: UITableViewCell {
             imageUrl = video?.thumbnail
             videoTitle.text = video?.title
             videoInfo.text = video?.dateAndCount
-            setButtonStatus()
         }
     }
     
@@ -73,22 +72,25 @@ class VideoTableViewCell: UITableViewCell {
         
         // 각종 간격을 적용합니다.
         contentViewFrame.origin.x += horizontalSpacing
-        contentViewFrame.size.width -= horizontalSpacing * 2 // 양쪽으로 동일한 간격을 적용
+        contentViewFrame.size.width -= horizontalSpacing * 2 // 양쪽으로 동일한 간격적용
         contentViewFrame.origin.y += verticalSpacing
-        contentViewFrame.size.height -= verticalSpacing * 2 // 상하로 동일한 간격을 적용
+        contentViewFrame.size.height -= verticalSpacing * 2 // 상하로 동일한 간격적용
         
         // 컨텐츠 뷰의 프레임을 조정합니다.
         contentView.frame = contentViewFrame
+        setButtonStatus()
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let isSaved = video?.wish else { return }
         
         saveButtonPressed(self, isSaved)
+        setButtonStatus()
     }
     
     func setButtonStatus() {
         guard let isSaved = video?.wish else { return }
+//        print(isSaved)
         if !isSaved {
             saveButton.setImage(UIImage(systemName: "wineglass"), for: .normal)
             saveButton.tintColor = .gray
