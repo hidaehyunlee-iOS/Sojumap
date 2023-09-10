@@ -72,9 +72,9 @@ class VideoTableViewCell: UITableViewCell {
         
         // 각종 간격을 적용합니다.
         contentViewFrame.origin.x += horizontalSpacing
-        contentViewFrame.size.width -= horizontalSpacing * 2 // 양쪽으로 동일한 간격을 적용
+        contentViewFrame.size.width -= horizontalSpacing * 2 // 양쪽으로 동일한 간격적용
         contentViewFrame.origin.y += verticalSpacing
-        contentViewFrame.size.height -= verticalSpacing * 2 // 상하로 동일한 간격을 적용
+        contentViewFrame.size.height -= verticalSpacing * 2 // 상하로 동일한 간격적용
         
         // 컨텐츠 뷰의 프레임을 조정합니다.
         contentView.frame = contentViewFrame
