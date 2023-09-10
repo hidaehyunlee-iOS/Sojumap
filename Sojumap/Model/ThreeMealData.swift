@@ -91,6 +91,7 @@ class ThreeMealVideo {
                         print("Upload Date: \(threeMealVideo.releaseDateString)")
                         print("Description: \(threeMealVideo.videoInfo)")
                         print("View Count: \(threeMealVideo.viewCount)")
+                        print("HashTags: \(threeMealVideo.hashtags)")
                         print("\n")
                         
                         group.leave() // DispatchGroup에서 나옴
@@ -100,8 +101,8 @@ class ThreeMealVideo {
                 group.notify(queue: .main) {
                     if let nextPageToken = playlistItemsListResponse.nextPageToken {
                         // 다음 페이지가 있으면 재귀적으로 호출하여 다음 페이지의 동영상 가져오기
-//                        fetchPage(pageToken: nextPageToken)
-                        completion(videoArray)
+                        fetchPage(pageToken: nextPageToken)
+                        
                     } else {
                         // 다음 페이지가 없으면 모든 동영상을 가져온 것이므로 완료 처리
                         completion(videoArray)

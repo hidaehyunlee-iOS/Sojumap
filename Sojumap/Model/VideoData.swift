@@ -44,7 +44,7 @@ class VideoData: Codable, Equatable {
         return []
     }
     
-    var hashtags: [String] {
+    var hashtags: [String?] {
         guard let description = description else { return [] }
         
         let pattern = "#\\w+" // 해시태그를 찾는 정규 표현식 패턴
