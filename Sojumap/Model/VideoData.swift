@@ -1,6 +1,6 @@
 import Foundation
 
-struct VideoData: Codable {
+class VideoData: Codable, Equatable {
     static var number = 0
     //
     var videoId: String?
@@ -9,6 +9,17 @@ struct VideoData: Codable {
     var uploadDate: String?
     var description: String?
     var viewCount: String?
+    var wish: Bool = false
+    
+    static func == (lhs: VideoData, rhs: VideoData) -> Bool {
+          return lhs.videoId == rhs.videoId &&
+                 lhs.title == rhs.title &&
+                 lhs.thumbnail == rhs.thumbnail &&
+                 lhs.uploadDate == rhs.uploadDate &&
+                 lhs.description == rhs.description &&
+                 lhs.viewCount == rhs.viewCount &&
+                 lhs.wish == rhs.wish
+      }
     
     var videoInfo: [String?] {
         guard let description = description else { return [] }
@@ -29,6 +40,28 @@ struct VideoData: Codable {
             }
         } catch {
             print("정규 표현식 오류: \(error.localizedDescription)")
+        }
+        return []
+    }
+    
+    var hashtags: [String] {
+        guard let description = description else { return [] }
+        
+        let pattern = "#\\w+" // 해시태그를 찾는 정규 표현식 패턴
+        
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: [])
+            let matches = regex.matches(in: description, options: [], range: NSRange(location: 0, length: description.utf16.count))
+            
+            let hashtags = matches.map { match in
+                if let range = Range(match.range, in: description) {
+                    return String(description[range])
+                }
+                return ""
+            }
+            return hashtags
+        } catch {
+            print("해시태그 추출 오류: \(error.localizedDescription)")
         }
         return []
     }
