@@ -62,7 +62,7 @@ class VideoTableHeaderView: UIView {
     }()
     
     lazy var buttonSV: UIStackView = {
-        let sv = UIStackView(arrangedSubviews: [KindOfPopular ,KindOfOldDate, KindOfNewDate, KindOfWish])
+        let sv = UIStackView(arrangedSubviews: [KindOfPopular ,KindOfNewDate, KindOfOldDate, KindOfWish])
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.axis = .horizontal
         sv.spacing = 5

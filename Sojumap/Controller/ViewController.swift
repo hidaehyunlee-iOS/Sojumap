@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     let videoManager = ThreeMealVideo.shared
     let saveManager = SaveDatas.shared
     var searchResult: [VideoData] = []
+    var categoryResult: [VideoData] = []
     
     var isEditMode: Bool {
         let searchController = navigationItem.searchController
@@ -69,6 +70,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+        newDateAction()
     }
     
     func setupTableView() {
@@ -77,21 +79,56 @@ class ViewController: UIViewController {
         videoTable.rowHeight = 110
         videoTable.separatorStyle = .none
         let test = VideoTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))  // 44는 원하는 높이입니다.
+        test.KindOfPopular.addTarget(self, action: #selector(popularAction), for: .touchUpInside)
+        test.KindOfOldDate.addTarget(self, action: #selector(oldDateAction), for: .touchUpInside)
+        test.KindOfNewDate.addTarget(self, action: #selector(newDateAction), for: .touchUpInside)
+        test.KindOfWish.addTarget(self, action: #selector(wishAction), for: .touchUpInside)
         videoTable.tableHeaderView = test
     }
     
+    @objc func popularAction() {
+        categoryResult = self.saveManager.saveMemoList.sorted(by: { first, second in
+            guard let firstCount = Int(first.viewCount ?? "0"),
+                 let secondCount = Int(second.viewCount ?? "0") else { return false }
+            return firstCount > secondCount
+        })
+        self.videoTable.reloadData()
+    }
+    
+    @objc func oldDateAction() {
+        categoryResult = self.saveManager.saveMemoList.sorted(by: { first, second in
+            guard let firstdate = first.uploadDate,
+                 let seconddate = second.uploadDate else { return false }
+            return firstdate < seconddate
+        })
+        self.videoTable.reloadData()
+    }
+    
+    @objc func newDateAction() {
+        categoryResult = self.saveManager.saveMemoList.sorted(by: { first, second in
+            guard let firstdate = first.uploadDate,
+                 let seconddate = second.uploadDate else { return false }
+            return firstdate > seconddate
+        })
+        self.videoTable.reloadData()
+    }
+    
+    @objc func wishAction() {
+        categoryResult = self.saveManager.saveMemoList.filter({ $0.wish })
+        self.videoTable.reloadData()
+    }
     
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isEditMode ? searchResult.count : saveManager.saveMemoList.count
+        return isEditMode ? searchResult.count : categoryResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = videoTable.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
         
-        let video = isEditMode ? searchResult[indexPath.row] : saveManager.saveMemoList[indexPath.row]
+        let video = isEditMode ? searchResult[indexPath.row] : categoryResult[indexPath.row]
 
         cell.video = video
         cell.saveButtonPressed = { [weak self] (saveCell, pressed) in
@@ -99,14 +136,16 @@ extension ViewController: UITableViewDataSource {
             guard let self = self else { return }
             if !pressed {
                 saveCell.video?.wish = true
-                print("유저데이터 : \(self.saveManager.saveMemoList[indexPath.row].wish)")
-//                self.saveManager.saveMemoData()
+                self.saveManager.saveMemoData()
                 saveCell.setButtonStatus()
             } else {
                 saveCell.video?.wish = false
                 print("유저데이터 : \(self.saveManager.saveMemoList[indexPath.row].wish)")
-//                self.saveManager.saveMemoData()
+                self.saveManager.saveMemoData()
                 saveCell.setButtonStatus()
+                guard let videoIndex = self.categoryResult.firstIndex(of: video) else { return }
+                self.categoryResult.remove(at: videoIndex)
+                self.videoTable.reloadData()
             }
         }
         
