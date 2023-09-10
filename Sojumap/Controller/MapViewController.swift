@@ -17,6 +17,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     @IBOutlet weak var placeNameLabel: UILabel?
     @IBOutlet weak var placeAddrLabel: UILabel?
     @IBOutlet weak var distanceInKilometers: UILabel?
+    @IBOutlet weak var hashTagLabel: UILabel!
     
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     var initialMarkerName: String?
@@ -53,7 +54,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         naverMapView?.mapView.delegate = self
         naverMapView?.showLocationButton = true
         naverMapView?.mapView.zoomLevel = 11
-        
+                
         for data in saveManager.saveMemoList {
             guard data.videoInfo.count >= 3,
                 let videoId = data.videoId,
@@ -67,9 +68,11 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                 continue
             }
             
+            let tagsList: [String] = data.hashtags.compactMap { $0 } // hashtag [String?] -> [String] 으로 변환
+            let tags = tagsList.prefix(4).joined(separator: " ")
             let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
 
-            convertAddressToCoordinate(videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: encodedAddress, placeUrl: placeUrl)
+            convertAddressToCoordinate(videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: encodedAddress, placeUrl: placeUrl, tags: tags)
         }
     }
     
@@ -87,7 +90,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         }
     }
     
-    func convertAddressToCoordinate(videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?) {
+    func convertAddressToCoordinate(videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?, tags: String?) {
         let header1 = HTTPHeader(name: "X-NCP-APIGW-API-KEY-ID", value: NAVER_CLIENT_ID)
         let header2 = HTTPHeader(name: "X-NCP-APIGW-API-KEY", value: NAVER_CLIENT_SECRET)
         let headers = HTTPHeaders([header1, header2])
@@ -105,7 +108,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                     let roadAddr = data[0]["roadAddress"].stringValue
                     let coordinate = NMGLatLng(lat: lat, lng: lon)
 
-                    self.setMarkers(at: coordinate, videoId: videoId!, thumbnail: thumbnail!, videoTitle: videoTitle!, viewCnt: viewCnt!, placeName: placeName!, address: roadAddr, placeUrl: placeUrl!)
+                    self.setMarkers(at: coordinate, videoId: videoId!, thumbnail: thumbnail!, videoTitle: videoTitle!, viewCnt: viewCnt!, placeName: placeName!, address: roadAddr, placeUrl: placeUrl!, tags: tags!)
                     
                 case .failure(let error):
                     print(error.errorDescription ?? "")
@@ -120,7 +123,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         naverMapView?.mapView.moveCamera(NMFCameraUpdate(scrollTo: latlng))
     }
     
-    func setMarkers(at latlng: NMGLatLng, videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?) {
+    func setMarkers(at latlng: NMGLatLng, videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?, tags: String?) {
         
         guard let videoId = videoId,
               let thumbnail = thumbnail,
@@ -128,16 +131,15 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
               let viewCnt = viewCnt,
               let placeName = placeName,
               let address = address,
-              let placeUrl = placeUrl else {
+              let placeUrl = placeUrl,
+              let tags = tags else {
             print("setMarkers: 옵셔널 값이 nil")
             return
         }
 
         // 마커 클래스 리팩토링 필요(필요없는 데이터 지우기) ‼️
-        let marker = CustomMarker(position: latlng, videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: address, placeUrl: placeUrl, distanceKM: nil, customUserInfo: ["tag": markerCount])
-        
-        print("marker: \(marker.position), \(marker.videoTitle), \(marker.placeName), \(marker.address)")
-        
+        let marker = CustomMarker(position: latlng, videoId: videoId, thumbnail: thumbnail, videoTitle: videoTitle, viewCnt: viewCnt, placeName: placeName, address: address, placeUrl: placeUrl, tags: tags, distanceKM: nil, customUserInfo: ["tag": markerCount])
+                
         markerCount += 1
         allMarkers.append(marker)
         
@@ -148,6 +150,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
                 self.placeAddrLabel?.text = customMarker.address
                 self.distanceInKilometers?.text = self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
                 self.seletedPlaceURL = customMarker.placeUrl
+                self.hashTagLabel.text = customMarker.tags
+                print(customMarker.tags)
             }
             return false
         }
@@ -162,6 +166,9 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     }
     
     func setInitalMapView(marker: CustomMarker, latlng: NMGLatLng) {
+        hashTagLabel.numberOfLines = 2
+        hashTagLabel.lineBreakMode = .byTruncatingTail
+        
         if initialMarkerName == nil && initialMarkerAddress == nil && initialDistanceInKilometers == nil{ // 초기값 세팅
             initialMarkerName = marker.placeName
             initialMarkerAddress = marker.address
@@ -170,7 +177,8 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
             placeNameLabel?.text = initialMarkerName
             placeAddrLabel?.text = initialMarkerAddress
             distanceInKilometers?.text = initialDistanceInKilometers
-            
+            hashTagLabel.text = marker.tags
+
             seletedPlaceURL = marker.placeUrl
             
             setInitialCameraPosition(at: latlng)

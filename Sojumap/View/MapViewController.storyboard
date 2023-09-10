@@ -70,6 +70,13 @@
                                     <action selector="showWebURL:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lWb-HT-UKd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2V-DX-JI7">
+                                <rect key="frame" x="16" y="706" width="178" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,6 +100,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="distanceInKilometers" destination="Kp0-Xs-YiK" id="chU-SU-nlT"/>
+                        <outlet property="hashTagLabel" destination="S2V-DX-JI7" id="1RA-BW-ccl"/>
                         <outlet property="naverMapView" destination="dzo-KA-DnH" id="DQ6-2f-bp6"/>
                         <outlet property="placeAddrLabel" destination="l7B-MH-Bse" id="Pld-Jz-IRX"/>
                         <outlet property="placeNameLabel" destination="XLP-2h-BCe" id="WDH-ro-Pyo"/>
