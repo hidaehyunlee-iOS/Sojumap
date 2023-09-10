@@ -93,21 +93,20 @@ extension ViewController: UITableViewDataSource {
         let video = isEditMode ? searchResult[indexPath.row] : saveManager.saveMemoList[indexPath.row]
 
         cell.video = video
-        print(video.hashtags)
         cell.saveButtonPressed = { [weak self] (saveCell, pressed) in
                 
             guard let self = self else { return }
             if !pressed {
                 print("저장")
-                self.saveManager.wishVideoList.insert(video, at: 0)
-                self.saveManager.saveWishData()
-                video.wish = true
+                saveCell.video?.wish = true
+                print(self.saveManager.saveMemoList[indexPath.row].wish)
+                self.saveManager.saveMemoData()
+                saveCell.setButtonStatus()
             } else {
-                guard let cellIndex = self.saveManager.wishVideoList.firstIndex(of: video) else { return print("없어")}
-                print("\(cellIndex)")
-                self.saveManager.wishVideoList.remove(at: cellIndex)
-                self.saveManager.saveWishData()
-                video.wish = false
+                saveCell.video?.wish = false
+                print(self.saveManager.saveMemoList[indexPath.row].wish)
+                self.saveManager.saveMemoData()
+                saveCell.setButtonStatus()
             }
         }
         
