@@ -45,7 +45,7 @@ class ThreeMealVideo {
             // 채널의 동영상 목록을 가져오는 요청 생성 및 실행
             let playlistItemsQuery = GTLRYouTubeQuery_PlaylistItemsList.query(withPart: ["snippet"])
             playlistItemsQuery.playlistId = playlistID
-            playlistItemsQuery.maxResults = 30 // 가져올 동영상 개수를 설정
+            playlistItemsQuery.maxResults = 50 // 가져올 동영상 개수를 설정
             
             if let pageToken = pageToken {
                 playlistItemsQuery.pageToken = pageToken
@@ -100,7 +100,8 @@ class ThreeMealVideo {
                 group.notify(queue: .main) {
                     if let nextPageToken = playlistItemsListResponse.nextPageToken {
                         // 다음 페이지가 있으면 재귀적으로 호출하여 다음 페이지의 동영상 가져오기
-                        fetchPage(pageToken: nextPageToken)
+//                        fetchPage(pageToken: nextPageToken)
+                        completion(videoArray)
                     } else {
                         // 다음 페이지가 없으면 모든 동영상을 가져온 것이므로 완료 처리
                         completion(videoArray)

@@ -65,6 +65,9 @@
                                                                         <constraint firstAttribute="height" constant="30" id="P2G-r9-fGY"/>
                                                                     </constraints>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <connections>
+                                                                        <action selector="saveButtonTapped:" destination="Txy-jn-4ED" eventType="touchUpInside" id="MqT-7Q-YsN"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
