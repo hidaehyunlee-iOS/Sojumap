@@ -19,10 +19,11 @@ class CustomMarker: NMFMarker {
     var placeName: String?
     var address: String?
     var placeUrl: String?
+    var tags: String?
     var distanceKM: Double?
     var customUserInfo: [String: Any]? // 마커를 인덱스로 식별할 수 있도록 하는 속성 1, 2, 3 ... 순으로 진행
     
-    init(position: NMGLatLng, videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?, distanceKM: Double? = nil, customUserInfo: [String : Any]? = nil) {
+    init(position: NMGLatLng, videoId: String?, thumbnail: String?, videoTitle: String?, viewCnt: String?, placeName: String?, address: String?, placeUrl: String?, tags: String?, distanceKM: Double? = nil, customUserInfo: [String : Any]? = nil) {
         super.init()
         
         self.position = position
@@ -33,6 +34,7 @@ class CustomMarker: NMFMarker {
         self.placeName = placeName ?? "DefaultPlaceName"
         self.address = address ?? "DefaultAddress"
         self.placeUrl = placeUrl ?? "DefaultPlaceURL"
+        self.tags = tags ?? "DefaultTags"
         self.distanceKM = distanceKM
         self.customUserInfo = customUserInfo
     }
