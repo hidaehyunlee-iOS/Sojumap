@@ -21,6 +21,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
     let NAVER_GEOCODE_URL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query="
     var initialMarkerName: String?
     var initialMarkerAddress: String?
+    var initialDistanceInKilometers: String?
     let locationManager = CLLocationManager()
     let saveManager = SaveDatas.shared
 
@@ -196,12 +197,13 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         allMarkers.append(marker)
         //print(allMarkers)
         
+        
         marker.touchHandler = { (overlay) -> Bool in
             if let customMarker = overlay as? CustomMarker,
                let tag = customMarker.customUserInfo?["tag"] as? Int {
                 self.placeNameLabel?.text = customMarker.placeName
                 self.placeAddrLabel?.text = customMarker.address
-                self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
+                self.distanceInKilometers?.text = self.calculateAndSetDistance(marker: customMarker) // 터치했을 때 올바른 거리 계산용
             }
             return false
         }
@@ -210,22 +212,28 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
 
         marker.mapView = naverMapView?.mapView
         marker.captionRequestedWidth = 60
-        marker.captionText = placeName ?? ""
+        marker.captionText = placeName
         
-        if initialMarkerName == nil && initialMarkerAddress == nil {
-            initialMarkerName = placeName
-            initialMarkerAddress = address
-            
-            placeNameLabel?.text = marker.placeName
-            placeAddrLabel?.text = marker.address
+        setInitalMapView(marker: marker, latlng: latlng)
+    }
+    
+    func setInitalMapView(marker: CustomMarker, latlng: NMGLatLng) {
+        if initialMarkerName == nil && initialMarkerAddress == nil && initialDistanceInKilometers == nil{ // 초기값 세팅
+            initialMarkerName = marker.placeName
+            initialMarkerAddress = marker.address
+            initialDistanceInKilometers = calculateAndSetDistance(marker: marker)
+
+            placeNameLabel?.text = initialMarkerName
+            placeAddrLabel?.text = initialMarkerAddress
+            distanceInKilometers?.text = initialDistanceInKilometers
             
             setInitialCameraPosition(at: latlng)
         }
     }
     
-    func calculateAndSetDistance(marker: CustomMarker) {
+    func calculateAndSetDistance(marker: CustomMarker) -> String {
         guard let currentLocation = locationManager.location else {
-            return
+            return "" // 현재 위치를 불러올 수 없습니다.
         }
         
         let markerLocation = CLLocation(latitude: marker.position.lat, longitude: marker.position.lng)
@@ -233,7 +241,7 @@ class MapViewController: UIViewController, NMFMapViewDelegate, CLLocationManager
         
         marker.distanceKM = distanceM / 1000.0
         
-        distanceInKilometers?.text = String(format: "%.2f km", marker.distanceKM!)
+        return String(format: "%.2f km", marker.distanceKM!)
     }
     
     
