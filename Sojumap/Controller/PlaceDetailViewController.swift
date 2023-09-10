@@ -16,11 +16,8 @@ import SwiftyJSON
 class PlaceDetailViewController: UIViewController {
     // 영상 재생 view
     @IBOutlet weak var playerView: WKWebView?
-  
     @IBOutlet weak var placeInformView: UIStackView?
-    @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var mapView: NMFNaverMapView?
-    @IBOutlet weak var secondViewBottomConstraint: NSLayoutConstraint! // 두 번째 UIView의 하단 제약
     
     var isExpanded = true // 확장 상태를 추적하는 변수
     
@@ -33,7 +30,6 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var hashtag: UILabel!
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var address: UILabel!
-//    @IBOutlet weak var placeUrl: UILabel!
     @IBOutlet weak var urlBtn: UIButton!
     
     // 지오코딩 객체 생성
@@ -45,9 +41,10 @@ class PlaceDetailViewController: UIViewController {
         
         // 디테일 페이지로 넘어올 때 full screen으로 보여지게 작업(메인 작업 완료 후 작업)
 //        UIModalPresentationStyle.fullScreen
+//        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: 100)
         
-        // 스택뷰 초기 상태 설정
-        placeInformView?.isHidden = true
+        // ui 스타일 지정
+        setUpStyle()
         // 데이터 받아오기
         setupData()
         // 유튜브 재생하기
@@ -58,78 +55,49 @@ class PlaceDetailViewController: UIViewController {
         
     }
     
-    // 더보기 버튼
-    @IBAction func toggleStackView(_ sender: UIButton) {
-        // 첫 번째 Stack View의 숨김 상태 토글
-        placeInformView?.isHidden = !isExpanded
-        
-        // 스택 뷰가 펼쳐져 있는지 확인하고 애니메이션으로 확장 또는 축소
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            if let isExpanded = self?.isExpanded {
-                // 첫 번째 Stack View가 숨겨져 있는 경우 두 번째 UIView를 아래로 이동
-                self?.secondViewBottomConstraint.constant = isExpanded ? 0 : (self?.placeInformView?.frame.height ?? 0)
-                self?.view.layoutIfNeeded()
-            }
-        }
-        
-        // 확장 상태 업데이트
-        isExpanded = !isExpanded
-        
-        // 버튼 이미지 변경
-        isExpanded ? expandButton.setImage(UIImage(systemName: "chevron.down"), for: .normal) : expandButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
     
+    // ui 설정
+    func setUpStyle(){
+        urlBtn.layer.cornerRadius = 6
+        urlBtn.layer.masksToBounds = true
+     
+        videoTitle.numberOfLines = 2 // 두 줄까지만 표시하도록 설정
+        videoTitle.lineBreakMode = .byTruncatingTail // 넘치는 텍스트는 생략하도록 설정
+        
+        hashtag.numberOfLines = 2
+        hashtag.lineBreakMode = .byTruncatingTail
     }
     
     func setupData() {
-        // 숫자 콤마 넣기
-        let numberFormatter: NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
         
         guard let data = videoData,
               let dataID = data.videoId,
               let dataTitle = data.title,
               let viewCount = data.releaseViewCount,
               let name = data.videoInfo[safe: 0] ?? "",
-              let addr = data.videoInfo[safe: 1] ?? "",
-              let url = data.videoInfo[safe: 2] ?? ""
+              let addr = data.videoInfo[safe: 1] ?? ""
         else {return}
-              
-        // 링크 텍스트 지정하기
-//        placeUrl.text = "식당 정보(웹사이트) 바로가기"
-//        let attributedText = NSMutableAttributedString(string: placeUrl.text!)
+
+        // hashtag [String?] -> [String] 으로 변환
+        let dataArray: [String] = data.hashtags.compactMap { $0 }
         
-        // 링크 텍스트 범위 설정
-//        let linkRange = (placeUrl.text! as NSString).range(of: "식당 정보(웹사이트) 바로가기")
-        
-        // 링크 추가, underline
-//        attributedText.addAttribute(.link, value: addr, range: linkRange)
-//        attributedText.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedText.length))
-        
-        // UILabel에 속성 텍스트 설정
-//        placeUrl.attributedText = attributedText
-        
-        // UILabel에 탭 제스처 추가
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openLink))
-//        placeUrl.isUserInteractionEnabled = true
-//        placeUrl.addGestureRecognizer(tapGestureRecognizer)
-        
-        urlBtn.addTarget(self, action: #selector(openLink), for: .touchUpInside)
+        hashtag.text = dataArray.reduce("", { first, second in
+            return first + " " + second
+        })
         
         // 데이터 값 넣어주기
         videoId = dataID
         videoTitle.text = dataTitle
-        videoTitle.numberOfLines = 2 // 두 줄까지만 표시하도록 설정
-        videoTitle.lineBreakMode = .byTruncatingTail // 넘치는 텍스트는 생략하도록 설정
         viewCnt.text = viewCount
         
         if data.videoInfo.isEmpty == true {
             placeName.text = "** 식당 정보가 없습니다. **"
             address.text = ""
-//            placeUrl.text = ""
+            urlBtn.isHidden = true
         }else {
             placeName.text = "🍽️ " + name
             address.text = addr
-//            placeUrl.attributedText = attributedText
+            urlBtn.addTarget(self, action: #selector(openLink), for: .touchUpInside)
         }
          
     }
@@ -195,6 +163,7 @@ extension PlaceDetailViewController: WKNavigationDelegate, WKUIDelegate {
 
 // 지도 설정
 extension PlaceDetailViewController: NMFMapViewDelegate {
+   
     func configMap(){
         mapView?.mapView.delegate = self
         mapView?.showLocationButton = true
@@ -254,4 +223,28 @@ extension PlaceDetailViewController: NMFMapViewDelegate {
         mapView?.mapView.moveCamera(cameraUpdate)
     }
     
+}
+
+// ui 펼치기 기능(현재 기능에서 제외 됨)
+extension PlaceDetailViewController {
+//    func toggleStackView(_ sender: UIButton) {
+//        // 첫 번째 Stack View의 숨김 상태 토글
+//        placeInformView?.isHidden = !isExpanded
+//
+//        // 스택 뷰가 펼쳐져 있는지 확인하고 애니메이션으로 확장 또는 축소
+//        UIView.animate(withDuration: 0.3) { [weak self] in
+//            if let isExpanded = self?.isExpanded {
+//                // 첫 번째 Stack View가 숨겨져 있는 경우 두 번째 UIView를 아래로 이동
+//                self?.secondViewBottomConstraint.constant = isExpanded ? 0 : (self?.placeInformView?.frame.height ?? 0)
+//                self?.view.layoutIfNeeded()
+//            }
+//        }
+//
+//        // 확장 상태 업데이트
+//        isExpanded = !isExpanded
+//
+//        // 버튼 이미지 변경
+//        isExpanded ? expandButton.setImage(UIImage(systemName: "chevron.down"), for: .normal) : expandButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+//
+//    }
 }
