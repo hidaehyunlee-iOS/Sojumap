@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Sojumap
-//
-//  Created by daelee on 2023/09/04.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -22,18 +15,27 @@ class ViewController: UIViewController {
         return isActive && isSearchBarHasText
     }
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var videoTable: UITableView!
     let headerView = VideoTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))  // 44는 원하는 높이입니다.
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupIndicator()
+        setupNaviBar()
         setupData()
         setupTableView()
-        setupNaviBar()
+    }
+    
+    func setupIndicator() {
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
     }
     
     func setupNaviBar() {
-        title = "Sojudd Map"
+        title = "Soju Map"
         self.navigationController?.tabBarItem.title = ""
         self.navigationController?.tabBarItem.image = UIImage(systemName: "play.rectangle")
         // (네비게이션바 설정관련) iOS버전 업데이트 되면서 바뀐 설정⭐️⭐️⭐️
@@ -54,13 +56,13 @@ class ViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
-        
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func setupData() {
         saveManager.readMemoData()
         if saveManager.saveMemoList.isEmpty {
+            self.activityIndicator.startAnimating()
             videoManager.fetchChannelData { result in
                 guard let result = result else { return }
                 self.videoManager.fetchVideoData(playlistID: result) { [weak self] videoResult in
@@ -68,6 +70,8 @@ class ViewController: UIViewController {
                     self?.saveManager.saveMemoData()
                     DispatchQueue.main.async { [weak self] in
                         self?.videoTable.reloadData()
+                        self?.newDateAction((self?.headerView.KindOfNewDate)!)
+                        self?.activityIndicator.stopAnimating()
                     }
                 }
             }
@@ -108,6 +112,7 @@ class ViewController: UIViewController {
     }
     
     @objc func newDateAction(_ sender: UIButton) {
+        print("test")
         categoryResult = self.saveManager.saveMemoList.sorted(by: { first, second in
             guard let firstdate = first.uploadDate,
                   let seconddate = second.uploadDate else { return false }

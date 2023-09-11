@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="XJV-C3-a39">
+                                <rect key="frame" x="0.0" y="404" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fNM-Wk-0gw">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <prototypes>
@@ -115,6 +119,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SxH-Vp-cad"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="XJV-C3-a39" id="6T8-PB-mK5"/>
                         <outlet property="videoTable" destination="fNM-Wk-0gw" id="2m8-zN-omD"/>
                     </connections>
                 </viewController>
@@ -140,74 +145,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwM-Fu-J5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-189" y="-265"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="9Rt-6g-Na5">
-            <objects>
-                <viewController id="Jkb-kv-Yph" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cbG-Ps-exq">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buT-Yc-pJu">
-                                <rect key="frame" x="0.0" y="59" width="393" height="100"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fHp-Aj-gS3">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPT-KO-JhB">
-                                                <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="100"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX6-BP-36P">
-                                                <rect key="frame" x="100.33333333333334" y="0.0" width="92.333333333333343" height="100"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="821-W3-3MR">
-                                                <rect key="frame" x="200.66666666666666" y="0.0" width="91.999999999999972" height="100"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdy-Xn-7pa">
-                                                <rect key="frame" x="300.66666666666669" y="0.0" width="92.333333333333314" height="100"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Dzl-Vt-iek"/>
-                                    <constraint firstAttribute="trailing" secondItem="fHp-Aj-gS3" secondAttribute="trailing" id="Xrg-iq-FPz"/>
-                                    <constraint firstAttribute="bottom" secondItem="fHp-Aj-gS3" secondAttribute="bottom" id="czM-kL-s37"/>
-                                    <constraint firstItem="fHp-Aj-gS3" firstAttribute="leading" secondItem="buT-Yc-pJu" secondAttribute="leading" id="oSs-jI-0yq"/>
-                                    <constraint firstItem="fHp-Aj-gS3" firstAttribute="top" secondItem="buT-Yc-pJu" secondAttribute="top" id="rdV-yy-c3X"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="uSN-Zv-QFN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="buT-Yc-pJu" firstAttribute="leading" secondItem="uSN-Zv-QFN" secondAttribute="leading" id="1oS-jl-efv"/>
-                            <constraint firstItem="uSN-Zv-QFN" firstAttribute="trailing" secondItem="buT-Yc-pJu" secondAttribute="trailing" id="fGA-sr-zqW"/>
-                            <constraint firstItem="buT-Yc-pJu" firstAttribute="top" secondItem="uSN-Zv-QFN" secondAttribute="top" id="rRz-Jp-bGh"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zsi-sz-Kdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2883" y="-282"/>
-        </scene>
-        <!--PlaceDetailViewController-->
-        <scene sceneID="gpX-ne-orD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PlaceDetailViewController" referencedIdentifier="PlaceDetailViewController" id="p0h-VI-dsD" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B19-rk-IgF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2231.2977099236641" y="-282.3943661971831"/>
         </scene>
         <!--MapNavVC-->
         <scene sceneID="HjD-TN-xay">
