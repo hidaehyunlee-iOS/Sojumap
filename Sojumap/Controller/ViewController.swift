@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var videoTable: UITableView!
-    let headerView = VideoTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))  // 44는 원하는 높이입니다.
+    let headerView = VideoTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))  // 44는 원하는 높이입니다.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "검색"
-        searchController.searchBar.searchTextField.backgroundColor = Mycolor.searchBar
+//        searchController.searchBar.searchTextField.backgroundColor = Mycolor.searchBar
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController

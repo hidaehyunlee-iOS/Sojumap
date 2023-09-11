@@ -128,7 +128,7 @@
                             <constraint firstItem="ssm-j2-KL0" firstAttribute="leading" secondItem="22J-r9-Ifv" secondAttribute="leading" id="z9h-g2-VWk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="전국 소주 지도" id="7Ya-Lm-Uav">
+                    <navigationItem key="navigationItem" title="소주 지도" id="7Ya-Lm-Uav">
                         <barButtonItem key="rightBarButtonItem" image="map" catalog="system" id="fKI-Pj-jrN">
                             <color key="tintColor" systemColor="systemGreenColor"/>
                             <connections>
