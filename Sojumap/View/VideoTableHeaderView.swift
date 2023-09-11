@@ -85,8 +85,8 @@ class VideoTableHeaderView: UIView {
         NSLayoutConstraint.activate([
             buttonSV.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 17),
             buttonSV.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
-            buttonSV.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
-            buttonSV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            buttonSV.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
+            buttonSV.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
 
         ])
     }

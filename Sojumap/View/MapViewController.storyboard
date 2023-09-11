@@ -104,7 +104,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gVo-6y-TiB" secondAttribute="trailing" constant="17" id="qDl-AL-F81"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="전국 소주 지도" id="JrL-wc-P8g">
+                    <navigationItem key="navigationItem" title="소주 지도" id="JrL-wc-P8g">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="list.bullet" catalog="system" id="L1h-UF-duL">
                             <color key="tintColor" systemColor="systemGreenColor"/>
                             <connections>
