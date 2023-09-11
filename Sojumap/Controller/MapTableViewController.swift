@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var placeAddrLabel: UILabel!
@@ -60,7 +61,6 @@ class MapTableViewController: UIViewController {
             }
             
             self.tableView.reloadData()
-            // print("Selected menu: \(action.title)")
         }
         
         popUpButton.menu = UIMenu(title: "정렬", children: [
@@ -90,5 +90,15 @@ extension MapTableViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let marker = allMarkers[indexPath.row]
+        
+        if let url = URL(string: marker.placeUrl ?? "") {
+            let safariVC = SFSafariViewController(url: url)
+            self.present(safariVC, animated: true, completion: nil)
+        }
+        self.tableView.reloadData()
     }
 }
