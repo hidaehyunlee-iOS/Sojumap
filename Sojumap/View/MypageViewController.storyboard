@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="puE-aL-TLB">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -12,7 +12,7 @@
         <!--My page-->
         <scene sceneID="IaU-Lk-ej2">
             <objects>
-                <viewController id="Fxf-Nl-Jrv" customClass="MyPageViewController" customModule="Sojumap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MypageViewController" id="Fxf-Nl-Jrv" customClass="MypageViewController" customModule="Sojumap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MWL-vh-m04">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,11 +71,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIz-De-dcr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.76335877862596" y="86.619718309859152"/>
+            <point key="canvasLocation" x="1727.4809160305342" y="86.619718309859152"/>
         </scene>
         <!--Edit My Page View Controller-->
         <scene sceneID="FgS-q0-o6F">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4rz-OD-BHg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="euz-q7-q6Y" customClass="EditMyPageViewController" customModule="Sojumap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="flo-cM-k3t">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -229,9 +230,26 @@
                         <outlet property="userNameTextField" destination="Lxt-ij-JHK" id="sbr-aB-qOJ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4rz-OD-BHg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="87"/>
+            <point key="canvasLocation" x="2602.290076335878" y="86.619718309859152"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xZI-Uj-T5b">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="puE-aL-TLB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hbP-bI-zw6">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fxf-Nl-Jrv" kind="relationship" relationship="rootViewController" id="nqO-rV-HtK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Sh-Lf-UcW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800.76335877862596" y="86.619718309859152"/>
         </scene>
     </scenes>
     <resources>

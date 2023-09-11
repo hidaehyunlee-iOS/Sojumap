@@ -10,7 +10,7 @@ import UIKit
 
 class MypageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var profilePageNavigationItem: UINavigationItem!
+    @IBOutlet weak var MypageViewNavigationItem: UINavigationItem!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var editProfileButton: UIButton!
@@ -33,7 +33,7 @@ class MypageViewController: UIViewController, UIImagePickerControllerDelegate, U
     func setupUI() {
         guard let myProfile = users.first(where: {$0.username == myInfo!}) else { return }
         
-        profilePageNavigationItem.title = myProfile.username
+        MypageViewNavigationItem.title = myProfile.username
         
         profileImageView.image = myProfile.profilePhoto
         //        profileImageView.circleImage = true

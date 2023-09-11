@@ -20,3 +20,4 @@ var users: [User] = [User(username: "soju1", profilePhoto: UIImage(named: "soju"
 
 
 var myInfo: String?
+
