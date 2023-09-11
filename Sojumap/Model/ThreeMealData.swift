@@ -83,15 +83,15 @@ class ThreeMealVideo {
                         let threeMealVideo = VideoData(videoId: videoId, title: title, thumbnail: thumbnailUrl, uploadDate: uploadDate.stringValue, description: description, viewCount: viewCount)
                         videoArray.append(threeMealVideo)
                          
-                        print("\(VideoData.number)번째 동영상")
-                        print("Video ID: \(threeMealVideo.videoId)")
-                        print("Title: \(threeMealVideo.title)")
-                        print("Thumbnail URL: \(threeMealVideo.thumbnail)")
-                        print("Upload Date: \(threeMealVideo.releaseDateString)")
-                        print("Description: \(threeMealVideo.videoInfo)")
-                        print("View Count: \(threeMealVideo.viewCount)")
-                        print("HashTags: \(threeMealVideo.hashtags)")
-                        print("\n")
+//                        print("\(VideoData.number)번째 동영상")
+//                        print("Video ID: \(threeMealVideo.videoId)")
+//                        print("Title: \(threeMealVideo.title)")
+//                        print("Thumbnail URL: \(threeMealVideo.thumbnail)")
+//                        print("Upload Date: \(threeMealVideo.releaseDateString)")
+//                        print("Description: \(threeMealVideo.videoInfo)")
+//                        print("View Count: \(threeMealVideo.viewCount)")
+//                        print("HashTags: \(threeMealVideo.hashtags)")
+//                        print("\n")
                         
                         group.leave() // DispatchGroup에서 나옴
                     }
