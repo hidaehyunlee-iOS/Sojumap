@@ -115,8 +115,9 @@
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="# 해시태그 # 어쩌구" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyg-2r-saZ">
                                                                 <rect key="frame" x="188" y="8" width="173" height="32"/>
+                                                                <color key="tintColor" red="0.4690365735" green="0.88386088240000005" blue="0.51664961300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" red="0.26165377196784051" green="0.44240915670831582" blue="0.80699573863636365" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <color key="textColor" red="0.4690365735" green="0.88386088240000005" blue="0.51664961300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>

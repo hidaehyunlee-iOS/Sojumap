@@ -98,9 +98,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tS8-Kf-DjY">
-                                <rect key="frame" x="291" y="119" width="72" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tS8-Kf-DjY">
+                                <rect key="frame" x="269" y="119" width="94" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <menu key="menu" id="7Aq-J8-he7">
@@ -118,10 +117,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="22J-r9-Ifv" firstAttribute="bottom" secondItem="yXk-uH-22q" secondAttribute="bottom" id="8jt-qg-PGA"/>
+                            <constraint firstItem="tS8-Kf-DjY" firstAttribute="leading" secondItem="ssm-j2-KL0" secondAttribute="trailing" constant="157" id="DIJ-KL-vit"/>
                             <constraint firstItem="ssm-j2-KL0" firstAttribute="top" secondItem="d1c-yn-nwW" secondAttribute="top" constant="121.00000000000003" id="FsZ-gY-eWZ"/>
                             <constraint firstItem="22J-r9-Ifv" firstAttribute="top" secondItem="ssm-j2-KL0" secondAttribute="bottom" constant="19.670000000000002" id="Gcr-jQ-qIL"/>
                             <constraint firstItem="22J-r9-Ifv" firstAttribute="leading" secondItem="yXk-uH-22q" secondAttribute="leading" constant="30" id="LNY-T3-WWC"/>
                             <constraint firstItem="yXk-uH-22q" firstAttribute="trailing" secondItem="22J-r9-Ifv" secondAttribute="trailing" constant="30" id="YJC-Vk-GB8"/>
+                            <constraint firstItem="tS8-Kf-DjY" firstAttribute="top" secondItem="yXk-uH-22q" secondAttribute="top" constant="16" id="jww-yO-n15"/>
+                            <constraint firstItem="yXk-uH-22q" firstAttribute="trailing" secondItem="tS8-Kf-DjY" secondAttribute="trailing" constant="30" id="spw-dR-Izp"/>
+                            <constraint firstItem="22J-r9-Ifv" firstAttribute="top" secondItem="tS8-Kf-DjY" secondAttribute="bottom" constant="19" id="tnW-Xx-3ig"/>
                             <constraint firstItem="ssm-j2-KL0" firstAttribute="leading" secondItem="22J-r9-Ifv" secondAttribute="leading" id="z9h-g2-VWk"/>
                         </constraints>
                     </view>
