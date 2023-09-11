@@ -10,6 +10,7 @@ class VideoData: Codable, Equatable {
     var description: String?
     var viewCount: String?
     var wish: Bool = false
+    var wishDate: Date?
     
     static func == (lhs: VideoData, rhs: VideoData) -> Bool {
           return lhs.videoId == rhs.videoId &&

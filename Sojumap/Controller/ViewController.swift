@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let saveManager = SaveDatas.shared
     var searchResult: [VideoData] = []
     var categoryResult: [VideoData] = []
+    var lastPressedButton: UIButton?
     
     var isEditMode: Bool {
         let searchController = navigationItem.searchController
@@ -22,7 +23,8 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var videoTable: UITableView!
-    
+    let headerView = VideoTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))  // 44는 원하는 높이입니다.
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
@@ -70,7 +72,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        newDateAction()
     }
     
     func setupTableView() {
@@ -78,43 +79,52 @@ class ViewController: UIViewController {
         videoTable.delegate = self
         videoTable.rowHeight = 110
         videoTable.separatorStyle = .none
-        let test = VideoTableHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 30))  // 44는 원하는 높이입니다.
-        test.KindOfPopular.addTarget(self, action: #selector(popularAction), for: .touchUpInside)
-        test.KindOfOldDate.addTarget(self, action: #selector(oldDateAction), for: .touchUpInside)
-        test.KindOfNewDate.addTarget(self, action: #selector(newDateAction), for: .touchUpInside)
-        test.KindOfWish.addTarget(self, action: #selector(wishAction), for: .touchUpInside)
-        videoTable.tableHeaderView = test
+        headerView.KindOfPopular.addTarget(self, action: #selector(popularAction), for: .touchUpInside)
+        headerView.KindOfOldDate.addTarget(self, action: #selector(oldDateAction), for: .touchUpInside)
+        headerView.KindOfNewDate.addTarget(self, action: #selector(newDateAction), for: .touchUpInside)
+        headerView.KindOfWish.addTarget(self, action: #selector(wishAction), for: .touchUpInside)
+        videoTable.tableHeaderView = headerView
+        newDateAction(headerView.KindOfNewDate)
     }
     
-    @objc func popularAction() {
+    @objc func popularAction(_ sender: UIButton) {
         categoryResult = self.saveManager.saveMemoList.sorted(by: { first, second in
             guard let firstCount = Int(first.viewCount ?? "0"),
-                 let secondCount = Int(second.viewCount ?? "0") else { return false }
+                  let secondCount = Int(second.viewCount ?? "0") else { return false }
             return firstCount > secondCount
         })
+        self.lastPressedButton = sender
         self.videoTable.reloadData()
     }
     
-    @objc func oldDateAction() {
+    @objc func oldDateAction(_ sender: UIButton) {
         categoryResult = self.saveManager.saveMemoList.sorted(by: { first, second in
             guard let firstdate = first.uploadDate,
-                 let seconddate = second.uploadDate else { return false }
+                  let seconddate = second.uploadDate else { return false }
             return firstdate < seconddate
         })
+        self.lastPressedButton = sender
         self.videoTable.reloadData()
     }
     
-    @objc func newDateAction() {
+    @objc func newDateAction(_ sender: UIButton) {
         categoryResult = self.saveManager.saveMemoList.sorted(by: { first, second in
             guard let firstdate = first.uploadDate,
-                 let seconddate = second.uploadDate else { return false }
+                  let seconddate = second.uploadDate else { return false }
             return firstdate > seconddate
         })
+        self.lastPressedButton = sender
         self.videoTable.reloadData()
     }
     
-    @objc func wishAction() {
-        categoryResult = self.saveManager.saveMemoList.filter({ $0.wish })
+    @objc func wishAction(_ sender: UIButton) {
+        let wishResult = self.saveManager.saveMemoList.filter({ $0.wish })
+        categoryResult = wishResult.sorted(by: { first, second in
+            guard let firstDate = first.wishDate,
+                  let secondDate = second.wishDate else { return false }
+            return firstDate > secondDate
+        })
+        self.lastPressedButton = sender
         self.videoTable.reloadData()
     }
     
@@ -129,23 +139,27 @@ extension ViewController: UITableViewDataSource {
         let cell = videoTable.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoTableViewCell
         
         let video = isEditMode ? searchResult[indexPath.row] : categoryResult[indexPath.row]
-
+        
         cell.video = video
         cell.saveButtonPressed = { [weak self] (saveCell, pressed) in
-                
+            
             guard let self = self else { return }
             if !pressed {
                 saveCell.video?.wish = true
+                saveCell.video?.wishDate = Date()
                 self.saveManager.saveMemoData()
                 saveCell.setButtonStatus()
             } else {
                 saveCell.video?.wish = false
+                saveCell.video?.wishDate = nil
                 print("유저데이터 : \(self.saveManager.saveMemoList[indexPath.row].wish)")
                 self.saveManager.saveMemoData()
                 saveCell.setButtonStatus()
                 guard let videoIndex = self.categoryResult.firstIndex(of: video) else { return }
-                self.categoryResult.remove(at: videoIndex)
-                self.videoTable.reloadData()
+                if self.lastPressedButton == self.headerView.KindOfWish {
+                    self.categoryResult.remove(at: videoIndex)
+                    self.videoTable.reloadData()
+                }
             }
         }
         

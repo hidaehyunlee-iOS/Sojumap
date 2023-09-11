@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -57,13 +58,18 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckz-xe-eE1">
                                                             <rect key="frame" x="0.0" y="54" width="243" height="86"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lU-3l-ih5">
-                                                                    <rect key="frame" x="213" y="56" width="30" height="30"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lU-3l-ih5">
+                                                                    <rect key="frame" x="183" y="26" width="60" height="60"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="30" id="DfI-U3-kRx"/>
-                                                                        <constraint firstAttribute="height" constant="30" id="P2G-r9-fGY"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="DfI-U3-kRx"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="P2G-r9-fGY"/>
                                                                     </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal">
+                                                                        <imageReference key="image" image="wineglass" catalog="system" symbolScale="large"/>
+                                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                                                    </state>
                                                                     <connections>
                                                                         <action selector="saveButtonTapped:" destination="Txy-jn-4ED" eventType="touchUpInside" id="MqT-7Q-YsN"/>
                                                                     </connections>
@@ -244,6 +250,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="wineglass" catalog="system" width="95" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
