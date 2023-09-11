@@ -60,7 +60,7 @@ class EditMyPageViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
         guard let newUsername = userNameTextField.text else { return }
-        
+        print(newUsername)
         if newUsername != "", isValidUsername(newUsername) {
             if let newImage = selectedImage {
                 profileImageView.image = newImage
@@ -68,7 +68,7 @@ class EditMyPageViewController: UIViewController, UIImagePickerControllerDelegat
             }
             myProfile?.name = (firstNameTextField.text ?? "", lastNameTextField.text ?? "")
             myProfile?.username = newUsername
-            
+            print(myProfile?.username)
             if let index = users.firstIndex(where: { $0.username == myInfo }) {
                 users[index] = myProfile!
             }

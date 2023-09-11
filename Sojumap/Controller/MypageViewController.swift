@@ -10,11 +10,11 @@ import UIKit
 
 class MypageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var MypageViewNavigationItem: UINavigationItem!
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var fullnameLabel: UILabel!
-    @IBOutlet weak var editProfileButton: UIButton!
-    @IBOutlet weak var postsCollectionView: UICollectionView!
+    @IBOutlet weak var MypageViewNavigationItem: UINavigationItem?
+//    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var fullnameLabel: UILabel?
+    @IBOutlet weak var editProfileButton: UIButton?
+    @IBOutlet weak var postsCollectionView: UICollectionView?
     
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     
@@ -31,19 +31,19 @@ class MypageViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func setupUI() {
-        guard let myProfile = users.first(where: {$0.username == myInfo!}) else { return }
+        guard let myProfile = users.first else { return }
         
-        MypageViewNavigationItem.title = myProfile.username
+        MypageViewNavigationItem?.title = myProfile.username
         
-        profileImageView.image = myProfile.profilePhoto
-        //        profileImageView.circleImage = true
+//        profileImageView.image = myProfile.profilePhoto
+//        //        profileImageView.circleImage = true
+//
         
+        fullnameLabel?.text = myProfile.name.last + myProfile.name.first == "" ? " " : myProfile.name.last + myProfile.name.first
         
-        fullnameLabel.text = myProfile.name.last + myProfile.name.first == "" ? " " : myProfile.name.last + myProfile.name.first
-        
-        editProfileButton.layer.cornerRadius = 5
-        editProfileButton.layer.borderWidth = 0.5
-        editProfileButton.layer.borderColor = UIColor.lightGray.cgColor
+        editProfileButton?.layer.cornerRadius = 5
+        editProfileButton?.layer.borderWidth = 0.5
+        editProfileButton?.layer.borderColor = UIColor.lightGray.cgColor
         
         
         // 더보기/접기 글씨 없음, 라벨 전체 터치됨

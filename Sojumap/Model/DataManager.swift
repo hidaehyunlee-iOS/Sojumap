@@ -11,10 +11,10 @@ struct User {
     var username: String
     var name: (first: String, last: String) = ("","")
     var profilePhoto: UIImage
-    var password: String
+    var password: String = ""
 }
 
-var users: [User] = [User(username: "soju1", profilePhoto: UIImage(named: "soju")!, password: "soju1")]
+var users: [User] = [User(username: "soju1",profilePhoto: UIImage(systemName: "person")!, password: "soju1")]
 
 
 
