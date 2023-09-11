@@ -15,9 +15,8 @@ class MypageViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var fullnameLabel: UILabel?
     @IBOutlet weak var editProfileButton: UIButton?
     @IBOutlet weak var postsCollectionView: UICollectionView?
-    
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
-    
+    @IBOutlet weak var loginBtn: UINavigationItem!
+        
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,9 +25,29 @@ class MypageViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        gotologin()
         setupUI()
     }
+    
+//    func gotologin(){
+//        let rightButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(navigateToNextPage))
+//
+//                navigationItem.rightBarButtonItem = rightButtonItem
+////        self.navigationItem.leftBarButtonItem
+//    }
+//
+//    @objc func navigateToNextPage() {
+//
+//        let storyboard = UIStoryboard(name: “SignInPage”, bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: “SignInPage”) as! SignInViewController
+//            present(vc, animated: true)
+//            // 두 번째 뷰 컨트롤러의 인스턴스를 생성합니다.
+//            let secondViewController = SignInViewController()
+//            // 네비게이션 컨트롤러를 통해 새로운 뷰 컨트롤러로 이동합니다.
+//            navigationController?.pushViewController(secondViewController, animated: true)
+//        }
+
+
     
     func setupUI() {
         guard let myProfile = users.first else { return }

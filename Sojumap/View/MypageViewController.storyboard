@@ -56,16 +56,28 @@
                                     <segue destination="euz-q7-q6Y" kind="presentation" modalPresentationStyle="fullScreen" id="WC6-wC-FIt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKS-RO-4w9">
+                                <rect key="frame" x="50" y="394.33333333333331" width="293" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="9Xo-FN-eTi" kind="show" id="cCB-sc-1k3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P7u-Wz-yuc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DJg-EF-cfO" firstAttribute="leading" secondItem="nfR-ty-jTA" secondAttribute="leading" id="05c-pE-Wjc"/>
+                            <constraint firstItem="aKS-RO-4w9" firstAttribute="leading" secondItem="P7u-Wz-yuc" secondAttribute="leading" constant="50" id="BnE-bX-Jth"/>
                             <constraint firstItem="P7u-Wz-yuc" firstAttribute="trailing" secondItem="EKJ-xo-GcB" secondAttribute="trailing" constant="141" id="HV1-L2-9uY"/>
+                            <constraint firstItem="aKS-RO-4w9" firstAttribute="top" secondItem="DJg-EF-cfO" secondAttribute="bottom" constant="50" id="HXs-Y1-uau"/>
                             <constraint firstItem="P7u-Wz-yuc" firstAttribute="trailing" secondItem="fj2-iu-pQ5" secondAttribute="trailing" constant="12" id="Kmz-Rs-tsu"/>
                             <constraint firstAttribute="bottom" secondItem="nfR-ty-jTA" secondAttribute="bottom" constant="566" id="L12-zQ-bA4"/>
                             <constraint firstItem="EKJ-xo-GcB" firstAttribute="leading" secondItem="P7u-Wz-yuc" secondAttribute="leading" constant="141" id="Pql-OE-tvm"/>
                             <constraint firstItem="EKJ-xo-GcB" firstAttribute="leading" secondItem="P7u-Wz-yuc" secondAttribute="leading" constant="141" id="SKq-MM-NwO"/>
+                            <constraint firstItem="P7u-Wz-yuc" firstAttribute="trailing" secondItem="aKS-RO-4w9" secondAttribute="trailing" constant="50" id="WYj-j1-S2F"/>
                             <constraint firstItem="nfR-ty-jTA" firstAttribute="leading" secondItem="P7u-Wz-yuc" secondAttribute="leading" constant="46" id="WgK-cd-JK7"/>
                             <constraint firstItem="EKJ-xo-GcB" firstAttribute="width" secondItem="EKJ-xo-GcB" secondAttribute="height" multiplier="1:1" id="XeU-XV-zqf"/>
                             <constraint firstItem="P7u-Wz-yuc" firstAttribute="bottom" secondItem="DJg-EF-cfO" secondAttribute="bottom" constant="424.67000000000002" id="aen-dM-NU8"/>
@@ -77,13 +89,24 @@
                             <constraint firstAttribute="trailing" secondItem="nfR-ty-jTA" secondAttribute="trailing" constant="-2" id="zmg-Ho-OFg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My page" id="0zK-YJ-Fzu">
-                        <barButtonItem key="rightBarButtonItem" title="logout" image="rectangle.portrait.and.arrow.forward" catalog="system" id="Upy-l3-5TR"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My page" id="0zK-YJ-Fzu"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="0zK-YJ-Fzu" id="EGo-fy-Lrg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIz-De-dcr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1727.4809160305342" y="86.619718309859152"/>
+        </scene>
+        <!--SignInPage-->
+        <scene sceneID="22Y-Eg-RqY">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SignInPage" storyboardName="SignInPage" referencedIdentifier="SignInPage" id="9Xo-FN-eTi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rzA-z3-sq3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ox2-yk-uyH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1727" y="493"/>
         </scene>
         <!--Edit My Page View Controller-->
         <scene sceneID="FgS-q0-o6F">
@@ -269,7 +292,6 @@
     <resources>
         <image name="Image1" width="224.66667175292969" height="399.33334350585938"/>
         <image name="person" catalog="system" width="128" height="121"/>
-        <image name="rectangle.portrait.and.arrow.forward" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -281,6 +303,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
