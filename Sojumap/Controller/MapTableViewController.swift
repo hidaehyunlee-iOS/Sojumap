@@ -15,8 +15,6 @@ class CustomTableViewCell: UITableViewCell {
 }
 
 class MapTableViewController: UIViewController {
-    var sortByDistance = false // true면 거리순으로 보여줌
-    
     @IBOutlet weak var markerCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var popUpButton: UIButton!
@@ -42,12 +40,15 @@ class MapTableViewController: UIViewController {
     
     private func configPopUpButton() {
         let popUpButtonClosure = { (action: UIAction) in
-            self.sortByDistance.toggle() // bool 토글
-            
-            if self.sortByDistance {
+            if action.title == "거리순" {
                 // 거리순
                 allMarkers.sort { (marker1, marker2) -> Bool in
-                    return marker1.distanceKM! < marker2.distanceKM! // *강제언래핑 바꾸기
+                    return marker1.distanceKM! < marker2.distanceKM!
+                }
+            } else if action.title == "조회순" {
+                // 조회수순
+                allMarkers.sort { (marker1, marker2) -> Bool in
+                    return marker1.viewCnt! < marker2.viewCnt!
                 }
             } else {
                 // 등록순 (tag값 이용)
@@ -66,6 +67,7 @@ class MapTableViewController: UIViewController {
         popUpButton.menu = UIMenu(title: "정렬", children: [
             UIAction(title: "등록순", handler: popUpButtonClosure),
             UIAction(title: "거리순", handler: popUpButtonClosure),
+            UIAction(title: "조회순", handler: popUpButtonClosure),
         ])
         popUpButton.showsMenuAsPrimaryAction = true
     }
